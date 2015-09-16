@@ -5,3 +5,5 @@
   @import Kiwi;
 
 #endif
+
+#import <libextobjc/extobjc.h>

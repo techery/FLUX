@@ -26,6 +26,8 @@ Pod::Spec.new do |s|
     'FLUX' => ['Pod/Assets/*.png']
   }
 
+  s.prefix_header_contents = '#import <libextobjc/extobjc.h>'
+
   s.dependency 'libextobjc'
   s.dependency 'KVOController'
 end
