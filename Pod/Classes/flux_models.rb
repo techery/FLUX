@@ -2,17 +2,17 @@ require "./tools/immutabler/core.rb"
 
 gen_path = "./MasterApp/gen"
 
-immutabler :TEMiddlewareModels do
+immutabler :FLXMiddlewareModels do
    output_dir(gen_path)
-   prefix('TE')
+   prefix('FLX')
    
-   link_to :TEBaseAction
-   link_to :TEBaseState
+   link_to :FLXBaseAction
+   link_to :FLXBaseState
 
    model :ActionStackNode do
        fields do
            prop :createdAt, :NSDate
-           prop :action, :TEBaseAction
+           prop :action, :FLXBaseAction
        end
    end
 
@@ -20,7 +20,7 @@ immutabler :TEMiddlewareModels do
        fields do
            prop :createdAt, :NSDate
            prop :storeClassString, :string
-           prop :state, :TEBaseState
+           prop :state, :FLXBaseState
        end
    end
 end

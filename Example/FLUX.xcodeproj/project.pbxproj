@@ -21,20 +21,20 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6F87B2281BA999CD003E81D0 /* TESerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */; };
-		6F87B2291BA999D0003E81D0 /* TEActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */; };
-		6F87B22A1BA999D3003E81D0 /* TEStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */; };
-		6F87B22B1BA999D6003E81D0 /* TEActionsTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20D1BA997C2003E81D0 /* TEActionsTracerSpec.m */; };
-		6F87B22C1BA999D9003E81D0 /* TEFileSystemPersistentProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20E1BA997C2003E81D0 /* TEFileSystemPersistentProviderSpec.m */; };
-		6F87B22D1BA999E0003E81D0 /* TEStatesTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20F1BA997C2003E81D0 /* TEStatesTracerSpec.m */; };
-		6F87B22E1BA999E5003E81D0 /* TEStatePersistenceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2111BA997C2003E81D0 /* TEStatePersistenceSpec.m */; };
-		6F87B22F1BA999E5003E81D0 /* TEStoreStateObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2121BA997C2003E81D0 /* TEStoreStateObserverSpec.m */; };
-		6F87B2301BA999E9003E81D0 /* TEBaseStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */; };
-		6F87B2311BA999E9003E81D0 /* TEDomainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2151BA997C2003E81D0 /* TEDomainSpec.m */; };
-		6F87B2431BA99B97003E81D0 /* TEFakeDomainMiddlewares.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2381BA99B84003E81D0 /* TEFakeDomainMiddlewares.m */; };
-		6F87B2441BA99B97003E81D0 /* TEFakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B23A1BA99B84003E81D0 /* TEFakeState.m */; };
-		6F87B2451BA99B97003E81D0 /* TEFakeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B23C1BA99B84003E81D0 /* TEFakeStore.m */; };
-		6F87B2461BA99B97003E81D0 /* TEPersistentStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B23E1BA99B84003E81D0 /* TEPersistentStoreMock.m */; };
+		6F7DF4D01BAB0A1000808DA9 /* FLXFakeDomainMiddlewares.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4C51BAB09D300808DA9 /* FLXFakeDomainMiddlewares.m */; };
+		6F7DF4D11BAB0A1000808DA9 /* FLXFakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4C71BAB09D300808DA9 /* FLXFakeState.m */; };
+		6F7DF4D21BAB0A1000808DA9 /* FLXFakeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4C91BAB09D300808DA9 /* FLXFakeStore.m */; };
+		6F7DF4D31BAB0A1000808DA9 /* FLXPersistentStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4CB1BAB09D300808DA9 /* FLXPersistentStoreMock.m */; };
+		6F7DF4D41BAB0A1500808DA9 /* FLXActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AC1BAB09C600808DA9 /* FLXActionsDispatcherSpec.m */; };
+		6F7DF4D51BAB0A1500808DA9 /* FLXSerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AD1BAB09C600808DA9 /* FLXSerialExecutorSpec.m */; };
+		6F7DF4D61BAB0A1500808DA9 /* FLXStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AE1BAB09C600808DA9 /* FLXStoreDispatcherSpec.m */; };
+		6F7DF4D71BAB0A1500808DA9 /* FLXDomainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AF1BAB09C600808DA9 /* FLXDomainSpec.m */; };
+		6F7DF4D81BAB0A1800808DA9 /* FLXActionsTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B11BAB09C600808DA9 /* FLXActionsTracerSpec.m */; };
+		6F7DF4D91BAB0A1800808DA9 /* FLXFileSystemPersistentProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B21BAB09C600808DA9 /* FLXFileSystemPersistentProviderSpec.m */; };
+		6F7DF4DA1BAB0A1800808DA9 /* FLXStatesTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B31BAB09C600808DA9 /* FLXStatesTracerSpec.m */; };
+		6F7DF4DB1BAB0A1C00808DA9 /* FLXStatePersistenceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B51BAB09C600808DA9 /* FLXStatePersistenceSpec.m */; };
+		6F7DF4DC1BAB0A1C00808DA9 /* FLXStoreStateObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B61BAB09C600808DA9 /* FLXStoreStateObserverSpec.m */; };
+		6F7DF4DD1BAB0A1F00808DA9 /* FLXBaseStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B81BAB09C600808DA9 /* FLXBaseStoreSpec.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		029DA07AED36764FDC52BA34 /* Pods-FLUX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Tests/Pods-FLUX_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1BFEAC9ED6F4A6EEB83EEA55 /* Pods-FLUX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example/Pods-FLUX_Example.release.xcconfig"; sourceTree = "<group>"; };
-		3A35D7699BAEB7808CE4771C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3A35D7699BAEB7808CE4771C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; lineEnding = 0; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = "<none>"; };
 		6003F58A195388D20070C39A /* FLUX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLUX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,24 +70,24 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActionsDispatcherSpec.m; sourceTree = "<group>"; };
-		6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TESerialExecutorSpec.m; sourceTree = "<group>"; };
-		6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStoreDispatcherSpec.m; sourceTree = "<group>"; };
-		6F87B20D1BA997C2003E81D0 /* TEActionsTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActionsTracerSpec.m; sourceTree = "<group>"; };
-		6F87B20E1BA997C2003E81D0 /* TEFileSystemPersistentProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFileSystemPersistentProviderSpec.m; sourceTree = "<group>"; };
-		6F87B20F1BA997C2003E81D0 /* TEStatesTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStatesTracerSpec.m; sourceTree = "<group>"; };
-		6F87B2111BA997C2003E81D0 /* TEStatePersistenceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStatePersistenceSpec.m; sourceTree = "<group>"; };
-		6F87B2121BA997C2003E81D0 /* TEStoreStateObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStoreStateObserverSpec.m; sourceTree = "<group>"; };
-		6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEBaseStoreSpec.m; sourceTree = "<group>"; };
-		6F87B2151BA997C2003E81D0 /* TEDomainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEDomainSpec.m; sourceTree = "<group>"; };
-		6F87B2371BA99B84003E81D0 /* TEFakeDomainMiddlewares.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEFakeDomainMiddlewares.h; sourceTree = "<group>"; };
-		6F87B2381BA99B84003E81D0 /* TEFakeDomainMiddlewares.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFakeDomainMiddlewares.m; sourceTree = "<group>"; };
-		6F87B2391BA99B84003E81D0 /* TEFakeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEFakeState.h; sourceTree = "<group>"; };
-		6F87B23A1BA99B84003E81D0 /* TEFakeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFakeState.m; sourceTree = "<group>"; };
-		6F87B23B1BA99B84003E81D0 /* TEFakeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEFakeStore.h; sourceTree = "<group>"; };
-		6F87B23C1BA99B84003E81D0 /* TEFakeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFakeStore.m; sourceTree = "<group>"; };
-		6F87B23D1BA99B84003E81D0 /* TEPersistentStoreMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEPersistentStoreMock.h; sourceTree = "<group>"; };
-		6F87B23E1BA99B84003E81D0 /* TEPersistentStoreMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEPersistentStoreMock.m; sourceTree = "<group>"; };
+		6F7DF4AC1BAB09C600808DA9 /* FLXActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FLXActionsDispatcherSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6F7DF4AD1BAB09C600808DA9 /* FLXSerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXSerialExecutorSpec.m; sourceTree = "<group>"; };
+		6F7DF4AE1BAB09C600808DA9 /* FLXStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreDispatcherSpec.m; sourceTree = "<group>"; };
+		6F7DF4AF1BAB09C600808DA9 /* FLXDomainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDomainSpec.m; sourceTree = "<group>"; };
+		6F7DF4B11BAB09C600808DA9 /* FLXActionsTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXActionsTracerSpec.m; sourceTree = "<group>"; };
+		6F7DF4B21BAB09C600808DA9 /* FLXFileSystemPersistentProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFileSystemPersistentProviderSpec.m; sourceTree = "<group>"; };
+		6F7DF4B31BAB09C600808DA9 /* FLXStatesTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStatesTracerSpec.m; sourceTree = "<group>"; };
+		6F7DF4B51BAB09C600808DA9 /* FLXStatePersistenceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStatePersistenceSpec.m; sourceTree = "<group>"; };
+		6F7DF4B61BAB09C600808DA9 /* FLXStoreStateObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreStateObserverSpec.m; sourceTree = "<group>"; };
+		6F7DF4B81BAB09C600808DA9 /* FLXBaseStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXBaseStoreSpec.m; sourceTree = "<group>"; };
+		6F7DF4C41BAB09D300808DA9 /* FLXFakeDomainMiddlewares.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeDomainMiddlewares.h; sourceTree = "<group>"; };
+		6F7DF4C51BAB09D300808DA9 /* FLXFakeDomainMiddlewares.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeDomainMiddlewares.m; sourceTree = "<group>"; };
+		6F7DF4C61BAB09D300808DA9 /* FLXFakeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeState.h; sourceTree = "<group>"; };
+		6F7DF4C71BAB09D300808DA9 /* FLXFakeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeState.m; sourceTree = "<group>"; };
+		6F7DF4C81BAB09D300808DA9 /* FLXFakeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeStore.h; sourceTree = "<group>"; };
+		6F7DF4C91BAB09D300808DA9 /* FLXFakeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeStore.m; sourceTree = "<group>"; };
+		6F7DF4CA1BAB09D300808DA9 /* FLXPersistentStoreMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPersistentStoreMock.h; sourceTree = "<group>"; };
+		6F7DF4CB1BAB09D300808DA9 /* FLXPersistentStoreMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPersistentStoreMock.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A30AA06FA8844998718D1ED4 /* Pods-FLUX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Tests/Pods-FLUX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5B6867149C48B9ECC022BF6 /* FLUX.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FLUX.podspec; path = ../FLUX.podspec; sourceTree = "<group>"; };
@@ -186,6 +186,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				6F7DF4C31BAB09D300808DA9 /* TestModels */,
 				6F87B2071BA997C2003E81D0 /* Domain */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -212,71 +213,69 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		6F87B2071BA997C2003E81D0 /* Domain */ = {
+		6F7DF4AB1BAB09C600808DA9 /* Dispatchers */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B2361BA99B84003E81D0 /* TestModels */,
-				6F87B2081BA997C2003E81D0 /* Dispatchers */,
-				6F87B20C1BA997C2003E81D0 /* Middleware */,
-				6F87B2101BA997C2003E81D0 /* Middlewares */,
-				6F87B2131BA997C2003E81D0 /* Stores */,
-				6F87B2151BA997C2003E81D0 /* TEDomainSpec.m */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		6F87B2081BA997C2003E81D0 /* Dispatchers */ = {
-			isa = PBXGroup;
-			children = (
-				6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */,
-				6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */,
-				6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */,
+				6F7DF4AC1BAB09C600808DA9 /* FLXActionsDispatcherSpec.m */,
+				6F7DF4AD1BAB09C600808DA9 /* FLXSerialExecutorSpec.m */,
+				6F7DF4AE1BAB09C600808DA9 /* FLXStoreDispatcherSpec.m */,
 			);
 			path = Dispatchers;
 			sourceTree = "<group>";
 		};
-		6F87B20C1BA997C2003E81D0 /* Middleware */ = {
+		6F7DF4B01BAB09C600808DA9 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B20D1BA997C2003E81D0 /* TEActionsTracerSpec.m */,
-				6F87B20E1BA997C2003E81D0 /* TEFileSystemPersistentProviderSpec.m */,
-				6F87B20F1BA997C2003E81D0 /* TEStatesTracerSpec.m */,
+				6F7DF4B11BAB09C600808DA9 /* FLXActionsTracerSpec.m */,
+				6F7DF4B21BAB09C600808DA9 /* FLXFileSystemPersistentProviderSpec.m */,
+				6F7DF4B31BAB09C600808DA9 /* FLXStatesTracerSpec.m */,
 			);
 			path = Middleware;
 			sourceTree = "<group>";
 		};
-		6F87B2101BA997C2003E81D0 /* Middlewares */ = {
+		6F7DF4B41BAB09C600808DA9 /* Middlewares */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B2111BA997C2003E81D0 /* TEStatePersistenceSpec.m */,
-				6F87B2121BA997C2003E81D0 /* TEStoreStateObserverSpec.m */,
+				6F7DF4B51BAB09C600808DA9 /* FLXStatePersistenceSpec.m */,
+				6F7DF4B61BAB09C600808DA9 /* FLXStoreStateObserverSpec.m */,
 			);
 			path = Middlewares;
 			sourceTree = "<group>";
 		};
-		6F87B2131BA997C2003E81D0 /* Stores */ = {
+		6F7DF4B71BAB09C600808DA9 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */,
+				6F7DF4B81BAB09C600808DA9 /* FLXBaseStoreSpec.m */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
 		};
-		6F87B2361BA99B84003E81D0 /* TestModels */ = {
+		6F7DF4C31BAB09D300808DA9 /* TestModels */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B2371BA99B84003E81D0 /* TEFakeDomainMiddlewares.h */,
-				6F87B2381BA99B84003E81D0 /* TEFakeDomainMiddlewares.m */,
-				6F87B2391BA99B84003E81D0 /* TEFakeState.h */,
-				6F87B23A1BA99B84003E81D0 /* TEFakeState.m */,
-				6F87B23B1BA99B84003E81D0 /* TEFakeStore.h */,
-				6F87B23C1BA99B84003E81D0 /* TEFakeStore.m */,
-				6F87B23D1BA99B84003E81D0 /* TEPersistentStoreMock.h */,
-				6F87B23E1BA99B84003E81D0 /* TEPersistentStoreMock.m */,
+				6F7DF4C41BAB09D300808DA9 /* FLXFakeDomainMiddlewares.h */,
+				6F7DF4C51BAB09D300808DA9 /* FLXFakeDomainMiddlewares.m */,
+				6F7DF4C61BAB09D300808DA9 /* FLXFakeState.h */,
+				6F7DF4C71BAB09D300808DA9 /* FLXFakeState.m */,
+				6F7DF4C81BAB09D300808DA9 /* FLXFakeStore.h */,
+				6F7DF4C91BAB09D300808DA9 /* FLXFakeStore.m */,
+				6F7DF4CA1BAB09D300808DA9 /* FLXPersistentStoreMock.h */,
+				6F7DF4CB1BAB09D300808DA9 /* FLXPersistentStoreMock.m */,
 			);
-			name = TestModels;
-			path = Tests/TestModels;
-			sourceTree = SOURCE_ROOT;
+			path = TestModels;
+			sourceTree = "<group>";
+		};
+		6F87B2071BA997C2003E81D0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6F7DF4AB1BAB09C600808DA9 /* Dispatchers */,
+				6F7DF4AF1BAB09C600808DA9 /* FLXDomainSpec.m */,
+				6F7DF4B01BAB09C600808DA9 /* Middleware */,
+				6F7DF4B41BAB09C600808DA9 /* Middlewares */,
+				6F7DF4B71BAB09C600808DA9 /* Stores */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
 		};
 		8405CA57A84C418AEB179D4F /* Pods */ = {
 			isa = PBXGroup;
@@ -496,20 +495,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F87B2431BA99B97003E81D0 /* TEFakeDomainMiddlewares.m in Sources */,
-				6F87B2441BA99B97003E81D0 /* TEFakeState.m in Sources */,
-				6F87B2451BA99B97003E81D0 /* TEFakeStore.m in Sources */,
-				6F87B2461BA99B97003E81D0 /* TEPersistentStoreMock.m in Sources */,
-				6F87B2301BA999E9003E81D0 /* TEBaseStoreSpec.m in Sources */,
-				6F87B22E1BA999E5003E81D0 /* TEStatePersistenceSpec.m in Sources */,
-				6F87B22A1BA999D3003E81D0 /* TEStoreDispatcherSpec.m in Sources */,
-				6F87B2291BA999D0003E81D0 /* TEActionsDispatcherSpec.m in Sources */,
-				6F87B22B1BA999D6003E81D0 /* TEActionsTracerSpec.m in Sources */,
-				6F87B22C1BA999D9003E81D0 /* TEFileSystemPersistentProviderSpec.m in Sources */,
-				6F87B22D1BA999E0003E81D0 /* TEStatesTracerSpec.m in Sources */,
-				6F87B2311BA999E9003E81D0 /* TEDomainSpec.m in Sources */,
-				6F87B2281BA999CD003E81D0 /* TESerialExecutorSpec.m in Sources */,
-				6F87B22F1BA999E5003E81D0 /* TEStoreStateObserverSpec.m in Sources */,
+				6F7DF4D61BAB0A1500808DA9 /* FLXStoreDispatcherSpec.m in Sources */,
+				6F7DF4D51BAB0A1500808DA9 /* FLXSerialExecutorSpec.m in Sources */,
+				6F7DF4DC1BAB0A1C00808DA9 /* FLXStoreStateObserverSpec.m in Sources */,
+				6F7DF4D21BAB0A1000808DA9 /* FLXFakeStore.m in Sources */,
+				6F7DF4DA1BAB0A1800808DA9 /* FLXStatesTracerSpec.m in Sources */,
+				6F7DF4D81BAB0A1800808DA9 /* FLXActionsTracerSpec.m in Sources */,
+				6F7DF4D31BAB0A1000808DA9 /* FLXPersistentStoreMock.m in Sources */,
+				6F7DF4D01BAB0A1000808DA9 /* FLXFakeDomainMiddlewares.m in Sources */,
+				6F7DF4DD1BAB0A1F00808DA9 /* FLXBaseStoreSpec.m in Sources */,
+				6F7DF4DB1BAB0A1C00808DA9 /* FLXStatePersistenceSpec.m in Sources */,
+				6F7DF4D91BAB0A1800808DA9 /* FLXFileSystemPersistentProviderSpec.m in Sources */,
+				6F7DF4D41BAB0A1500808DA9 /* FLXActionsDispatcherSpec.m in Sources */,
+				6F7DF4D11BAB0A1000808DA9 /* FLXFakeState.m in Sources */,
+				6F7DF4D71BAB0A1500808DA9 /* FLXDomainSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
