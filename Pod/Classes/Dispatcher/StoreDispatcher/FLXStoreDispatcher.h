@@ -10,7 +10,6 @@
 #import "FLXDispatcherProtocol.h"
 
 #import "FLXBaseState.h"
-#import "FLXBaseAction.h"
 
 @class FLXBaseStore;
 

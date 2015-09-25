@@ -8,7 +8,7 @@
 
 #import <Kiwi/Kiwi.h>
 #import "FLXStoreDispatcher.h"
-#import "FLXBaseAction.h"
+#import "FLXFakeAction.h"
 #import "FLXBaseState.h"
 #import "FLXBaseStore.h"
 
@@ -77,23 +77,23 @@ describe(@"action callbacks registration", ^{
     
         id stateMock = [KWMock mockForClass:[FLXBaseState class]];
         
-        FLXActionCallback testCallback = ^FLXBaseState *(FLXBaseAction *action){
+        FLXActionCallback testCallback = ^FLXBaseState *(FLXFakeAction *action){
             return stateMock;
         };
         
-        id actionStub = [KWMock mockForClass:[FLXBaseAction class]];
-        [actionStub stub:@selector(class) andReturn:[FLXBaseAction class]];
+        id actionStub = [KWMock mockForClass:[FLXFakeAction class]];
+        [actionStub stub:@selector(class) andReturn:[FLXFakeAction class]];
         
-        [sut onAction:[FLXBaseAction class] callback:testCallback];
+        [sut onAction:[FLXFakeAction class] callback:testCallback];
         
-        [[[sut.callbacks objectForKey:@"FLXBaseAction"] should] equal:testCallback];
+        [[[sut.callbacks objectForKey:@"FLXFakeAction"] should] equal:testCallback];
     });
 });
 
 describe(@"action dispatching", ^{
     
     it(@"should get new state from callback and update store state", ^{
-        FLXBaseAction *testAction = [FLXBaseAction new];
+        FLXFakeAction *testAction = [FLXFakeAction new];
         
         id stateMock = [KWMock mockForClass:[FLXBaseState class]];
         id storeMock = [KWMock mockForClass:[FLXBaseStore class]];
@@ -102,13 +102,13 @@ describe(@"action dispatching", ^{
         sut.store = storeMock;
         
         NSNumber __block *callbackRun;
-        FLXActionCallback testCallback = ^FLXBaseState *(FLXBaseAction *action) {
+        FLXActionCallback testCallback = ^FLXBaseState *(FLXFakeAction *action) {
             callbackRun = @(YES);
             [[action should] equal:testAction];
             return stateMock;
         };
         
-        NSDictionary *callbacks = @{@"FLXBaseAction" : testCallback};
+        NSDictionary *callbacks = @{@"FLXFakeAction" : testCallback};
         sut.callbacks = [callbacks mutableCopy];
         
         [sut dispatchAction:testAction];
@@ -116,7 +116,7 @@ describe(@"action dispatching", ^{
     });
     
     it(@"should not fail if no callback found for action", ^{
-        id actionStub = [KWMock mockForClass:[FLXBaseAction class]];
+        id actionStub = [KWMock mockForClass:[FLXFakeAction class]];
         
         NSDictionary *callbacks = @{};
         sut.callbacks = [callbacks mutableCopy];

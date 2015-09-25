@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @class FLXBaseStore;
-@class FLXBaseAction;
 
 @interface FLXDomain : NSObject
 
 - (FLXBaseStore *)getStoreByClass:(Class)store;
 
 - (void)registerStore:(FLXBaseStore *)store;
-- (void)dispatchAction:(FLXBaseAction *)action;
+- (void)dispatchAction:(id)action;
 
 @end

@@ -56,7 +56,7 @@
     [NSException raise:@"Not allowed" format:@"-setup method of base class shouldn't be used. Please override it in sublass"];
 }
 
-- (void)dispatchAction:(FLXBaseAction *)action {
+- (void)dispatchAction:(id)action {
     @weakify(self);
     [self.executor execute:^{
         @strongify(self);
@@ -65,12 +65,12 @@
     }];
 }
 
-- (void)sendActionToDispatcher:(FLXBaseAction *)action
+- (void)sendActionToDispatcher:(id)action
 {
     [self.dispatcher dispatchAction:action];
 }
 
-- (void)sendActionToMiddlewares:(FLXBaseAction *)action
+- (void)sendActionToMiddlewares:(id)action
 {
     [self.middlewares enumerateObjectsUsingBlock:^(id<FLXDomainMiddleware> middleware, NSUInteger idx, BOOL *stop) {
         if([middleware respondsToSelector:@selector(onActionDispatching:)])

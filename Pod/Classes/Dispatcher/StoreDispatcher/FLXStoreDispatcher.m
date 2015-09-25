@@ -7,7 +7,6 @@
 //
 
 #import "FLXStoreDispatcher.h"
-#import "FLXBaseAction.h"
 #import "FLXBaseState.h"
 #import "FLXBaseStore.h"
 
@@ -51,7 +50,7 @@
     [self.callbacks setObject:callback forKey:NSStringFromClass(actionClass)];
 }
 
-- (void)dispatchAction:(FLXBaseAction *)action
+- (void)dispatchAction:(id)action
 {
     FLXActionCallback callback = [self.callbacks objectForKey:NSStringFromClass([action class])];
     

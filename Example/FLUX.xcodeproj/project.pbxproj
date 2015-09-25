@@ -21,6 +21,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		6FA967E21BB5D25C00AA9CDD /* FLXFakeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA967E11BB5D25C00AA9CDD /* FLXFakeAction.m */; settings = {ASSET_TAGS = (); }; };
 		6FFB6FFF1BB5CE44007C4AEF /* FLXActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FD61BB5CDFE007C4AEF /* FLXActionsDispatcherSpec.m */; settings = {ASSET_TAGS = (); }; };
 		6FFB70001BB5CE44007C4AEF /* FLXSerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FD71BB5CDFE007C4AEF /* FLXSerialExecutorSpec.m */; settings = {ASSET_TAGS = (); }; };
 		6FFB70011BB5CE44007C4AEF /* FLXStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FD81BB5CDFE007C4AEF /* FLXStoreDispatcherSpec.m */; settings = {ASSET_TAGS = (); }; };
@@ -70,6 +71,8 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6FA967E01BB5D25C00AA9CDD /* FLXFakeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeAction.h; sourceTree = "<group>"; };
+		6FA967E11BB5D25C00AA9CDD /* FLXFakeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeAction.m; sourceTree = "<group>"; };
 		6FFB6FD61BB5CDFE007C4AEF /* FLXActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXActionsDispatcherSpec.m; sourceTree = "<group>"; };
 		6FFB6FD71BB5CDFE007C4AEF /* FLXSerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXSerialExecutorSpec.m; sourceTree = "<group>"; };
 		6FFB6FD81BB5CDFE007C4AEF /* FLXStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreDispatcherSpec.m; sourceTree = "<group>"; };
@@ -213,6 +216,15 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		6FA967DD1BB5D21900AA9CDD /* FakeAction */ = {
+			isa = PBXGroup;
+			children = (
+				6FA967E01BB5D25C00AA9CDD /* FLXFakeAction.h */,
+				6FA967E11BB5D25C00AA9CDD /* FLXFakeAction.m */,
+			);
+			path = FakeAction;
+			sourceTree = "<group>";
+		};
 		6FFB6FD41BB5CDFE007C4AEF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +285,7 @@
 		6FFB6FE41BB5CDFE007C4AEF /* TestModels */ = {
 			isa = PBXGroup;
 			children = (
+				6FA967DD1BB5D21900AA9CDD /* FakeAction */,
 				6FFB6FE51BB5CDFE007C4AEF /* FakeDomainMiddlewares */,
 				6FFB6FE81BB5CDFE007C4AEF /* FakePersistentStore */,
 				6FFB6FEB1BB5CDFE007C4AEF /* FakeState */,
@@ -526,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* FLXAppDelegate.m in Sources */,
+				6FA967E21BB5D25C00AA9CDD /* FLXFakeAction.m in Sources */,
 				6003F5A7195388D20070C39A /* FLXViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

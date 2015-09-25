@@ -9,10 +9,11 @@
 #import <Kiwi/Kiwi.h>
 #import "FLXActionsTracer.h"
 #import "FLXMiddlewareModels.h"
+#import "FLXFakeAction.h"
 
 @interface FLXActionsTracer (Testing)
 
-- (FLXActionStackNode *)nodeFromAction:(FLXBaseAction *)action;
+- (FLXActionStackNode *)nodeFromAction:(id)action;
 
 @end
 
@@ -51,7 +52,7 @@ describe(@"actions tracking", ^{
     it(@"should create and save action node", ^{
         
         id nodeMock = [KWMock mockForClass:[FLXActionStackNode class]];
-        id actionMock = [KWMock mockForClass:[FLXBaseAction class]];
+        id actionMock = [KWMock mockForClass:[FLXFakeAction class]];
         [[sut should] receive:@selector(nodeFromAction:) andReturn:nodeMock withArguments:actionMock];
         [sut onActionDispatching:actionMock];
         [[sut.trace should] contain:nodeMock];
@@ -59,7 +60,7 @@ describe(@"actions tracking", ^{
     
     it(@"should create node from action", ^{
     
-        id actionMock = [KWMock mockForClass:[FLXBaseAction class]];
+        id actionMock = [KWMock mockForClass:[FLXFakeAction class]];
         id nodeMock = [KWMock mockForClass:[FLXActionStackNode class]];
         id builderMock = [KWMock mockForClass:[FLXActionStackNodeBuilder class]];
         

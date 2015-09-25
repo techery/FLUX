@@ -5,14 +5,13 @@ gen_path = "./MasterApp/gen"
 immutabler :FLXMiddlewareModels do
    output_dir(gen_path)
    prefix('FLX')
-   
-   link_to :FLXBaseAction
+
    link_to :FLXBaseState
 
    model :ActionStackNode do
        fields do
            prop :createdAt, :NSDate
-           prop :action, :FLXBaseAction
+           prop :action, :NSObject
        end
    end
 

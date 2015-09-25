@@ -10,7 +10,7 @@
 
 @implementation FLXFakeActionMiddleware
 
-- (void)onActionDispatching:(FLXBaseAction *)action {}
+- (void)onActionDispatching:(id)action {}
 
 @end
 

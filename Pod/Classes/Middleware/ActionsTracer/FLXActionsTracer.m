@@ -25,14 +25,14 @@
     return self;
 }
 
-- (void)onActionDispatching:(FLXBaseAction *)action {
+- (void)onActionDispatching:(id)action {
     
     FLXActionStackNode *node = [self nodeFromAction:action];
     [self.trace addObject:node];
     NSLog(@">Action: %@", [action description]);
 }
 
-- (FLXActionStackNode *)nodeFromAction:(FLXBaseAction *)action
+- (FLXActionStackNode *)nodeFromAction:(id)action
 {
     return [FLXActionStackNode create:^(FLXActionStackNodeBuilder *builder) {
         builder.createdAt = [NSDate date];

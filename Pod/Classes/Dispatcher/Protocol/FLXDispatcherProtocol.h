@@ -11,6 +11,6 @@
 
 @protocol FLXDispatcherProtocol <NSObject>
 
-- (void)dispatchAction:(FLXBaseAction *)action;
+- (void)dispatchAction:(id)action;
 
 @end

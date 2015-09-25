@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class FLXBaseAction;
 @class FLXBaseStore;
 
 @protocol FLXDomainMiddleware <NSObject>
 
 @optional
 
-- (void)onActionDispatching:(FLXBaseAction *)action;
+- (void)onActionDispatching:(id)action;
 - (void)onStoreRegistration:(FLXBaseStore *)store;
 
 @end

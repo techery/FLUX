@@ -1,6 +1,5 @@
 #import <Foundation/Foundation.h>
 
-#import "FLXBaseAction.h"
 #import "FLXBaseState.h"
 
 @class FLXActionStackNodeBuilder;
@@ -8,7 +7,7 @@
 @interface FLXActionStackNode : NSObject
 
 @property(nonatomic, strong, readonly) NSDate *createdAt;
-@property(nonatomic, strong, readonly) FLXBaseAction *action;
+@property(nonatomic, strong, readonly) NSObject *action;
 
 + (FLXActionStackNode*)create:(void(^)(FLXActionStackNodeBuilder *builder))builder;
 - (FLXActionStackNode*)mutate:(void(^)(FLXActionStackNodeBuilder *builder))builder;
@@ -19,7 +18,7 @@
 @interface FLXActionStackNodeBuilder : NSObject
 
 @property(nonatomic, strong, readwrite) NSDate *createdAt;
-@property(nonatomic, strong, readwrite) FLXBaseAction *action;
+@property(nonatomic, strong, readwrite) NSObject *action;
 @end
 
 

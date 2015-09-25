@@ -8,7 +8,6 @@
 
 #import "FLXActionsDispatcher.h"
 #import "FLXStoreDispatcher.h"
-#import "FLXBaseAction.h"
 #import "FLXExecutor.h"
 
 @interface FLXActionsDispatcher ()
@@ -35,7 +34,7 @@
     [self.subDispatchers addObject:storeDispatcher];
 }
 
-- (void)dispatchAction:(FLXBaseAction *)action
+- (void)dispatchAction:(id)action
 {
     for(id<FLXDispatcherProtocol> dispatcher in self.subDispatchers)
     {

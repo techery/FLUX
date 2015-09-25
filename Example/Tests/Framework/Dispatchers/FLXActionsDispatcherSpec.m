@@ -9,7 +9,7 @@
 #import <Kiwi/Kiwi.h>
 #import "FLXActionsDispatcher.h"
 #import "FLXStoreDispatcher.h"
-#import "FLXBaseAction.h"
+#import "FLXFakeAction.h"
 #import "FLXBaseStore.h"
 
 @interface FLXActionsDispatcher (Testing)
@@ -57,7 +57,7 @@ describe(@"registerStore:", ^{
 describe(@"dispatchAction", ^{
     it(@"should dispatch action to all subdispatchers", ^{
         
-        id actionMock = [KWMock mockForClass:[FLXBaseAction class]];
+        id actionMock = [KWMock mockForClass:[FLXFakeAction class]];
         NSMutableArray *dispatchers = [@[] mutableCopy];
         
         for(NSInteger i = 0; i < 10; i++) {

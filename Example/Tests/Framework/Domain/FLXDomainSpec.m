@@ -11,7 +11,7 @@
 #import "FLXBaseStore.h"
 #import "FLXActionsDispatcher.h"
 #import "FLXSerialExecutor.h"
-#import "FLXBaseAction.h"
+#import "FLXFakeAction.h"
 #import "FLXFakeDomainMiddlewares.h"
 
 @interface FLXDomain (Testing)
@@ -26,8 +26,8 @@
 - (FLXActionsDispatcher *)createDispatcher;
 - (NSArray*)createMiddlewares;
 
-- (void)sendActionToDispatcher:(FLXBaseAction *)action;
-- (void)sendActionToMiddlewares:(FLXBaseAction *)action;
+- (void)sendActionToDispatcher:(id)action;
+- (void)sendActionToMiddlewares:(id)action;
 
 
 - (void)registerStoreInDispatcher:(FLXBaseStore *)store;
@@ -119,7 +119,7 @@ describe(@"actions dispatching", ^{
     id __block actionMock;
     
     beforeEach(^{
-        actionMock = [KWMock mockForClass:[FLXBaseAction class]];
+        actionMock = [KWMock mockForClass:[FLXFakeAction class]];
         sut.executor = [KWMock mockForClass:[FLXSerialExecutor class]];
         sut.dispatcher = [KWMock mockForClass:[FLXActionsDispatcher class]];
     });
