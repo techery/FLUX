@@ -21,20 +21,20 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6F7DF4D01BAB0A1000808DA9 /* FLXFakeDomainMiddlewares.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4C51BAB09D300808DA9 /* FLXFakeDomainMiddlewares.m */; };
-		6F7DF4D11BAB0A1000808DA9 /* FLXFakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4C71BAB09D300808DA9 /* FLXFakeState.m */; };
-		6F7DF4D21BAB0A1000808DA9 /* FLXFakeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4C91BAB09D300808DA9 /* FLXFakeStore.m */; };
-		6F7DF4D31BAB0A1000808DA9 /* FLXPersistentStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4CB1BAB09D300808DA9 /* FLXPersistentStoreMock.m */; };
-		6F7DF4D41BAB0A1500808DA9 /* FLXActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AC1BAB09C600808DA9 /* FLXActionsDispatcherSpec.m */; };
-		6F7DF4D51BAB0A1500808DA9 /* FLXSerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AD1BAB09C600808DA9 /* FLXSerialExecutorSpec.m */; };
-		6F7DF4D61BAB0A1500808DA9 /* FLXStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AE1BAB09C600808DA9 /* FLXStoreDispatcherSpec.m */; };
-		6F7DF4D71BAB0A1500808DA9 /* FLXDomainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4AF1BAB09C600808DA9 /* FLXDomainSpec.m */; };
-		6F7DF4D81BAB0A1800808DA9 /* FLXActionsTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B11BAB09C600808DA9 /* FLXActionsTracerSpec.m */; };
-		6F7DF4D91BAB0A1800808DA9 /* FLXFileSystemPersistentProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B21BAB09C600808DA9 /* FLXFileSystemPersistentProviderSpec.m */; };
-		6F7DF4DA1BAB0A1800808DA9 /* FLXStatesTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B31BAB09C600808DA9 /* FLXStatesTracerSpec.m */; };
-		6F7DF4DB1BAB0A1C00808DA9 /* FLXStatePersistenceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B51BAB09C600808DA9 /* FLXStatePersistenceSpec.m */; };
-		6F7DF4DC1BAB0A1C00808DA9 /* FLXStoreStateObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B61BAB09C600808DA9 /* FLXStoreStateObserverSpec.m */; };
-		6F7DF4DD1BAB0A1F00808DA9 /* FLXBaseStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DF4B81BAB09C600808DA9 /* FLXBaseStoreSpec.m */; };
+		6FFB6FFF1BB5CE44007C4AEF /* FLXActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FD61BB5CDFE007C4AEF /* FLXActionsDispatcherSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70001BB5CE44007C4AEF /* FLXSerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FD71BB5CDFE007C4AEF /* FLXSerialExecutorSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70011BB5CE44007C4AEF /* FLXStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FD81BB5CDFE007C4AEF /* FLXStoreDispatcherSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70021BB5CE53007C4AEF /* FLXDomainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FDA1BB5CDFE007C4AEF /* FLXDomainSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70031BB5CE53007C4AEF /* FLXFileSystemPersistentProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FDC1BB5CDFE007C4AEF /* FLXFileSystemPersistentProviderSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70041BB5CE53007C4AEF /* FLXActionsTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FDE1BB5CDFE007C4AEF /* FLXActionsTracerSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70051BB5CE53007C4AEF /* FLXStatePersistenceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FDF1BB5CDFE007C4AEF /* FLXStatePersistenceSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70061BB5CE53007C4AEF /* FLXStatesTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FE01BB5CDFE007C4AEF /* FLXStatesTracerSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70071BB5CE53007C4AEF /* FLXStoreStateObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FE11BB5CDFE007C4AEF /* FLXStoreStateObserverSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70081BB5CE53007C4AEF /* FLXBaseStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FE31BB5CDFE007C4AEF /* FLXBaseStoreSpec.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB70091BB5CE53007C4AEF /* FLXFakeDomainMiddlewares.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FE71BB5CDFE007C4AEF /* FLXFakeDomainMiddlewares.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB700A1BB5CE53007C4AEF /* FLXPersistentStoreMock.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FEA1BB5CDFE007C4AEF /* FLXPersistentStoreMock.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB700B1BB5CE53007C4AEF /* FLXFakeState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FED1BB5CDFE007C4AEF /* FLXFakeState.m */; settings = {ASSET_TAGS = (); }; };
+		6FFB700C1BB5CE53007C4AEF /* FLXFakeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFB6FF01BB5CDFE007C4AEF /* FLXFakeStore.m */; settings = {ASSET_TAGS = (); }; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -70,24 +70,24 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6F7DF4AC1BAB09C600808DA9 /* FLXActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FLXActionsDispatcherSpec.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		6F7DF4AD1BAB09C600808DA9 /* FLXSerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXSerialExecutorSpec.m; sourceTree = "<group>"; };
-		6F7DF4AE1BAB09C600808DA9 /* FLXStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreDispatcherSpec.m; sourceTree = "<group>"; };
-		6F7DF4AF1BAB09C600808DA9 /* FLXDomainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDomainSpec.m; sourceTree = "<group>"; };
-		6F7DF4B11BAB09C600808DA9 /* FLXActionsTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXActionsTracerSpec.m; sourceTree = "<group>"; };
-		6F7DF4B21BAB09C600808DA9 /* FLXFileSystemPersistentProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFileSystemPersistentProviderSpec.m; sourceTree = "<group>"; };
-		6F7DF4B31BAB09C600808DA9 /* FLXStatesTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStatesTracerSpec.m; sourceTree = "<group>"; };
-		6F7DF4B51BAB09C600808DA9 /* FLXStatePersistenceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStatePersistenceSpec.m; sourceTree = "<group>"; };
-		6F7DF4B61BAB09C600808DA9 /* FLXStoreStateObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreStateObserverSpec.m; sourceTree = "<group>"; };
-		6F7DF4B81BAB09C600808DA9 /* FLXBaseStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXBaseStoreSpec.m; sourceTree = "<group>"; };
-		6F7DF4C41BAB09D300808DA9 /* FLXFakeDomainMiddlewares.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeDomainMiddlewares.h; sourceTree = "<group>"; };
-		6F7DF4C51BAB09D300808DA9 /* FLXFakeDomainMiddlewares.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeDomainMiddlewares.m; sourceTree = "<group>"; };
-		6F7DF4C61BAB09D300808DA9 /* FLXFakeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeState.h; sourceTree = "<group>"; };
-		6F7DF4C71BAB09D300808DA9 /* FLXFakeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeState.m; sourceTree = "<group>"; };
-		6F7DF4C81BAB09D300808DA9 /* FLXFakeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeStore.h; sourceTree = "<group>"; };
-		6F7DF4C91BAB09D300808DA9 /* FLXFakeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeStore.m; sourceTree = "<group>"; };
-		6F7DF4CA1BAB09D300808DA9 /* FLXPersistentStoreMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPersistentStoreMock.h; sourceTree = "<group>"; };
-		6F7DF4CB1BAB09D300808DA9 /* FLXPersistentStoreMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPersistentStoreMock.m; sourceTree = "<group>"; };
+		6FFB6FD61BB5CDFE007C4AEF /* FLXActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXActionsDispatcherSpec.m; sourceTree = "<group>"; };
+		6FFB6FD71BB5CDFE007C4AEF /* FLXSerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXSerialExecutorSpec.m; sourceTree = "<group>"; };
+		6FFB6FD81BB5CDFE007C4AEF /* FLXStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreDispatcherSpec.m; sourceTree = "<group>"; };
+		6FFB6FDA1BB5CDFE007C4AEF /* FLXDomainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDomainSpec.m; sourceTree = "<group>"; };
+		6FFB6FDC1BB5CDFE007C4AEF /* FLXFileSystemPersistentProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFileSystemPersistentProviderSpec.m; sourceTree = "<group>"; };
+		6FFB6FDE1BB5CDFE007C4AEF /* FLXActionsTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXActionsTracerSpec.m; sourceTree = "<group>"; };
+		6FFB6FDF1BB5CDFE007C4AEF /* FLXStatePersistenceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStatePersistenceSpec.m; sourceTree = "<group>"; };
+		6FFB6FE01BB5CDFE007C4AEF /* FLXStatesTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStatesTracerSpec.m; sourceTree = "<group>"; };
+		6FFB6FE11BB5CDFE007C4AEF /* FLXStoreStateObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreStateObserverSpec.m; sourceTree = "<group>"; };
+		6FFB6FE31BB5CDFE007C4AEF /* FLXBaseStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXBaseStoreSpec.m; sourceTree = "<group>"; };
+		6FFB6FE61BB5CDFE007C4AEF /* FLXFakeDomainMiddlewares.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeDomainMiddlewares.h; sourceTree = "<group>"; };
+		6FFB6FE71BB5CDFE007C4AEF /* FLXFakeDomainMiddlewares.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeDomainMiddlewares.m; sourceTree = "<group>"; };
+		6FFB6FE91BB5CDFE007C4AEF /* FLXPersistentStoreMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXPersistentStoreMock.h; sourceTree = "<group>"; };
+		6FFB6FEA1BB5CDFE007C4AEF /* FLXPersistentStoreMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXPersistentStoreMock.m; sourceTree = "<group>"; };
+		6FFB6FEC1BB5CDFE007C4AEF /* FLXFakeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeState.h; sourceTree = "<group>"; };
+		6FFB6FED1BB5CDFE007C4AEF /* FLXFakeState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeState.m; sourceTree = "<group>"; };
+		6FFB6FEF1BB5CDFE007C4AEF /* FLXFakeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXFakeStore.h; sourceTree = "<group>"; };
+		6FFB6FF01BB5CDFE007C4AEF /* FLXFakeStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXFakeStore.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A30AA06FA8844998718D1ED4 /* Pods-FLUX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Tests/Pods-FLUX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5B6867149C48B9ECC022BF6 /* FLUX.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FLUX.podspec; path = ../FLUX.podspec; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4C31BAB09D300808DA9 /* TestModels */,
-				6F87B2071BA997C2003E81D0 /* Domain */,
+				6FFB6FD41BB5CDFE007C4AEF /* Framework */,
+				6FFB6FE41BB5CDFE007C4AEF /* TestModels */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -213,68 +213,108 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		6F7DF4AB1BAB09C600808DA9 /* Dispatchers */ = {
+		6FFB6FD41BB5CDFE007C4AEF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4AC1BAB09C600808DA9 /* FLXActionsDispatcherSpec.m */,
-				6F7DF4AD1BAB09C600808DA9 /* FLXSerialExecutorSpec.m */,
-				6F7DF4AE1BAB09C600808DA9 /* FLXStoreDispatcherSpec.m */,
+				6FFB6FD51BB5CDFE007C4AEF /* Dispatchers */,
+				6FFB6FD91BB5CDFE007C4AEF /* Domain */,
+				6FFB6FDB1BB5CDFE007C4AEF /* Helpers */,
+				6FFB6FDD1BB5CDFE007C4AEF /* Middlewares */,
+				6FFB6FE21BB5CDFE007C4AEF /* Stores */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		6FFB6FD51BB5CDFE007C4AEF /* Dispatchers */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB6FD61BB5CDFE007C4AEF /* FLXActionsDispatcherSpec.m */,
+				6FFB6FD71BB5CDFE007C4AEF /* FLXSerialExecutorSpec.m */,
+				6FFB6FD81BB5CDFE007C4AEF /* FLXStoreDispatcherSpec.m */,
 			);
 			path = Dispatchers;
 			sourceTree = "<group>";
 		};
-		6F7DF4B01BAB09C600808DA9 /* Middleware */ = {
+		6FFB6FD91BB5CDFE007C4AEF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4B11BAB09C600808DA9 /* FLXActionsTracerSpec.m */,
-				6F7DF4B21BAB09C600808DA9 /* FLXFileSystemPersistentProviderSpec.m */,
-				6F7DF4B31BAB09C600808DA9 /* FLXStatesTracerSpec.m */,
+				6FFB6FDA1BB5CDFE007C4AEF /* FLXDomainSpec.m */,
 			);
-			path = Middleware;
+			path = Domain;
 			sourceTree = "<group>";
 		};
-		6F7DF4B41BAB09C600808DA9 /* Middlewares */ = {
+		6FFB6FDB1BB5CDFE007C4AEF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4B51BAB09C600808DA9 /* FLXStatePersistenceSpec.m */,
-				6F7DF4B61BAB09C600808DA9 /* FLXStoreStateObserverSpec.m */,
+				6FFB6FDC1BB5CDFE007C4AEF /* FLXFileSystemPersistentProviderSpec.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6FFB6FDD1BB5CDFE007C4AEF /* Middlewares */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB6FDE1BB5CDFE007C4AEF /* FLXActionsTracerSpec.m */,
+				6FFB6FDF1BB5CDFE007C4AEF /* FLXStatePersistenceSpec.m */,
+				6FFB6FE01BB5CDFE007C4AEF /* FLXStatesTracerSpec.m */,
+				6FFB6FE11BB5CDFE007C4AEF /* FLXStoreStateObserverSpec.m */,
 			);
 			path = Middlewares;
 			sourceTree = "<group>";
 		};
-		6F7DF4B71BAB09C600808DA9 /* Stores */ = {
+		6FFB6FE21BB5CDFE007C4AEF /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4B81BAB09C600808DA9 /* FLXBaseStoreSpec.m */,
+				6FFB6FE31BB5CDFE007C4AEF /* FLXBaseStoreSpec.m */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
 		};
-		6F7DF4C31BAB09D300808DA9 /* TestModels */ = {
+		6FFB6FE41BB5CDFE007C4AEF /* TestModels */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4C41BAB09D300808DA9 /* FLXFakeDomainMiddlewares.h */,
-				6F7DF4C51BAB09D300808DA9 /* FLXFakeDomainMiddlewares.m */,
-				6F7DF4C61BAB09D300808DA9 /* FLXFakeState.h */,
-				6F7DF4C71BAB09D300808DA9 /* FLXFakeState.m */,
-				6F7DF4C81BAB09D300808DA9 /* FLXFakeStore.h */,
-				6F7DF4C91BAB09D300808DA9 /* FLXFakeStore.m */,
-				6F7DF4CA1BAB09D300808DA9 /* FLXPersistentStoreMock.h */,
-				6F7DF4CB1BAB09D300808DA9 /* FLXPersistentStoreMock.m */,
+				6FFB6FE51BB5CDFE007C4AEF /* FakeDomainMiddlewares */,
+				6FFB6FE81BB5CDFE007C4AEF /* FakePersistentStore */,
+				6FFB6FEB1BB5CDFE007C4AEF /* FakeState */,
+				6FFB6FEE1BB5CDFE007C4AEF /* FakeStore */,
 			);
 			path = TestModels;
 			sourceTree = "<group>";
 		};
-		6F87B2071BA997C2003E81D0 /* Domain */ = {
+		6FFB6FE51BB5CDFE007C4AEF /* FakeDomainMiddlewares */ = {
 			isa = PBXGroup;
 			children = (
-				6F7DF4AB1BAB09C600808DA9 /* Dispatchers */,
-				6F7DF4AF1BAB09C600808DA9 /* FLXDomainSpec.m */,
-				6F7DF4B01BAB09C600808DA9 /* Middleware */,
-				6F7DF4B41BAB09C600808DA9 /* Middlewares */,
-				6F7DF4B71BAB09C600808DA9 /* Stores */,
+				6FFB6FE61BB5CDFE007C4AEF /* FLXFakeDomainMiddlewares.h */,
+				6FFB6FE71BB5CDFE007C4AEF /* FLXFakeDomainMiddlewares.m */,
 			);
-			path = Domain;
+			path = FakeDomainMiddlewares;
+			sourceTree = "<group>";
+		};
+		6FFB6FE81BB5CDFE007C4AEF /* FakePersistentStore */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB6FE91BB5CDFE007C4AEF /* FLXPersistentStoreMock.h */,
+				6FFB6FEA1BB5CDFE007C4AEF /* FLXPersistentStoreMock.m */,
+			);
+			path = FakePersistentStore;
+			sourceTree = "<group>";
+		};
+		6FFB6FEB1BB5CDFE007C4AEF /* FakeState */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB6FEC1BB5CDFE007C4AEF /* FLXFakeState.h */,
+				6FFB6FED1BB5CDFE007C4AEF /* FLXFakeState.m */,
+			);
+			path = FakeState;
+			sourceTree = "<group>";
+		};
+		6FFB6FEE1BB5CDFE007C4AEF /* FakeStore */ = {
+			isa = PBXGroup;
+			children = (
+				6FFB6FEF1BB5CDFE007C4AEF /* FLXFakeStore.h */,
+				6FFB6FF01BB5CDFE007C4AEF /* FLXFakeStore.m */,
+			);
+			path = FakeStore;
 			sourceTree = "<group>";
 		};
 		8405CA57A84C418AEB179D4F /* Pods */ = {
@@ -495,20 +535,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F7DF4D61BAB0A1500808DA9 /* FLXStoreDispatcherSpec.m in Sources */,
-				6F7DF4D51BAB0A1500808DA9 /* FLXSerialExecutorSpec.m in Sources */,
-				6F7DF4DC1BAB0A1C00808DA9 /* FLXStoreStateObserverSpec.m in Sources */,
-				6F7DF4D21BAB0A1000808DA9 /* FLXFakeStore.m in Sources */,
-				6F7DF4DA1BAB0A1800808DA9 /* FLXStatesTracerSpec.m in Sources */,
-				6F7DF4D81BAB0A1800808DA9 /* FLXActionsTracerSpec.m in Sources */,
-				6F7DF4D31BAB0A1000808DA9 /* FLXPersistentStoreMock.m in Sources */,
-				6F7DF4D01BAB0A1000808DA9 /* FLXFakeDomainMiddlewares.m in Sources */,
-				6F7DF4DD1BAB0A1F00808DA9 /* FLXBaseStoreSpec.m in Sources */,
-				6F7DF4DB1BAB0A1C00808DA9 /* FLXStatePersistenceSpec.m in Sources */,
-				6F7DF4D91BAB0A1800808DA9 /* FLXFileSystemPersistentProviderSpec.m in Sources */,
-				6F7DF4D41BAB0A1500808DA9 /* FLXActionsDispatcherSpec.m in Sources */,
-				6F7DF4D11BAB0A1000808DA9 /* FLXFakeState.m in Sources */,
-				6F7DF4D71BAB0A1500808DA9 /* FLXDomainSpec.m in Sources */,
+				6FFB70081BB5CE53007C4AEF /* FLXBaseStoreSpec.m in Sources */,
+				6FFB70041BB5CE53007C4AEF /* FLXActionsTracerSpec.m in Sources */,
+				6FFB70001BB5CE44007C4AEF /* FLXSerialExecutorSpec.m in Sources */,
+				6FFB70071BB5CE53007C4AEF /* FLXStoreStateObserverSpec.m in Sources */,
+				6FFB70061BB5CE53007C4AEF /* FLXStatesTracerSpec.m in Sources */,
+				6FFB700B1BB5CE53007C4AEF /* FLXFakeState.m in Sources */,
+				6FFB70031BB5CE53007C4AEF /* FLXFileSystemPersistentProviderSpec.m in Sources */,
+				6FFB700C1BB5CE53007C4AEF /* FLXFakeStore.m in Sources */,
+				6FFB70091BB5CE53007C4AEF /* FLXFakeDomainMiddlewares.m in Sources */,
+				6FFB6FFF1BB5CE44007C4AEF /* FLXActionsDispatcherSpec.m in Sources */,
+				6FFB70051BB5CE53007C4AEF /* FLXStatePersistenceSpec.m in Sources */,
+				6FFB700A1BB5CE53007C4AEF /* FLXPersistentStoreMock.m in Sources */,
+				6FFB70011BB5CE44007C4AEF /* FLXStoreDispatcherSpec.m in Sources */,
+				6FFB70021BB5CE53007C4AEF /* FLXDomainSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
