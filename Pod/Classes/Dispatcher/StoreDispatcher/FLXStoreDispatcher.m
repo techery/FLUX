@@ -7,7 +7,6 @@
 //
 
 #import "FLXStoreDispatcher.h"
-#import "FLXBaseState.h"
 #import "FLXBaseStore.h"
 
 
@@ -56,7 +55,7 @@
     
     if(callback)
     {
-        FLXBaseState *newState = callback(action);
+        id newState = callback(action);
         FLXBaseStore *store = self.store;
         [self.store setValue:newState forKey:@keypath(store.state)];
     }

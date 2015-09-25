@@ -10,6 +10,7 @@
 #import "FLXStatePersistence.h"
 #import "FLXFileSystemPersistentProvider.h"
 #import "FLXFakeStore.h"
+#import "FLXFakeState.h"
 #import "FLXPersistentStoreMock.h"
 
 @interface FLXStatePersistence (Testing)
@@ -54,7 +55,7 @@ describe(@"register store", ^{
 
     it(@"should try to restore state", ^{
         id storeMock = [KWMock mockForClass:[FLXPersistentStoreMock class]];
-        id stateMock = [KWMock mockForClass:[FLXBaseState class]];
+        id stateMock = [KWMock mockForClass:[FLXFakeState class]];
         sut.persistence = (FLXFileSystemPersistentProvider *)[KWMock mockForClass:[FLXFileSystemPersistentProvider class]];
 
         [storeMock stub:@selector(shouldRestoreState:) andReturn:theValue(YES)];

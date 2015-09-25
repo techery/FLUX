@@ -8,13 +8,13 @@
 
 #import <Kiwi/Kiwi.h>
 #import "FLXFakeStore.h"
-#import "FLXBaseState.h"
+#import "FLXFakeState.h"
 
 @implementation FLXFakeStore
 
-- (FLXBaseState *)defaultState
+- (FLXFakeState *)defaultState
 {
-    return [KWMock mockForClass:[FLXBaseState class]];
+    return [KWMock mockForClass:[FLXFakeState class]];
 }
 
 @end

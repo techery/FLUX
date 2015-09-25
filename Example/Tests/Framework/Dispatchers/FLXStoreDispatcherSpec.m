@@ -9,7 +9,7 @@
 #import <Kiwi/Kiwi.h>
 #import "FLXStoreDispatcher.h"
 #import "FLXFakeAction.h"
-#import "FLXBaseState.h"
+#import "FLXFakeState.h"
 #import "FLXBaseStore.h"
 
 @interface FLXStoreDispatcher (Testing)
@@ -75,9 +75,9 @@ describe(@"action callbacks registration", ^{
 
     it(@"should add callback to dictionary by action key", ^{
     
-        id stateMock = [KWMock mockForClass:[FLXBaseState class]];
+        id stateMock = [KWMock mockForClass:[FLXFakeState class]];
         
-        FLXActionCallback testCallback = ^FLXBaseState *(FLXFakeAction *action){
+        FLXActionCallback testCallback = ^FLXFakeState *(FLXFakeAction *action){
             return stateMock;
         };
         
@@ -95,14 +95,14 @@ describe(@"action dispatching", ^{
     it(@"should get new state from callback and update store state", ^{
         FLXFakeAction *testAction = [FLXFakeAction new];
         
-        id stateMock = [KWMock mockForClass:[FLXBaseState class]];
+        id stateMock = [KWMock mockForClass:[FLXFakeState class]];
         id storeMock = [KWMock mockForClass:[FLXBaseStore class]];
         
         [[storeMock should] receive:@selector(setValue:forKey:) withArguments:stateMock, @"state"];
         sut.store = storeMock;
         
         NSNumber __block *callbackRun;
-        FLXActionCallback testCallback = ^FLXBaseState *(FLXFakeAction *action) {
+        FLXActionCallback testCallback = ^FLXFakeState *(FLXFakeAction *action) {
             callbackRun = @(YES);
             [[action should] equal:testAction];
             return stateMock;

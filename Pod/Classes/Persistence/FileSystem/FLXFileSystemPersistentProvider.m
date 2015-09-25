@@ -4,7 +4,6 @@
 //
 
 #import "FLXFileSystemPersistentProvider.h"
-#import "FLXBaseState.h"
 
 @interface FLXFileSystemPersistentProvider ()
 

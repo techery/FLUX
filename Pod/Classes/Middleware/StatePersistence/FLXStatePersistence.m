@@ -7,7 +7,6 @@
 #import "FLXPersistentStoreProtocol.h"
 #import "FLXFileSystemPersistentProvider.h"
 #import "FLXBaseStore.h"
-#import "FLXBaseState.h"
 
 @interface FLXStatePersistence ()
 
@@ -48,7 +47,7 @@
     return [store conformsToProtocol:@protocol(FLXPersistentStoreProtocol)];
 }
 
-- (void)store:(FLXBaseStore *)store didChangeState:(FLXBaseState *)state {
+- (void)store:(FLXBaseStore *)store didChangeState:(id)state {
     FLXBaseStore <FLXPersistentStoreProtocol> *castedStore = (FLXBaseStore <FLXPersistentStoreProtocol>*)store;
     if ([castedStore shouldSaveState:state]) {
         [self.persistence saveState:state forStore:castedStore];

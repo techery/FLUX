@@ -6,8 +6,6 @@ immutabler :FLXMiddlewareModels do
    output_dir(gen_path)
    prefix('FLX')
 
-   link_to :FLXBaseState
-
    model :ActionStackNode do
        fields do
            prop :createdAt, :NSDate
@@ -19,7 +17,7 @@ immutabler :FLXMiddlewareModels do
        fields do
            prop :createdAt, :NSDate
            prop :storeClassString, :string
-           prop :state, :FLXBaseState
+           prop :state, :NSObject
        end
    end
 end

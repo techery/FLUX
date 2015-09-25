@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Techery. All rights reserved.
 //
 
-#import "FLXBaseState.h"
+#import <Foundation/Foundation.h>
 
-@interface FLXFakeState : FLXBaseState <NSCoding>
+@interface FLXFakeState : NSObject <NSCoding>
 
 @end

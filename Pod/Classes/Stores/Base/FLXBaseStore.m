@@ -7,11 +7,10 @@
 //
 
 #import "FLXBaseStore.h"
-#import "FLXBaseState.h"
 
 @interface FLXBaseStore ()
 
-@property (nonatomic, strong, readwrite) FLXBaseState *state;
+@property (nonatomic, strong, readwrite) id state;
 
 @end
 
@@ -27,7 +26,7 @@
     return self;
 }
 
-- (FLXBaseState *)defaultState
+- (id)defaultState
 {
     [NSException raise:@"Not allowed" format:@"-defaultState method of base class shouldn't be used. Please override it in sublass"];
     return nil;

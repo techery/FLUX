@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class FLXBaseState;
 @class FLXStoreDispatcher;
 
 @interface FLXBaseStore : NSObject
 
-@property (nonatomic, readonly) FLXBaseState *state;
+@property (nonatomic, readonly) id state;
 - (void)registerWithLocalDispatcher:(FLXStoreDispatcher *)storeDispatcher;
 
 @end

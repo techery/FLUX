@@ -15,7 +15,7 @@
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
-    return [super init];
+    return [self init];
 }
 
 

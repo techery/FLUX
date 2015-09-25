@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "FLXDispatcherProtocol.h"
 
-#import "FLXBaseState.h"
-
 @class FLXBaseStore;
 
-typedef FLXBaseState* (^FLXActionCallback)(id action);
+typedef id(^FLXActionCallback)(id action);
 
 @interface FLXStoreDispatcher : NSObject <FLXDispatcherProtocol>
 

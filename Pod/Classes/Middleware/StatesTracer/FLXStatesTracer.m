@@ -27,7 +27,7 @@
     return self;
 }
 
-- (void)store:(FLXBaseStore *)store didChangeState:(FLXBaseState *)state {
+- (void)store:(FLXBaseStore *)store didChangeState:(id)state {
     FLXStoreStateNode *stateNode = [self nodeWithStore:store state:state];
     NSMutableArray *storeStack = [self obtainOrCreateTracesStackForStore:store];
     [storeStack addObject:stateNode];
@@ -45,7 +45,7 @@
     return storeStack;
 }
 
-- (FLXStoreStateNode *)nodeWithStore:(FLXBaseStore *)store state:(FLXBaseState *)state
+- (FLXStoreStateNode *)nodeWithStore:(FLXBaseStore *)store state:(id)state
 {
     return [FLXStoreStateNode create:^(FLXStoreStateNodeBuilder *builder) {
         builder.createdAt = [NSDate date];

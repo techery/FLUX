@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableDictionary *traces;
 
 - (FLXStoreStateNode *)nodeWithStore:(FLXBaseStore *)store
-                              state:(FLXBaseState *)state;
+                              state:(id)state;
 - (NSMutableArray *)obtainOrCreateTracesStackForStore:(FLXBaseStore *)store;
 
 @end

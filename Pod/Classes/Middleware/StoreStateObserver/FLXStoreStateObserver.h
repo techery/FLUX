@@ -13,6 +13,6 @@
 @interface FLXStoreStateObserver : NSObject <FLXDomainMiddleware>
 
 - (BOOL)shouldObserveStore:(FLXBaseStore *)store;
-- (void)store:(FLXBaseStore *)store didChangeState:(FLXBaseState *)state;
+- (void)store:(FLXBaseStore *)store didChangeState:(id)state;
 
 @end

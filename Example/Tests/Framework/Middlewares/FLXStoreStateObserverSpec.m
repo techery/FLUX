@@ -8,6 +8,7 @@
 #import "FLXStoreStateObserver.h"
 #import "FLXBaseStore.h"
 #import "FLXFakeStore.h"
+#import "FLXFakeState.h"
 
 @interface FLXStoreStateObserver (Testing)
 
@@ -66,7 +67,7 @@ describe(@"observing of state changes", ^{
     it(@"should observe state change if shouldObserveStore: returns YES", ^{
         sut.observer = (FBKVOController *)[KWMock mockForClass:[FBKVOController class]];
         id storeMock = [KWMock mockForClass:[FLXFakeStore class]];
-        id stateMock = [KWMock mockForClass:[FLXBaseState class]];
+        id stateMock = [KWMock mockForClass:[FLXFakeState class]];
         NSDictionary *changes = @{NSKeyValueChangeNewKey:stateMock};
         
         [sut stub:@selector(shouldObserveStore:) andReturn:theValue(YES)];
@@ -85,7 +86,7 @@ describe(@"observing of state changes", ^{
     it(@"shouldn't observe state change if shouldObserveStore: returns NO", ^{
         sut.observer = (FBKVOController *)[KWMock mockForClass:[FBKVOController class]];
         id storeMock = [KWMock mockForClass:[FLXFakeStore class]];
-        id stateMock = [KWMock mockForClass:[FLXBaseState class]];
+        id stateMock = [KWMock mockForClass:[FLXFakeState class]];
         NSDictionary *changes = @{NSKeyValueChangeNewKey:stateMock};
         
         [sut stub:@selector(shouldObserveStore:) andReturn:theValue(NO)];

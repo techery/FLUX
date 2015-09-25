@@ -8,13 +8,13 @@
 
 #import <Kiwi/Kiwi.h>
 #import "FLXBaseStore.h"
-#import "FLXBaseState.h"
+#import "FLXFakeState.h"
 #import "FLXStoreDispatcher.h"
 
 @interface FLXBaseStore (Testing)
 
-@property (nonatomic, strong, readwrite) FLXBaseState *state;
-- (FLXBaseState *)defaultState;
+@property (nonatomic, strong, readwrite) id state;
+- (id)defaultState;
 
 @end
 
@@ -68,7 +68,7 @@ describe(@"state changing", ^{
     
     it(@"should trigger KVO on state change", ^{
         
-        id stateMock = [KWMock mockForClass:[FLXBaseState class]];
+        id stateMock = [KWMock mockForClass:[FLXFakeState class]];
         
         NSObject *observer = [NSObject new];
         [sut addObserver:observer forKeyPath:@keypath(sut.state) options:NSKeyValueObservingOptionNew context:nil];

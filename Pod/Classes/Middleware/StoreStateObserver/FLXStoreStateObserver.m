@@ -59,7 +59,7 @@
     return NO;
 }
 
--(void)store:(FLXBaseStore *)store didChangeState :(FLXBaseState *)state {
+-(void)store:(FLXBaseStore *)store didChangeState :(id)state {
     [NSException raise:@"Not allowed" format:@"Subclass of FLXStoreStateObserver should override -(void)store:didChangeState:"];}
 
 @end
