@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FLUX"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "Objective-C implementation of FLUX architecture pattern"
   s.description      = <<-DESC
                        DESC
