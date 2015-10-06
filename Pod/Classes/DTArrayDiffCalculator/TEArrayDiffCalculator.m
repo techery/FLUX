@@ -76,10 +76,10 @@
 - (NSArray *)calculateUpdates:(NSArray *)oldArray newArray:(NSArray *)newArray {
     NSMutableArray *mergedArray = [NSMutableArray arrayWithArray:oldArray];
     
-    [self.moved enumerateObjectsUsingBlock:^(TEDiffIndex *obj, NSUInteger idx, BOOL *stop) {
-        id o = [mergedArray objectAtIndex:obj.fromIndex];
-        [mergedArray replaceObjectAtIndex:obj.fromIndex withObject:[mergedArray objectAtIndex:obj.index]];
-        [mergedArray replaceObjectAtIndex:obj.index withObject:o];
+    [self.moved enumerateObjectsUsingBlock:^(TEDiffIndex *diffIndex, NSUInteger idx, BOOL *stop) {
+        id object = mergedArray[diffIndex.fromIndex];
+        [mergedArray removeObject:object];
+        [mergedArray insertObject:object atIndex:diffIndex.index];
     }];
     
     [[[self.deleted reverseObjectEnumerator] allObjects] enumerateObjectsUsingBlock:^(TEDiffIndex *obj, NSUInteger idx, BOOL *stop) {
@@ -106,24 +106,38 @@
     NSMutableArray *result = [NSMutableArray array];
     NSArray *deletedObjects = [self substractArray:newArray fromArray:oldArray];
     NSArray *insertedObjects = [self substractArray:oldArray fromArray:newArray];
-    [oldArray enumerateObjectsUsingBlock:^(id leftObj, NSUInteger leftIdx, BOOL *stop) {
-        if ([deletedObjects containsObject:leftObj]) {
+    [oldArray enumerateObjectsUsingBlock:^(id<TEUnique> leftObj, NSUInteger leftIdx, BOOL *stop) {
+        NSMutableArray *adjustedOldArray = [oldArray mutableCopy];
+        [result enumerateObjectsUsingBlock:^(TEDiffIndex *diffIndex, NSUInteger idx, BOOL * _Nonnull stop) {
+            id object = adjustedOldArray[diffIndex.fromIndex];
+            [adjustedOldArray removeObject:object];
+            [adjustedOldArray insertObject:object atIndex:diffIndex.index];
+        }];
+        
+        id adjustedLeftObject = adjustedOldArray[leftIdx];
+        
+        if ([deletedObjects containsObject:adjustedLeftObject]) {
             delta++;
             return;
         }
         NSUInteger localDelta = delta;
         for (NSUInteger rightIdx = 0; rightIdx < newArray.count; ++rightIdx) {
-            id rightObj = newArray[rightIdx];
+            id<TEUnique> rightObj = newArray[rightIdx];
             if ([insertedObjects containsObject:rightObj]) {
                 localDelta--;
                 continue;
             }
-            if (![rightObj isEqual:leftObj]) {
+            if (![[rightObj identifier] isEqual:[adjustedLeftObject identifier]]) {
                 continue;
             }
             NSInteger adjustedRightIdx = rightIdx + localDelta;
             if (leftIdx != rightIdx && adjustedRightIdx != leftIdx) {
-                [result addObject:[TEDiffIndex diffWithFromIndex:leftIdx toIndex:rightIdx]];
+                if (rightIdx - leftIdx == 1) {
+                    NSInteger indexInOld = [adjustedOldArray indexOfObject:newArray[rightIdx - 1]];
+                    [result addObject:[TEDiffIndex diffWithFromIndex:indexInOld toIndex:rightIdx - 1]];
+                } else {
+                    [result addObject:[TEDiffIndex diffWithFromIndex:leftIdx toIndex:rightIdx]];
+                }
             }
             return;
         }
