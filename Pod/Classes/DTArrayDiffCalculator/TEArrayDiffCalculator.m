@@ -34,41 +34,19 @@
 #pragma mark - Private
 
 - (NSArray *)substractArray:(NSArray *)new fromArray:(NSArray *)old {
+    NSParameterAssert([[new firstObject] conformsToProtocol:@protocol(TEUnique)]);
+    NSParameterAssert([[old firstObject] conformsToProtocol:@protocol(TEUnique)]);
+
     NSMutableArray *substraction = [NSMutableArray new];
-    if (new.count > 0) {
-        NSParameterAssert([[new firstObject] conformsToProtocol:@protocol(TEUnique)]);
-        
-        if (old.count > 0) {
-            // In case if both arrays have at least one object - do substraction in default way
-            
-            NSParameterAssert([[old firstObject] conformsToProtocol:@protocol(TEUnique)]);
-            
-            [old enumerateObjectsUsingBlock:^(id <TEUnique> obj, NSUInteger idx, BOOL *stop) {
-                id oldObj = [[new filter:^BOOL(id <TEUnique> o) {
-                    return [o.identifier isEqual:obj.identifier];
-                }] firstObject];
-                if (!oldObj) {
-                    [substraction addObject:obj];
-                }
-            }];
+    [old enumerateObjectsUsingBlock:^(id <TEUnique> obj, NSUInteger idx, BOOL *stop) {
+        id oldObj = [[new filter:^BOOL(id <TEUnique> o) {
+            return [o.identifier isEqual:obj.identifier];
+        }] firstObject];
+        if (!oldObj) {
+            [substraction addObject:obj];
         }
-        
-        // In case if array "new" contains some items and "old" doesn't - leave array "substraction" empty
-    }
-    else {
-        if (old.count > 0) {
-            // In case if array "old" contains some items and "new" doesn't - add all objects from "old" to "substraction"
-            
-            NSParameterAssert([[old firstObject] conformsToProtocol:@protocol(TEUnique)]);
-            
-            for (id oldObj in old) {
-                [substraction addObject:oldObj];
-            }
-        }
-        
-        // In case if both arrays are empty - leave array "substraction" empty
-    }
-    
+    }];
+
     return [substraction copy];
 }
 
