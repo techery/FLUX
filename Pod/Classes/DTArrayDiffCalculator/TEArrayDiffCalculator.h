@@ -4,12 +4,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TEUnique.h"
 
 @class TEArrayDiff;
 
 
 @interface TEArrayDiffCalculator : NSObject
 
-- (TEArrayDiff *)calculateDiffsWithOldArray:(NSArray *)oldArray newArray:(NSArray *)newArray;
+- (TEArrayDiff *)calculateDiffsWithOldArray:(NSArray<id<TEUnique>> *)oldArray newArray:(NSArray<id<TEUnique>> *)newArray;
 
 @end
