@@ -19,7 +19,7 @@
 
 @implementation TEArrayDiffCalculator
 
-- (TEArrayDiff *)calculateDiffsWithOldArray:(NSArray *)oldArray newArray:(NSArray *)newArray {
+- (TEArrayDiff *)calculateDiffsWithOldArray:(NSArray<id<TEUnique>> *)oldArray newArray:(NSArray<id<TEUnique>> *)newArray {
     self.inserted = [self calculateInsertions:oldArray newArray:newArray];
     self.deleted = [self calculateDeletions:oldArray newArray:newArray];
     self.moved = [self calculateMoves:oldArray newArray:newArray];    
@@ -33,10 +33,8 @@
 
 #pragma mark - Private
 
-- (NSArray *)substractArray:(NSArray *)new fromArray:(NSArray *)old {
-    NSParameterAssert([[new firstObject] conformsToProtocol:@protocol(TEUnique)]);
-    NSParameterAssert([[old firstObject] conformsToProtocol:@protocol(TEUnique)]);
-
+- (NSArray *)substractArray:(NSArray<id<TEUnique>> *)new fromArray:(NSArray<id<TEUnique>> *)old {
+    
     NSMutableArray *substraction = [NSMutableArray new];
     [old enumerateObjectsUsingBlock:^(id <TEUnique> obj, NSUInteger idx, BOOL *stop) {
         id oldObj = [[new filter:^BOOL(id <TEUnique> o) {
@@ -50,7 +48,7 @@
     return [substraction copy];
 }
 
-- (NSArray *)calculateDiffIndexesBySubstraction:(NSArray *)newArray from:(NSArray *)oldArray {
+- (NSArray *)calculateDiffIndexesBySubstraction:(NSArray<id<TEUnique>> *)newArray from:(NSArray<id<TEUnique>> *)oldArray {
     NSArray *substraction = [self substractArray:newArray fromArray:oldArray];
     NSMutableArray *diffIndexes = [NSMutableArray arrayWithCapacity:substraction.count];
 
@@ -65,15 +63,15 @@
     
 }
 
-- (NSArray *)calculateDeletions:(NSArray *)oldArray newArray:(NSArray *)newArray {
+- (NSArray *)calculateDeletions:(NSArray<id<TEUnique>> *)oldArray newArray:(NSArray<id<TEUnique>> *)newArray {
     return [self calculateDiffIndexesBySubstraction:newArray from:oldArray];
 }
 
-- (NSArray *)calculateInsertions:(NSArray *)oldArray newArray:(NSArray *)newArray {
+- (NSArray *)calculateInsertions:(NSArray<id<TEUnique>> *)oldArray newArray:(NSArray<id<TEUnique>> *)newArray {
     return [self calculateDiffIndexesBySubstraction:oldArray from:newArray];
 }
 
-- (NSArray *)calculateUpdates:(NSArray *)oldArray newArray:(NSArray *)newArray {
+- (NSArray *)calculateUpdates:(NSArray<id<TEUnique>> *)oldArray newArray:(NSArray<id<TEUnique>> *)newArray {
     NSMutableArray *mergedArray = [NSMutableArray arrayWithArray:oldArray];
     
     [self.moved enumerateObjectsUsingBlock:^(TEDiffIndex *diffIndex, NSUInteger idx, BOOL *stop) {
@@ -92,7 +90,8 @@
     
     NSMutableArray *updatedDiffs = [NSMutableArray new];
     [mergedArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if (![newArray[idx] isEqual:obj]) {
+        id object = newArray[idx];
+        if (![object isEqual:obj]) {
             TEDiffIndex *diff = [TEDiffIndex diffWithIndex:[oldArray indexOfObject:obj]];
             [updatedDiffs addObject:diff];
         }
@@ -101,7 +100,7 @@
     return [NSArray arrayWithArray:updatedDiffs];
 }
 
-- (NSArray *)calculateMoves:(NSArray *)oldArray newArray:(NSArray *)newArray {
+- (NSArray *)calculateMoves:(NSArray<id<TEUnique>> *)oldArray newArray:(NSArray<id<TEUnique>> *)newArray {
     __block NSInteger delta = 0;
     NSMutableArray *result = [NSMutableArray array];
     NSArray *deletedObjects = [self substractArray:newArray fromArray:oldArray];
