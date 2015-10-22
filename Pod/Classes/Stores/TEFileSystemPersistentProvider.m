@@ -35,7 +35,16 @@
 }
 
 - (id)stateForStore:(TEBaseStore <TEPersistentStoreProtocol> *)store {
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:[self pathForStore:store]];
+    id object;
+    NSString *statePath = [self pathForStore:store];
+    @try {
+         object = [NSKeyedUnarchiver unarchiveObjectWithFile:statePath];
+    }
+    @catch (NSException *exception) {
+        object = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:statePath error:nil];
+    }
+    return object;
 }
 
 - (NSString *)serviceId
