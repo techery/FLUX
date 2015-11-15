@@ -7,6 +7,8 @@
 
 ## Usage
 
+[Presentation](https://speakerdeck.com/sergeyzenchenko/flux-for-ios)
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
@@ -23,6 +25,7 @@ pod "FLUX"
 ## Author
 
 Alexey Fayzullov, alex.f@techery.io
+Sergey Zenchenko, serge.z@techery.io
 
 ## License
 
