@@ -24,8 +24,7 @@
 
 - (void)saveState:(id <NSCoding>)state forStore:(TEBaseStore <TEPersistentStoreProtocol> *)store {
     dispatch_async(self.storeQueue, ^{
-        BOOL result = [NSKeyedArchiver archiveRootObject:state toFile:[self pathForStore:store]];
-        NSLog(@"Saved to persistence: %@ \n with result:%d", [(NSObject *)state performSelector:@selector(description)], result);
+        [NSKeyedArchiver archiveRootObject:state toFile:[self pathForStore:store]];
     });
 }
 

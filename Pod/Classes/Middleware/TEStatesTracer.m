@@ -31,7 +31,6 @@
     TEStoreStateNode *stateNode = [self nodeWithStore:store state:state];
     NSMutableArray *storeStack = [self obtainOrCreateTracesStackForStore:store];
     [storeStack addObject:stateNode];
-    NSLog(@">State change of %@: \n     %@", [store description], [state description]);
 }
 
 - (NSMutableArray *)obtainOrCreateTracesStackForStore:(TEBaseStore *)store
