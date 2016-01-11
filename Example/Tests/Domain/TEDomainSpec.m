@@ -64,8 +64,11 @@ afterEach(^{
 
 describe(@"initialization", ^{
 
+    it(@"should conform domain protocol", ^{
+        [[sut should] conformToProtocol:@protocol(TEDomainProtocol)];
+    });
+    
     it(@"should perform default setup", ^{
-        
         id executorMock = [KWMock mockForClass:[TESerialExecutor class]];
         [[sut should] receive:@selector(createExecutor) andReturn:executorMock];
         
