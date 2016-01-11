@@ -1,5 +1,5 @@
 PODS:
-  - FLUX (0.0.1):
+  - FLUX (0.0.2):
     - KVOController
     - libextobjc
   - Kiwi (2.4.0)
@@ -46,10 +46,10 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   FLUX:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  FLUX: 4254a916f28f151fb0f236fb9b581472a1396873
+  FLUX: fb8649224aa53005b3115c7cb8322be48b866c4c
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
