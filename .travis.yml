@@ -1,6 +1,6 @@
 language: objective-c
 rvm:
-    - head
+    - ruby-head
 before_install:
     - gem install cocoapods
 podfile: Example/Podfile
