@@ -1,4 +1,8 @@
 language: objective-c
+git:
+	depth: 3
+rvm:
+	- 2.2.2
 before_install:
     - gem install cocoapods 0.39.0
 podfile: Example/Podfile
