@@ -11,11 +11,12 @@
 @class TEBaseStore;
 @class TEBaseAction;
 
-@interface TEDomain : NSObject
-
+@protocol TEDomainProtocol <NSObject>
 - (TEBaseStore *)getStoreByClass:(Class)store;
-
 - (void)registerStore:(TEBaseStore *)store;
 - (void)dispatchAction:(TEBaseAction *)action;
+@end
+
+@interface TEDomain : NSObject <TEDomainProtocol>
 
 @end

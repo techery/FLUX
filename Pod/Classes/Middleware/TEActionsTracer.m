@@ -29,7 +29,6 @@
     
     TEActionStackNode *node = [self nodeFromAction:action];
     [self.trace addObject:node];
-    NSLog(@">Action: %@", [action description]);
 }
 
 - (TEActionStackNode *)nodeFromAction:(TEBaseAction *)action

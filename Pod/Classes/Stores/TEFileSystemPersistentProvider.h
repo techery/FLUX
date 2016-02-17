@@ -7,4 +7,9 @@
 #import "TEPersistenceProtocol.h"
 
 @interface TEFileSystemPersistentProvider : NSObject <TEPersistenceProtocol>
+
+- (instancetype)initWithFileManager:(NSFileManager *)fileManager;
+
+- (instancetype)init __attribute__((unavailable("Use initWithFileManager: instead")));
+
 @end

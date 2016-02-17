@@ -30,7 +30,6 @@
 - (void)restoreState:(id)state ofStore:(TEBaseStore <TEPersistentStoreProtocol> *)store {
     if(state) {
         if(![store.state isEqual:state]) {
-            NSLog(@"Restored from persistence: %@", [state performSelector:@selector(description)]);
             [store setValue:state forKey:@keypath(store.state)];
         }
     }
@@ -42,6 +41,7 @@
     if ([castedStore shouldRestoreState:state]) {
         [self restoreState:state ofStore:castedStore];
     }
+    store.isLoaded = YES;
 }
 
 - (BOOL)shouldObserveStore:(TEBaseStore *)store {

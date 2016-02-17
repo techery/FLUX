@@ -94,4 +94,24 @@ describe(@"registration in dispatcher", ^{
     
 });
 
+describe(@"loaded state", ^{
+    it(@"Should be NO by default", ^{
+        [[theValue(sut.isLoaded) should] beFalse];
+    });
+    
+    it(@"Allow to change it to YES", ^{
+        sut.isLoaded = YES;
+        [[theValue(sut.isLoaded) should] beTrue];
+    });
+    
+    it(@"Should generate KVO event on change", ^{
+        NSObject *observer = [NSObject new];
+        [sut addObserver:observer forKeyPath:@keypath(sut.isLoaded) options:NSKeyValueObservingOptionNew context:nil];
+        [[observer should] receive:@selector(observeValueForKeyPath:ofObject:change:context:) withArguments:@keypath(sut.isLoaded), sut, any(), any()];
+        
+        sut.isLoaded = YES;
+        [sut removeObserver:observer forKeyPath:@keypath(sut.isLoaded)];
+    });
+});
+
 SPEC_END
