@@ -68,6 +68,7 @@ describe(@"register store", ^{
         [[sut should] receive:@selector(restoreState:ofStore:)
                 withArguments:stateMock, storeMock, nil];
 
+        [[storeMock should] receive:@selector(setIsLoaded:) withArguments:theValue(YES)];
         [sut setupStore:storeMock];
     });
 });

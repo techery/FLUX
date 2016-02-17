@@ -41,6 +41,7 @@
     if ([castedStore shouldRestoreState:state]) {
         [self restoreState:state ofStore:castedStore];
     }
+    store.isLoaded = YES;
 }
 
 - (BOOL)shouldObserveStore:(TEBaseStore *)store {

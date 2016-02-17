@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DEFF2B21CAF67A0C4EB461C /* Pods_FLUX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD84D64A7CE0BB738E652433 /* Pods_FLUX_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		53EE3FAD770C180536755ABB /* Pods_FLUX_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBA1528C37CB3819E1659C9 /* Pods_FLUX_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3DEFF2B21CAF67A0C4EB461C /* Pods_FLUX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD84D64A7CE0BB738E652433 /* Pods_FLUX_Tests.framework */; };
+		53EE3FAD770C180536755ABB /* Pods_FLUX_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBA1528C37CB3819E1659C9 /* Pods_FLUX_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };

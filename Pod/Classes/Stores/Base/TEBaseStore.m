@@ -8,8 +8,11 @@
 
 #import "TEBaseStore.h"
 #import "TEBaseState.h"
+#import <libkern/OSAtomic.h>
 
-@interface TEBaseStore ()
+@interface TEBaseStore () {
+    volatile uint32_t _isLoaded;
+}
 
 @property (nonatomic, strong, readwrite) TEBaseState *state;
 
@@ -36,6 +39,26 @@
 - (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher
 {
     [NSException raise:@"Not allowed" format:@"-registerWithLocalDispatcher: method of base class shouldn't be used. Please override it in sublass"];
+}
+
+#pragma mark - Thread-safe loaded state
+
+- (BOOL)isLoaded {
+    return _isLoaded != 0;
+}
+
+- (void)setIsLoaded:(BOOL)isLoaded {
+    [self willChangeValueForKey:@"isLoaded"];
+    if (isLoaded) {
+        OSAtomicOr32Barrier(1, & _isLoaded);
+    } else {
+        OSAtomicAnd32Barrier(0, & _isLoaded);
+    }
+    [self didChangeValueForKey:@"isLoaded"];
+}
+
++ (BOOL)automaticallyNotifiesObserversOfIsLoaded {
+    return NO;
 }
 
 @end
