@@ -1,6 +1,6 @@
 language: objective-c
-before_install:
-    - gem install cocoapods -v '0.39.0'
-install: true
+rvm: 2.2.2
+install:
+	- bundle install
 podfile: Example/Podfile
 script: xctool -workspace Example/FLUX.xcworkspace -scheme FLUX-Example build test -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
