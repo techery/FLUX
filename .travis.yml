@@ -2,5 +2,5 @@ language: objective-c
 rvm: 2.2.2
 before_install: gem update bundler
 install: bundle install
-podfile: Example/Podfile
+before_script: cd Example && pod install 
 script: xctool -workspace Example/FLUX.xcworkspace -scheme FLUX-Example build test -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
