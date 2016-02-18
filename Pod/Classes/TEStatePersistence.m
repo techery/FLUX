@@ -22,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.persistence = [TEFileSystemPersistentProvider alloc] initWithFileManager:[NSFileManager defaultManager];
+        self.persistence = [[TEFileSystemPersistentProvider alloc] initWithFileManager:[NSFileManager defaultManager]];
     }
     return self;
 }
