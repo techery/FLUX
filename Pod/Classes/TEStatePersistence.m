@@ -22,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.persistence = [TEFileSystemPersistentProvider new];
+        self.persistence = [TEFileSystemPersistentProvider alloc] initWithFileManager:[NSFileManager defaultManager];
     }
     return self;
 }
@@ -41,7 +41,7 @@
     if ([castedStore shouldRestoreState:state]) {
         [self restoreState:state ofStore:castedStore];
     }
-    store.isLoaded = YES;
+    castedStore.isLoaded = YES;
 }
 
 - (BOOL)shouldObserveStore:(TEBaseStore *)store {
