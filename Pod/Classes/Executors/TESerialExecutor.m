@@ -16,29 +16,29 @@
 
 @implementation TESerialExecutor
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
-    if(self)
-    {
+    if(self) {
         [self setupExecutionQueue];
     }
     return self;
 }
 
-- (void)setupExecutionQueue
-{
+- (void)setupExecutionQueue {
     self.executionQueue = dispatch_queue_create([self serviceId].UTF8String, DISPATCH_QUEUE_SERIAL);
 }
 
-- (void)execute:(TEExecutorEmptyBlock)block
-{
+- (void)execute:(TEExecutorEmptyBlock)block {
     NSParameterAssert(block);
     dispatch_async(self.executionQueue, block);
 }
 
-- (NSString *)serviceId
-{
+- (void)executeAndWait:(TEExecutorEmptyBlock)block {
+    NSParameterAssert(block);
+    dispatch_sync(self.executionQueue, block);
+}
+
+- (NSString *)serviceId {
     return [NSString stringWithFormat:@"%@.%@.%p", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"], NSStringFromClass([self class]), self];
 }
 

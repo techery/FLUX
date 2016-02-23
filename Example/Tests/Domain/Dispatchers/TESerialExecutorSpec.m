@@ -10,56 +10,63 @@
 #import "TESerialExecutor.h"
 
 @interface TESerialExecutor (Testing)
-
 @property (nonatomic, strong) dispatch_queue_t executionQueue;
-- (NSString *)serviceId;
-
 @end
 
 SPEC_BEGIN(TESerialExecutorSpec)
 
-TESerialExecutor __block *sut;
-
-beforeEach(^{
-    sut = [[TESerialExecutor alloc] init];
-});
-
-afterEach(^{
-    sut = nil;
+let(sut, ^TESerialExecutor *{
+    return [[TESerialExecutor alloc] init];
 });
 
 describe(@"initialization", ^{
-    
     it(@"should create executionQueue", ^{
-        
+        [[sut should] beKindOfClass:[TESerialExecutor class]];
         [[sut.executionQueue shouldNot] beNil];
     });
 });
 
 describe(@"execute", ^{
-
-    it(@"should call block in execution queue", ^{
-        
-        static void *kTestSpecificKey = (void*)"kTestSpecificKey";
+    static void *kTestSpecificKey = (void*)"kTestSpecificKey";
+    beforeEach(^{
         dispatch_queue_set_specific(sut.executionQueue, kTestSpecificKey, (void *)kTestSpecificKey, NULL);
-        
-        NSNumber *__block blockDidLaunch;
-        NSNumber *__block didCallBlockInCorrectQueue;
-
+    });
+    
+    it(@"Calls block in execution queue", ^{
+        __block NSNumber *didLaunchBlock;
         TEExecutorEmptyBlock block = ^{
-            blockDidLaunch = @(YES);
-            if(dispatch_get_specific(kTestSpecificKey))
-            {
-                didCallBlockInCorrectQueue = @(YES);
+            if(dispatch_get_specific(kTestSpecificKey)) {
+                didLaunchBlock = @YES;
             }
         };
-        
-        [[blockDidLaunch shouldNotEventually] beNil];
-        [[didCallBlockInCorrectQueue shouldNotEventually] beNil];
-        
+        [[didLaunchBlock shouldNotEventually] beNil];
         [sut execute:block];
     });
     
+    it(@"Synchronously calls block in execution queue", ^{
+        __block BOOL didLaundBlock;
+        TEExecutorEmptyBlock block = ^{
+            if(dispatch_get_specific(kTestSpecificKey)) {
+                didLaundBlock = YES;
+            }
+        };
+        [sut executeAndWait:block];
+        [[theValue(didLaundBlock) should] beTrue];
+    });
+    
+    #ifndef DNS_BLOCK_ASSERTIONS
+    it(@"Should throw if no block passed to sync execution", ^{
+        [[theBlock(^{
+            [sut executeAndWait:nil];
+        }) should] raise];
+    });
+    
+    it(@"Should throw if no block passed to async execution", ^{
+        [[theBlock(^{
+            [sut execute:nil];
+        }) should] raise];;
+    });
+    #endif
 });
 
 SPEC_END
