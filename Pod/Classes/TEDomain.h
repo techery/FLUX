@@ -15,6 +15,7 @@
 - (TEBaseStore *)getStoreByClass:(Class)store;
 - (void)registerStore:(TEBaseStore *)store;
 - (void)dispatchAction:(TEBaseAction *)action;
+- (void)dispatchActionAndWait:(TEBaseAction *)action;
 @end
 
 @interface TEDomain : NSObject <TEDomainProtocol>
