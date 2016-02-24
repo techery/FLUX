@@ -26,10 +26,6 @@
 - (TEActionsDispatcher *)createDispatcher;
 - (NSArray*)createMiddlewares;
 
-- (void)sendActionToDispatcher:(TEBaseAction *)action;
-- (void)sendActionToMiddlewares:(TEBaseAction *)action;
-
-
 - (void)registerStoreInDispatcher:(TEBaseStore *)store;
 - (void)registerStoreInMiddlewares:(TEBaseStore *)store;
 
@@ -52,14 +48,8 @@
 
 SPEC_BEGIN(TEDomainSpec)
 
-TEDomain __block *sut;
-
-beforeEach(^{
-    sut = [[TEDomain alloc] initForTesting];
-});
-
-afterEach(^{
-    sut = nil;
+let(sut, ^TEDomain *{
+    return [[TEDomain alloc] initForTesting];
 });
 
 describe(@"initialization", ^{
@@ -117,51 +107,57 @@ describe(@"middlewares", ^{
     });
 });
 
-describe(@"actions dispatching", ^{
+describe(@"Action dispatching", ^{
+    let(actionMock, ^id{
+        return [TEBaseAction mock];
+    });
     
-    id __block actionMock;
+    let(executorMock, ^id{
+        return [KWMock mockForProtocol:@protocol(TEExecutor)];
+    });
+    
+    let(actionDispatcherMock, ^{
+        return [TEActionsDispatcher mock];
+    });
+    
+    let(actionMiddleware, ^TEFakeActionMiddleware *{
+        return [TEFakeActionMiddleware new];
+    });
+    
+    let(storeMiddleware, ^TEFakeStoreMiddleware *{
+        return [TEFakeStoreMiddleware new];
+    });
     
     beforeEach(^{
-        actionMock = [KWMock mockForClass:[TEBaseAction class]];
-        sut.executor = [KWMock mockForClass:[TESerialExecutor class]];
-        sut.dispatcher = [KWMock mockForClass:[TEActionsDispatcher class]];
-    });
-
-    it(@"must wrap dispatching to executor", ^{
-        [[sut shouldNot] receive:@selector(sendActionToDispatcher:)];
-        [[sut shouldNot] receive:@selector(sendActionToMiddlewares:)];
-        [(NSObject *)sut.executor stub:@selector(execute:)];
-        [sut dispatchAction:actionMock];
+        sut.executor = executorMock;
+        sut.dispatcher = actionDispatcherMock;
+        sut.middlewares = @[actionMiddleware, storeMiddleware];
     });
     
-    it(@"should dispatch action", ^{
-        [[sut should] receive:@selector(sendActionToDispatcher:) withArguments:actionMock];
+    it(@"Can dispatch action asynchroniously", ^{
+        [[actionDispatcherMock shouldEventually] receive:@selector(dispatchAction:) withArguments:actionMock];
+        [[actionMiddleware shouldEventually] receive:@selector(onActionDispatching:) withArguments:actionMock];
         
-        [[sut should] receive:@selector(sendActionToMiddlewares:) withArguments:actionMock];
+        KWCaptureSpy *executionSpy = [executorMock captureArgument:@selector(executeAndWait:) atIndex:0];
+        [sut dispatchActionAndWait:actionMock];
         
-        [(NSObject *)sut.executor stub:@selector(execute:) withBlock:^id(NSArray *params) {
-            void (^executorBlock)() = params[0];
-            executorBlock();
-            return nil;
-        }];
-        
-        [sut dispatchAction:actionMock];
+        TEExecutorEmptyBlock executionBlock = (TEExecutorEmptyBlock)executionSpy.argument;
+        if(executionBlock) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), executionBlock);
+        }
     });
     
-    it(@"should send action to dispatcher", ^{
-        [[sut.dispatcher should] receive:@selector(dispatchAction:) withArguments:actionMock];
-        [sut sendActionToDispatcher:actionMock];
-    });
-    
-    it(@"should send action to middlewares that implement onActionsDispatching", ^{
-        TEFakeActionMiddleware *actionMw = [TEFakeActionMiddleware new];
-        [[actionMw should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+    it(@"Can dispatch action synchroniously", ^{
+        [[actionDispatcherMock should] receive:@selector(dispatchAction:) withArguments:actionMock];
+        [[actionMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
         
-        TEFakeStoreMiddleware *storeMw = [TEFakeStoreMiddleware new];
+        KWCaptureSpy *executionSpy = [executorMock captureArgument:@selector(executeAndWait:) atIndex:0];
+        [sut dispatchActionAndWait:actionMock];
         
-        [sut stub:@selector(middlewares) andReturn:@[actionMw, storeMw]];
-        
-        [sut sendActionToMiddlewares:actionMock];
+        TEExecutorEmptyBlock executionBlock = (TEExecutorEmptyBlock)executionSpy.argument;
+        if(executionBlock) {
+            dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), executionBlock);
+        }
     });
 });
 
@@ -187,7 +183,6 @@ describe(@"action registrator", ^{
     });
     
     it(@"should call registration methods", ^{
-        
         [[sut should] receive:@selector(registerStoreInDispatcher:) withArguments:storeMock];
         [[sut should] receive:@selector(registerStoreInMiddlewares:) withArguments:storeMock];
         

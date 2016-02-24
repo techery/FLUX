@@ -62,9 +62,21 @@
     @weakify(self);
     [self.executor execute:^{
         @strongify(self);
-        [self sendActionToDispatcher:action];
-        [self sendActionToMiddlewares:action];
+        [self sendActionToHandlers:action];
     }];
+}
+
+- (void)dispatchActionAndWait:(TEBaseAction *)action {
+    @weakify(self);
+    [self.executor executeAndWait:^{
+        @strongify(self);
+        [self sendActionToHandlers:action];
+    }];
+}
+
+- (void)sendActionToHandlers:(TEBaseAction *)action {
+    [self sendActionToDispatcher:action];
+    [self sendActionToMiddlewares:action];
 }
 
 - (void)sendActionToDispatcher:(TEBaseAction *)action

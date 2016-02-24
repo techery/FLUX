@@ -13,5 +13,6 @@ typedef void(^TEExecutorEmptyBlock)();
 @protocol TEExecutor <NSObject>
 
 - (void)execute:(TEExecutorEmptyBlock)block;
+- (void)executeAndWait:(TEExecutorEmptyBlock)block;
 
 @end
