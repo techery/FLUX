@@ -14,7 +14,7 @@
     volatile uint32_t _isLoaded;
 }
 
-@property (nonatomic, strong, readwrite) TEBaseState *state;
+@property (atomic, strong, readwrite) TEBaseState *state;
 
 @end
 
