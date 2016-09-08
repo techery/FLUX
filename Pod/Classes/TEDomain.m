@@ -94,6 +94,16 @@
     }];
 }
 
+- (void)registerTemporaryStore:(TEBaseStore *)store {
+    NSParameterAssert(store);
+    @weakify(self);
+    [self.executor execute:^{
+        @strongify(self);
+        [self registerStoreInDispatcher:store];
+        [self registerStoreInMiddlewares:store];
+    }];
+}
+
 - (void)registerStore:(TEBaseStore *)store {
     NSParameterAssert(store);
     NSString *storeKey = NSStringFromClass([(NSObject *)store class]);
