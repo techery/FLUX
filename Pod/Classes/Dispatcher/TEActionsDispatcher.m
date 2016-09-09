@@ -19,8 +19,6 @@
 
 @implementation TEActionsDispatcher
 
-@synthesize store = _store;
-
 - (instancetype)init
 {
     self = [super init];
@@ -42,12 +40,11 @@
     NSMutableArray *dispatchersToRemove = [NSMutableArray array];
     for(id<TEDispatcherProtocol> dispatcher in self.subDispatchers)
     {
-        if (dispatcher.store) {
-            [dispatcher dispatchAction:action];
-        }
-        else {
+        if (![dispatcher respondsToSelector:@selector(store)] || !dispatcher.store) {
             [dispatchersToRemove addObject:dispatcher];
+            continue;
         }
+        [dispatcher dispatchAction:action];
     }
     [self.subDispatchers removeObjectsInArray:dispatchersToRemove];
 }

@@ -15,12 +15,11 @@
 @interface TEStoreDispatcher ()
 
 @property (nonatomic, strong) NSMutableDictionary *callbacks;
+@property (nonatomic, readwrite, weak) TEBaseStore *store;
 
 @end
 
 @implementation TEStoreDispatcher
-
-@synthesize store = _store;
 
 + (instancetype)dispatcherWithStore:(TEBaseStore *)store
 {

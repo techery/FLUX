@@ -12,8 +12,9 @@
 
 @protocol TEDispatcherProtocol <NSObject>
 
-@property (nonatomic, weak) TEBaseStore *store;
-
 - (void)dispatchAction:(TEBaseAction *)action;
+
+@optional
+@property (nonatomic, weak, readonly) TEBaseStore *store;
 
 @end
