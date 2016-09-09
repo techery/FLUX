@@ -2,6 +2,6 @@ language: objective-c
 rvm: 2.2.2
 osx_image: xcode7.3
 before_install: gem update bundler
-install: travis_wait bundle install
+install: bundle install
 before_script: cd Example && pod install 
-script: xctool -workspace FLUX.xcworkspace -scheme FLUX-Example build test -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+script: travis_wait 30 xctool -workspace FLUX.xcworkspace -scheme FLUX-Example build test -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
