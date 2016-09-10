@@ -62,9 +62,25 @@ describe(@"dispatchAction", ^{
         
         for(NSInteger i = 0; i < 10; i++) {
             id subdispatcher = [KWMock mockForProtocol:@protocol(TEDispatcherProtocol)];
+            [subdispatcher stub:@selector(store) andReturn:[TEBaseStore mock]];
+            
             [[subdispatcher should] receive:@selector(dispatchAction:) withArguments:actionMock];
             [dispatchers addObject:subdispatcher];
         }
+        sut.subDispatchers = dispatchers;
+        
+        [sut dispatchAction:actionMock];
+    });
+    it(@"should not dispatch action to subdispatchers that stores have beed released", ^{
+        
+        id actionMock = [KWMock mockForClass:[TEBaseAction class]];
+        
+        id subdispatcher = [KWMock mockForProtocol:@protocol(TEDispatcherProtocol)];
+        [subdispatcher stub:@selector(store)];
+        
+        [[subdispatcher shouldNot] receive:@selector(dispatchAction:) withArguments:actionMock];
+        
+        NSMutableArray *dispatchers = [@[subdispatcher] mutableCopy];
         sut.subDispatchers = dispatchers;
         
         [sut dispatchAction:actionMock];

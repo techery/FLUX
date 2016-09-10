@@ -1,9 +1,9 @@
 PODS:
-  - FLUX (0.1.1):
+  - FLUX (0.2.0):
     - KVOController
     - libextobjc
   - Kiwi (2.4.0)
-  - KVOController (1.0.3)
+  - KVOController (1.1.0)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
     - libextobjc/EXTConcreteProtocol (= 0.4.1)
@@ -49,9 +49,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  FLUX: 261aa2a9820ed0bc14eda8e3b268af6af542b340
+  FLUX: a7a0c909baa6c5c926c9bce3d8846b2c4d71e8f8
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  KVOController: 9fd8f0343670994e4b6f9f0b31f5a45663f3e1cf
+  KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
 
 COCOAPODS: 0.39.0
