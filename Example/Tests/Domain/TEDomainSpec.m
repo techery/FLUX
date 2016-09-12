@@ -26,6 +26,8 @@
 - (TEActionsDispatcher *)createDispatcher;
 - (NSArray*)createMiddlewares;
 
+- (void)subscribeStoreToEvents:(TEBaseStore *)store;
+
 - (void)registerStoreInDispatcher:(TEBaseStore *)store;
 - (void)registerStoreInMiddlewares:(TEBaseStore *)store;
 
@@ -183,15 +185,7 @@ describe(@"action registrator", ^{
     });
     
     it(@"should call registration methods", ^{
-        [[sut should] receive:@selector(registerStoreInDispatcher:) withArguments:storeMock];
-        [[sut should] receive:@selector(registerStoreInMiddlewares:) withArguments:storeMock];
-        
-        [(NSObject *)sut.executor stub:@selector(execute:) withBlock:^id(NSArray *params) {
-            void (^executorBlock)() = params[0];
-            executorBlock();
-            return nil;
-        }];
-        
+        [[sut should] receive:@selector(subscribeStoreToEvents:) withArguments:storeMock];
         [sut registerStore:storeMock];
     });
     
@@ -209,6 +203,30 @@ describe(@"action registrator", ^{
         [sut stub:@selector(middlewares) andReturn:@[actionMw, storeMw]];
         
         [sut registerStoreInMiddlewares:storeMock];
+    });
+    
+    it(@"should register temporary store in dispatcher without saving", ^{
+        [(NSObject *)sut.executor stub:@selector(execute:)];
+
+        [sut registerTemporaryStore:storeMock];
+        [[[sut.stores objectForKey:NSStringFromClass([storeMock class])] should] beNil];
+    });
+    
+    it(@"should call registration methods for temporary store", ^{
+        [[sut should] receive:@selector(subscribeStoreToEvents:) withArguments:storeMock];
+        [sut registerTemporaryStore:storeMock];
+    });
+    
+    it(@"should register store in dispatcher and middlewares", ^{
+        [[sut should] receive:@selector(registerStoreInDispatcher:) withArguments:storeMock];
+        [[sut should] receive:@selector(registerStoreInMiddlewares:) withArguments:storeMock];
+        
+        [(NSObject *)sut.executor stub:@selector(execute:) withBlock:^id(NSArray *params) {
+            void (^executorBlock)() = params[0];
+            executorBlock();
+            return nil;
+        }];
+        [sut subscribeStoreToEvents:storeMock];
     });
 });
 

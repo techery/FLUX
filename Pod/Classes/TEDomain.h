@@ -13,6 +13,7 @@
 
 @protocol TEDomainProtocol <NSObject>
 - (TEBaseStore *)getStoreByClass:(Class)store;
+- (void)registerTemporaryStore:(TEBaseStore *)store;
 - (void)registerStore:(TEBaseStore *)store;
 - (void)dispatchAction:(TEBaseAction *)action;
 - (void)dispatchActionAndWait:(TEBaseAction *)action;
