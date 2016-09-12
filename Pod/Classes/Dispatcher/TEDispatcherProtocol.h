@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @class TEBaseAction;
+@class TEBaseStore;
 
 @protocol TEDispatcherProtocol <NSObject>
 
 - (void)dispatchAction:(TEBaseAction *)action;
+
+@optional
+@property (nonatomic, weak, readonly) TEBaseStore *store;
 
 @end

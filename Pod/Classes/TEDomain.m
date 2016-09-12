@@ -94,11 +94,19 @@
     }];
 }
 
+- (void)registerTemporaryStore:(TEBaseStore *)store {
+    NSParameterAssert(store);
+    [self subscribeStoreToEvents:store];
+}
+
 - (void)registerStore:(TEBaseStore *)store {
     NSParameterAssert(store);
     NSString *storeKey = NSStringFromClass([(NSObject *)store class]);
     [self.stores setObject:store forKey:storeKey];
-    
+    [self subscribeStoreToEvents:store];
+}
+
+- (void)subscribeStoreToEvents:(TEBaseStore *)store {
     @weakify(self);
     [self.executor execute:^{
         @strongify(self);

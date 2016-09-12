@@ -15,7 +15,7 @@
 @interface TEStoreDispatcher ()
 
 @property (nonatomic, strong) NSMutableDictionary *callbacks;
-@property (nonatomic, weak) TEBaseStore * store;
+@property (nonatomic, readwrite, weak) TEBaseStore *store;
 
 @end
 
