@@ -1,12 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'FLUX_Example', :exclusive => true do
-  pod "FLUX", :path => "../"
-end
-
-target 'FLUX_Tests', :exclusive => true do
+target 'FLUX_Example' do
   pod "FLUX", :path => "../"
 
-  pod 'Kiwi'
+  target 'FLUX_Tests' do
+    pod "FLUX", :path => "../"
+    pod 'Kiwi'
+  end
 end
