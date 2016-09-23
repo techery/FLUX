@@ -4,10 +4,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TEBasePersistentStoreProtocol.h"
 
-@protocol TEPersistentStoreProtocol
-
-- (BOOL)shouldSaveState:(id)state;
-- (BOOL)shouldRestoreState:(id)state;
+@protocol TEPersistentStoreProtocol <TEBasePersistentStoreProtocol>
 
 @end
