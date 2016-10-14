@@ -11,10 +11,10 @@
 #import "TEBaseState.h"
 #import "TEStoreDispatcher.h"
 
-@interface TEBaseStore (Testing)
+@interface TEBaseStore <__covariant ObjectType:TEBaseState *> (Testing)
 
-@property (nonatomic, strong, readwrite) TEBaseState *state;
-- (TEBaseState *)defaultState;
+@property (atomic, strong, readwrite) ObjectType state;
+- (ObjectType)defaultState;
 
 @end
 

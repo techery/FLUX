@@ -11,10 +11,10 @@
 @class TEBaseState;
 @class TEStoreDispatcher;
 
-@interface TEBaseStore : NSObject
+@interface TEBaseStore <__covariant ObjectType:TEBaseState *> : NSObject
 
 @property (nonatomic, assign) BOOL isLoaded;
-@property (nonatomic, readonly) TEBaseState *state;
+@property (atomic, readonly) ObjectType state;
 - (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher;
 
 @end
