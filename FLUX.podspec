@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FLUX"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "Objective-C implementation of FLUX architecture pattern"
   s.description      = "FLUX Pattern implementation in Objective-C"
 
@@ -17,16 +17,9 @@ Pod::Spec.new do |s|
   s.author           = { "Alexey Fayzullov" => "alex.f@techery.io" }
   s.source           = { :git => "https://github.com/techery/FLUX.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'FLUX' => ['Pod/Assets/*.png']
-  }
-
-  s.prefix_header_contents = '#import <libextobjc/extobjc.h>'
-
-  s.dependency 'libextobjc'
   s.dependency 'KVOController'
 end

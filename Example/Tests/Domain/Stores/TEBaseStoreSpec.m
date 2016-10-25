@@ -71,13 +71,13 @@ describe(@"state changing", ^{
         id stateMock = [KWMock mockForClass:[TEBaseState class]];
         
         NSObject *observer = [NSObject new];
-        [sut addObserver:observer forKeyPath:@keypath(sut.state) options:NSKeyValueObservingOptionNew context:nil];
+        [sut addObserver:observer forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
         [[observer should] receive:@selector(observeValueForKeyPath:ofObject:change:context:)];
         
-        [sut setValue:stateMock forKey:@keypath(sut.state)];
+        [sut setValue:stateMock forKey:@"state"];
         [[sut.state should] equal:stateMock];
         
-        [sut removeObserver:observer forKeyPath:@keypath(sut.state)];
+        [sut removeObserver:observer forKeyPath:@"state"];
     });
 });
 
@@ -106,11 +106,11 @@ describe(@"loaded state", ^{
     
     it(@"Should generate KVO event on change", ^{
         NSObject *observer = [NSObject new];
-        [sut addObserver:observer forKeyPath:@keypath(sut.isLoaded) options:NSKeyValueObservingOptionNew context:nil];
-        [[observer should] receive:@selector(observeValueForKeyPath:ofObject:change:context:) withArguments:@keypath(sut.isLoaded), sut, any(), any()];
+        [sut addObserver:observer forKeyPath:@"isLoaded" options:NSKeyValueObservingOptionNew context:nil];
+        [[observer should] receive:@selector(observeValueForKeyPath:ofObject:change:context:) withArguments:@"isLoaded", sut, any(), any()];
         
         sut.isLoaded = YES;
-        [sut removeObserver:observer forKeyPath:@keypath(sut.isLoaded)];
+        [sut removeObserver:observer forKeyPath:@"isLoaded"];
     });
 });
 

@@ -59,7 +59,7 @@
     {
         TEBaseState *newState = callback(action);
         TEBaseStore *store = self.store;
-        [self.store setValue:newState forKey:@keypath(store.state)];
+        [self.store setValue:newState forKey:@"state"];
     }
 }
 

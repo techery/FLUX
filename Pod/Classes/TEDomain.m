@@ -59,18 +59,16 @@
 }
 
 - (void)dispatchAction:(TEBaseAction *)action {
-    @weakify(self);
+    __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
-        @strongify(self);
-        [self sendActionToHandlers:action];
+        [weakSelf sendActionToHandlers:action];
     }];
 }
 
 - (void)dispatchActionAndWait:(TEBaseAction *)action {
-    @weakify(self);
+    __weak typeof(self) weakSelf = self;
     [self.executor executeAndWait:^{
-        @strongify(self);
-        [self sendActionToHandlers:action];
+        [weakSelf sendActionToHandlers:action];
     }];
 }
 
@@ -107,11 +105,10 @@
 }
 
 - (void)subscribeStoreToEvents:(TEBaseStore *)store {
-    @weakify(self);
+    __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
-        @strongify(self);
-        [self registerStoreInDispatcher:store];
-        [self registerStoreInMiddlewares:store];
+        [weakSelf registerStoreInDispatcher:store];
+        [weakSelf registerStoreInMiddlewares:store];
     }];
 }
 

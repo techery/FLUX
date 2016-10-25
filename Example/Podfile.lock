@@ -1,44 +1,8 @@
 PODS:
-  - FLUX (0.2.0):
+  - FLUX (0.3.0):
     - KVOController
-    - libextobjc
   - Kiwi (2.4.0)
   - KVOController (1.2.0)
-  - libextobjc (0.4.1):
-    - libextobjc/EXTADT (= 0.4.1)
-    - libextobjc/EXTConcreteProtocol (= 0.4.1)
-    - libextobjc/EXTKeyPathCoding (= 0.4.1)
-    - libextobjc/EXTNil (= 0.4.1)
-    - libextobjc/EXTSafeCategory (= 0.4.1)
-    - libextobjc/EXTScope (= 0.4.1)
-    - libextobjc/EXTSelectorChecking (= 0.4.1)
-    - libextobjc/EXTSynthesize (= 0.4.1)
-    - libextobjc/NSInvocation+EXT (= 0.4.1)
-    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
-    - libextobjc/RuntimeExtensions (= 0.4.1)
-    - libextobjc/UmbrellaHeader (= 0.4.1)
-  - libextobjc/EXTADT (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTConcreteProtocol (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTKeyPathCoding (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTNil (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSafeCategory (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTScope (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSelectorChecking (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSynthesize (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.4.1):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/RuntimeExtensions (0.4.1)
-  - libextobjc/UmbrellaHeader (0.4.1)
 
 DEPENDENCIES:
   - FLUX (from `../`)
@@ -46,14 +10,13 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   FLUX:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  FLUX: a7a0c909baa6c5c926c9bce3d8846b2c4d71e8f8
+  FLUX: 196bf9efad3a6905e31d8c7a5eeaec2341107815
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
-  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
 
 PODFILE CHECKSUM: 9b2106c4a85fdfedb6fd4d1a2d1628c864a9629b
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

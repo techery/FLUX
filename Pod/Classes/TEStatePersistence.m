@@ -30,7 +30,7 @@
 - (void)restoreState:(id)state ofStore:(TEBaseStore <TEPersistentStoreProtocol> *)store {
     if(state) {
         if(![store.state isEqual:state]) {
-            [store setValue:state forKey:@keypath(store.state)];
+            [store setValue:state forKey:@"state"];
         }
     }
 }

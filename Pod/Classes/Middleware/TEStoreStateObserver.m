@@ -42,15 +42,13 @@
 }
 
 - (void)setupStateObservingOfStore:(TEBaseStore *)store {
-    
-    @weakify(self);
+    __weak typeof(self) weakSelf = self;
     [self.observer observe:store
-                   keyPath:@keypath(store.state)
+                   keyPath:@"state"
                    options:NSKeyValueObservingOptionNew
                      block:^(TEStoreStateObserver *observer, TEBaseStore *object, NSDictionary *change)
      {
-         @strongify(self);
-         [self store:object didChangeState:change[NSKeyValueChangeNewKey]];
+         [weakSelf store:object didChangeState:change[NSKeyValueChangeNewKey]];
      }];
 }
 
