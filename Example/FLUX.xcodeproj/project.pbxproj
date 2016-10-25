@@ -23,9 +23,7 @@
 		6F87B2281BA999CD003E81D0 /* TESerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */; };
 		6F87B2291BA999D0003E81D0 /* TEActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */; };
 		6F87B22A1BA999D3003E81D0 /* TEStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */; };
-		6F87B22B1BA999D6003E81D0 /* TEActionsTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20D1BA997C2003E81D0 /* TEActionsTracerSpec.m */; };
 		6F87B22C1BA999D9003E81D0 /* TEFileSystemPersistentProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20E1BA997C2003E81D0 /* TEFileSystemPersistentProviderSpec.m */; };
-		6F87B22D1BA999E0003E81D0 /* TEStatesTracerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20F1BA997C2003E81D0 /* TEStatesTracerSpec.m */; };
 		6F87B22E1BA999E5003E81D0 /* TEStatePersistenceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2111BA997C2003E81D0 /* TEStatePersistenceSpec.m */; };
 		6F87B22F1BA999E5003E81D0 /* TEStoreStateObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2121BA997C2003E81D0 /* TEStoreStateObserverSpec.m */; };
 		6F87B2301BA999E9003E81D0 /* TEBaseStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */; };
@@ -73,9 +71,7 @@
 		6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActionsDispatcherSpec.m; sourceTree = "<group>"; };
 		6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TESerialExecutorSpec.m; sourceTree = "<group>"; };
 		6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStoreDispatcherSpec.m; sourceTree = "<group>"; };
-		6F87B20D1BA997C2003E81D0 /* TEActionsTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActionsTracerSpec.m; sourceTree = "<group>"; };
 		6F87B20E1BA997C2003E81D0 /* TEFileSystemPersistentProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFileSystemPersistentProviderSpec.m; sourceTree = "<group>"; };
-		6F87B20F1BA997C2003E81D0 /* TEStatesTracerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStatesTracerSpec.m; sourceTree = "<group>"; };
 		6F87B2111BA997C2003E81D0 /* TEStatePersistenceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStatePersistenceSpec.m; sourceTree = "<group>"; };
 		6F87B2121BA997C2003E81D0 /* TEStoreStateObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStoreStateObserverSpec.m; sourceTree = "<group>"; };
 		6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEBaseStoreSpec.m; sourceTree = "<group>"; };
@@ -238,9 +234,7 @@
 		6F87B20C1BA997C2003E81D0 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B20D1BA997C2003E81D0 /* TEActionsTracerSpec.m */,
 				6F87B20E1BA997C2003E81D0 /* TEFileSystemPersistentProviderSpec.m */,
-				6F87B20F1BA997C2003E81D0 /* TEStatesTracerSpec.m */,
 			);
 			path = Middleware;
 			sourceTree = "<group>";
@@ -508,9 +502,7 @@
 				6F87B22E1BA999E5003E81D0 /* TEStatePersistenceSpec.m in Sources */,
 				6F87B22A1BA999D3003E81D0 /* TEStoreDispatcherSpec.m in Sources */,
 				6F87B2291BA999D0003E81D0 /* TEActionsDispatcherSpec.m in Sources */,
-				6F87B22B1BA999D6003E81D0 /* TEActionsTracerSpec.m in Sources */,
 				6F87B22C1BA999D9003E81D0 /* TEFileSystemPersistentProviderSpec.m in Sources */,
-				6F87B22D1BA999E0003E81D0 /* TEStatesTracerSpec.m in Sources */,
 				6F87B2311BA999E9003E81D0 /* TEDomainSpec.m in Sources */,
 				6F87B2281BA999CD003E81D0 /* TESerialExecutorSpec.m in Sources */,
 				6F87B22F1BA999E5003E81D0 /* TEStoreStateObserverSpec.m in Sources */,

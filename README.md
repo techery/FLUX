@@ -1,6 +1,6 @@
 # FLUX
 
-[![CI Status](http://img.shields.io/travis/techery/FLUX.svg?style=flat)](https://travis-ci.org/Alexey Fayzullov/FLUX)
+[![CI Status](http://img.shields.io/travis/techery/FLUX.svg?style=flat)](https://travis-ci.org/techery/FLUX)
 [![Version](https://img.shields.io/cocoapods/v/FLUX.svg?style=flat)](http://cocoapods.org/pods/FLUX)
 [![License](https://img.shields.io/cocoapods/l/FLUX.svg?style=flat)](http://cocoapods.org/pods/FLUX)
 [![Platform](https://img.shields.io/cocoapods/p/FLUX.svg?style=flat)](http://cocoapods.org/pods/FLUX)

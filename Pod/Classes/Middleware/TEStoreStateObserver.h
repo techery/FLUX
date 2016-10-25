@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TEDomainMiddleware.h"
-#import "TEMiddlewareModels.h"
+#import "TEBaseState.h"
 
 @interface TEStoreStateObserver : NSObject <TEDomainMiddleware>
 
