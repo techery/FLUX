@@ -15,6 +15,7 @@
 
 @property (nonatomic, assign) BOOL isLoaded;
 @property (nonatomic, readonly) TEBaseState *state;
+
 - (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher;
 
 @end
