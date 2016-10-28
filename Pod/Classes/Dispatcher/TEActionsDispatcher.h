@@ -11,9 +11,12 @@
 
 @class TEBaseStore;
 @protocol TEExecutor;
+@protocol TEDomainMiddleware;
 
 @interface TEActionsDispatcher : NSObject <TEDispatcherProtocol>
 
++ (instancetype)dispatcherWithMiddlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares;
+- (instancetype)initWithMiddlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares NS_DESIGNATED_INITIALIZER;
 - (void)registerStore:(TEBaseStore *)store;
 
 @end

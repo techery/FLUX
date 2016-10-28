@@ -18,36 +18,34 @@
 @interface TEDomain()
 
 @property (nonatomic, strong) TEActionsDispatcher *dispatcher;
-
 @property (nonatomic, strong) id <TEExecutor> executor;
-@property (nonatomic, strong) NSMutableDictionary *stores;
 
-@property (nonatomic, strong) NSArray *middlewares;
+@property (nonatomic, strong) NSMutableDictionary <NSString *, TEBaseStore *>*stores;
+@property (nonatomic, strong) NSArray <id<TEDomainMiddleware>> *middlewares;
 
 @end
 
 @implementation TEDomain
 
 - (instancetype)init {
+    return [self initWithExecutor:[self createExecutor] middlewares:[self createMiddlewares]];
+}
+
+- (instancetype)initWithExecutor:(id<TEExecutor>)executor
+                     middlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares {
     self = [super init];
     if(self) {
+        self.executor = executor;
+        self.middlewares = middlewares;
+        self.dispatcher = [TEActionsDispatcher dispatcherWithMiddlewares:self.middlewares];
         self.stores = [@{} mutableCopy];
-        self.executor = [self createExecutor];
-        self.dispatcher = [self createDispatcher];
-        self.middlewares = [self createMiddlewares];
         [self setup];
     }
     return self;
 }
 
-- (id<TEExecutor>)createExecutor
-{
+- (id<TEExecutor>)createExecutor {
     return [[TESerialExecutor alloc] init];
-}
-
-- (TEActionsDispatcher *)createDispatcher
-{
-    return [[TEActionsDispatcher alloc] init];
 }
 
 - (NSArray*)createMiddlewares {
@@ -61,34 +59,14 @@
 - (void)dispatchAction:(TEBaseAction *)action {
     __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
-        [weakSelf sendActionToHandlers:action];
+        [weakSelf.dispatcher dispatchAction:action];
     }];
 }
 
 - (void)dispatchActionAndWait:(TEBaseAction *)action {
     __weak typeof(self) weakSelf = self;
     [self.executor executeAndWait:^{
-        [weakSelf sendActionToHandlers:action];
-    }];
-}
-
-- (void)sendActionToHandlers:(TEBaseAction *)action {
-    [self sendActionToDispatcher:action];
-    [self sendActionToMiddlewares:action];
-}
-
-- (void)sendActionToDispatcher:(TEBaseAction *)action
-{
-    [self.dispatcher dispatchAction:action];
-}
-
-- (void)sendActionToMiddlewares:(TEBaseAction *)action
-{
-    [self.middlewares enumerateObjectsUsingBlock:^(id<TEDomainMiddleware> middleware, NSUInteger idx, BOOL *stop) {
-        if([middleware respondsToSelector:@selector(onActionDispatching:)])
-        {
-            [middleware onActionDispatching:action];
-        }
+        [weakSelf.dispatcher dispatchAction:action];
     }];
 }
 
@@ -107,21 +85,7 @@
 - (void)subscribeStoreToEvents:(TEBaseStore *)store {
     __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
-        [weakSelf registerStoreInDispatcher:store];
-        [weakSelf registerStoreInMiddlewares:store];
-    }];
-}
-
-- (void)registerStoreInDispatcher:(TEBaseStore *)store {
-    [self.dispatcher registerStore:store];
-};
-
-- (void)registerStoreInMiddlewares:(TEBaseStore *)store {
-    [self.middlewares enumerateObjectsUsingBlock:^(id<TEDomainMiddleware> middleware, NSUInteger idx, BOOL *stop) {
-        if([middleware respondsToSelector:@selector(onStoreRegistration:)])
-        {
-            [middleware onStoreRegistration:store];
-        }
+        [weakSelf.dispatcher registerStore:store];
     }];
 }
 

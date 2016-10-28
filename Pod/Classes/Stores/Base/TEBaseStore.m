@@ -8,37 +8,66 @@
 
 #import "TEBaseStore.h"
 #import "TEBaseState.h"
+#import "TEBaseAction.h"
 #import <libkern/OSAtomic.h>
 
-@interface TEBaseStore () {
+@interface TEBaseStore () <TEActionRegistry> {
     volatile uint32_t _isLoaded;
 }
 
 @property (nonatomic, strong, readwrite) TEBaseState *state;
+@property (nonatomic, strong) NSMutableDictionary *actionRegistry;
 
 @end
 
 @implementation TEBaseStore
 
-- (instancetype)init
-{
+#pragma mark - Lifecycle
+
+- (instancetype)init {
     self = [super init];
-    if(self)
-    {
+    if(self) {
         self.state = [self defaultState];
+        self.actionRegistry = [NSMutableDictionary new];
+        [self registerWithLocalDispatcher:self];
     }
     return self;
 }
 
-- (TEBaseState *)defaultState
-{
+#pragma mark - Abstract methods
+
+- (TEBaseState *)defaultState {
     [NSException raise:@"Not allowed" format:@"-defaultState method of base class shouldn't be used. Please override it in sublass"];
     return nil;
 }
 
-- (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher
-{
+- (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher {
     [NSException raise:@"Not allowed" format:@"-registerWithLocalDispatcher: method of base class shouldn't be used. Please override it in sublass"];
+}
+
+#pragma mark - Action handling
+
+- (void)dispatchAction:(TEBaseAction *)action {
+    TEActionCallback callback = [self callbackForAction:action];
+    if(callback) {
+        id newState = callback(action);
+        self.state = newState;
+    }
+}
+
+- (void)onAction:(Class)actionClass callback:(TEActionCallback)callback {
+    NSParameterAssert(callback);
+    NSParameterAssert(actionClass);
+    [self.actionRegistry setObject:callback forKey:NSStringFromClass(actionClass)];
+}
+
+- (TEActionCallback)callbackForAction:(TEBaseAction *)action {
+    return [self.actionRegistry objectForKey:NSStringFromClass([action class])];
+}
+
+- (BOOL)respondsToAction:(TEBaseAction *)action {
+    TEActionCallback callback = [self callbackForAction:action];
+    return callback != nil;
 }
 
 #pragma mark - Thread-safe loaded state

@@ -1,8 +1,6 @@
 PODS:
-  - FLUX (0.3.0):
-    - KVOController
+  - FLUX (0.3.0)
   - Kiwi (2.4.0)
-  - KVOController (1.2.0)
 
 DEPENDENCIES:
   - FLUX (from `../`)
@@ -13,9 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FLUX: 196bf9efad3a6905e31d8c7a5eeaec2341107815
+  FLUX: 070b67952723d5af70bd064ea055229a2598fa83
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
-  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
 
 PODFILE CHECKSUM: 9b2106c4a85fdfedb6fd4d1a2d1628c864a9629b
 

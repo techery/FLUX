@@ -9,13 +9,26 @@
 #import <Foundation/Foundation.h>
 
 @class TEBaseState;
-@class TEStoreDispatcher;
+@class TEBaseAction;
+@protocol TEDomainMiddleware;
+
+typedef TEBaseState* (^TEActionCallback)(id action);
+
+@protocol TEActionRegistry <NSObject>
+- (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
+- (TEActionCallback)callbackForAction:(TEBaseAction *)action;
+@end
+
+@class TEBaseStore;
+typedef TEBaseStore<TEActionRegistry> TEStoreDispatcher;
 
 @interface TEBaseStore : NSObject
 
 @property (nonatomic, assign) BOOL isLoaded;
 @property (nonatomic, readonly) TEBaseState *state;
 
-- (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher;
+- (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
+- (BOOL)respondsToAction:(TEBaseAction *)action;
+- (void)dispatchAction:(TEBaseAction *)action;
 
 @end

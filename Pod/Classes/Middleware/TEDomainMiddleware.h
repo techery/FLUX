@@ -10,12 +10,10 @@
 
 @class TEBaseAction;
 @class TEBaseStore;
+@class TEBaseState;
 
 @protocol TEDomainMiddleware <NSObject>
-
-@optional
-
 - (void)onActionDispatching:(TEBaseAction *)action;
 - (void)onStoreRegistration:(TEBaseStore *)store;
-
+- (void)store:(TEBaseStore *)store didChangeState:(TEBaseState *)state;
 @end

@@ -7,46 +7,68 @@
 //
 
 #import "TEActionsDispatcher.h"
-#import "TEStoreDispatcher.h"
 #import "TEBaseAction.h"
-#import "TEExecutor.h"
+#import "TEBaseStore.h"
+#import "TEDomainMiddleware.h"
 
 @interface TEActionsDispatcher ()
 
-@property (nonatomic, strong) NSMutableArray *subDispatchers;
+@property (nonatomic, strong) NSPointerArray *stores;
+@property (nonatomic, strong) NSArray <id<TEDomainMiddleware>> *middlewares;
 
 @end
 
 @implementation TEActionsDispatcher
 
-- (instancetype)init
-{
++ (instancetype)dispatcherWithMiddlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares {
+    return [[self alloc] initWithMiddlewares:middlewares];
+}
+
+- (instancetype)initWithMiddlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares {
     self = [super init];
-    if(self)
-    {
-        _subDispatchers = [@[] mutableCopy];
+    if(self) {
+        self.stores = [NSPointerArray weakObjectsPointerArray];
+        self.middlewares = middlewares;
     }
     return self;
 }
 
-- (void)registerStore:(TEBaseStore *)store
-{
-    id<TEDispatcherProtocol> storeDispatcher = [TEStoreDispatcher dispatcherWithStore:store];
-    [self.subDispatchers addObject:storeDispatcher];
+- (instancetype)init {
+    return [self initWithMiddlewares:nil];
 }
 
-- (void)dispatchAction:(TEBaseAction *)action
-{
-    NSMutableArray *dispatchersToRemove = [NSMutableArray array];
-    for(id<TEDispatcherProtocol> dispatcher in self.subDispatchers)
-    {
-        if (![dispatcher respondsToSelector:@selector(store)] || !dispatcher.store) {
-            [dispatchersToRemove addObject:dispatcher];
-            continue;
+- (void)registerStore:(TEBaseStore *)store {
+    NSParameterAssert([store isKindOfClass:[TEBaseStore class]]);
+    [self.stores addPointer:(__bridge void *)store];
+    [self notifyMiddlewareAboutStoreRegistration:store];
+}
+
+- (void)dispatchAction:(TEBaseAction *)action {
+    [self notifyMiddlewareWithAction:action];
+    for(TEBaseStore *store in self.stores) {
+        if([store respondsToAction:action]) {
+            [store dispatchAction:action];
+            [self notifyMiddlewareWithState:store.state ofStore:store];
         }
-        [dispatcher dispatchAction:action];
     }
-    [self.subDispatchers removeObjectsInArray:dispatchersToRemove];
+}
+
+- (void)notifyMiddlewareWithAction:(TEBaseAction *)action {
+    for (id <TEDomainMiddleware> middleware in self.middlewares) {
+        [middleware onActionDispatching:action];
+    }
+}
+
+- (void)notifyMiddlewareAboutStoreRegistration:(TEBaseStore *)store {
+    for (id <TEDomainMiddleware> middleware in self.middlewares) {
+        [middleware onStoreRegistration:store];
+    }
+}
+
+- (void)notifyMiddlewareWithState:(TEBaseState *)state ofStore:(TEBaseStore *)store {
+    for (id <TEDomainMiddleware> middleware in self.middlewares) {
+        [middleware store:store didChangeState:store.state];
+    }
 }
 
 @end
