@@ -44,14 +44,14 @@ describe(@"execute", ^{
     });
     
     it(@"Synchronously calls block in execution queue", ^{
-        __block BOOL didLaundBlock;
+        __block BOOL didLaunchBlock;
         TEExecutorEmptyBlock block = ^{
             if(dispatch_get_specific(kTestSpecificKey)) {
-                didLaundBlock = YES;
+                didLaunchBlock = YES;
             }
         };
         [sut executeAndWait:block];
-        [[theValue(didLaundBlock) should] beTrue];
+        [[theValue(didLaunchBlock) should] beTrue];
     });
     
     #ifndef DNS_BLOCK_ASSERTIONS

@@ -7,85 +7,128 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "TEActionsDispatcher.h"
-#import "TEStoreDispatcher.h"
-#import "TEBaseAction.h"
-#import "TEBaseStore.h"
-
-@interface TEActionsDispatcher (Testing)
-
-@property (nonatomic, strong) id<TEExecutor> executor;
-@property (nonatomic, strong) NSMutableArray *subDispatchers;
-
-@end
+#import <FLUX/TEActionsDispatcher.h>
+#import <FLUX/TEDomainMiddleware.h>
+#import <FLUX/TEBaseAction.h>
+#import <FLUX/TEBaseStore.h>
+#import <FLUX/TEBaseState.h>
 
 SPEC_BEGIN(TEActionsDispatcherSpec)
 
-TEActionsDispatcher __block *sut;
+__block TEActionsDispatcher  *sut;
+__block NSObject <TEDomainMiddleware> *firstMiddleware;
+__block NSObject <TEDomainMiddleware> *secondMiddleware;
 
 beforeEach(^{
-    sut = [[TEActionsDispatcher alloc] init];
-});
-
-afterEach(^{
-    sut = nil;
+    firstMiddleware = [KWMock mockForProtocol:@protocol(TEDomainMiddleware)];
+    secondMiddleware = [KWMock mockForProtocol:@protocol(TEDomainMiddleware)];
+    sut = [[TEActionsDispatcher alloc] initWithMiddlewares:@[
+                                                             firstMiddleware,
+                                                             secondMiddleware
+                                                             ]];
 });
 
 describe(@"initialization", ^{
     it(@"should initialize correctly", ^{
         [[sut shouldNot] beNil];
-        [[sut.subDispatchers shouldNot] beNil];
-        [[sut.subDispatchers should] beEmpty];
     });
 });
 
-describe(@"registerStore:", ^{
-
-    it(@"should create subdispatcher and register it", ^{
-        id storeMock = [KWMock mockForClass:[TEBaseStore class]];
-        id subdispatcherMock = [KWMock mockForProtocol:@protocol(TEDispatcherProtocol)];
+describe(@"Store registration", ^{
+    it(@"Should notify middlewares", ^{
+        id storeMock = [TEBaseStore mock];
         
-        [TEStoreDispatcher stub:@selector(dispatcherWithStore:) andReturn:subdispatcherMock];
-        
+        /* registering in middleware */
+        [[firstMiddleware should] receive:@selector(onStoreRegistration:) withArguments:storeMock];
+        [[secondMiddleware should] receive:@selector(onStoreRegistration:) withArguments:storeMock];
         [sut registerStore:storeMock];
-        
-        [[sut.subDispatchers shouldNot] beEmpty];
-        [[sut.subDispatchers should] contain:subdispatcherMock];
     });
-});
-
-describe(@"dispatchAction", ^{
-    it(@"should dispatch action to all subdispatchers", ^{
+    
+    it(@"Doesn't retain store", ^{
+        [firstMiddleware stub:@selector(onStoreRegistration:)];
+        [secondMiddleware stub:@selector(onStoreRegistration:)];
         
-        id actionMock = [KWMock mockForClass:[TEBaseAction class]];
-        NSMutableArray *dispatchers = [@[] mutableCopy];
-        
-        for(NSInteger i = 0; i < 10; i++) {
-            id subdispatcher = [KWMock mockForProtocol:@protocol(TEDispatcherProtocol)];
-            [subdispatcher stub:@selector(store) andReturn:[TEBaseStore mock]];
-            
-            [[subdispatcher should] receive:@selector(dispatchAction:) withArguments:actionMock];
-            [dispatchers addObject:subdispatcher];
+        __weak id weakStore;
+        @autoreleasepool {
+            id store = [TEBaseStore mock];
+            [sut registerStore:store];
+            weakStore = store;
         }
-        sut.subDispatchers = dispatchers;
         
-        [sut dispatchAction:actionMock];
-    });
-    it(@"should not dispatch action to subdispatchers that stores have beed released", ^{
-        
-        id actionMock = [KWMock mockForClass:[TEBaseAction class]];
-        
-        id subdispatcher = [KWMock mockForProtocol:@protocol(TEDispatcherProtocol)];
-        [subdispatcher stub:@selector(store)];
-        
-        [[subdispatcher shouldNot] receive:@selector(dispatchAction:) withArguments:actionMock];
-        
-        NSMutableArray *dispatchers = [@[subdispatcher] mutableCopy];
-        sut.subDispatchers = dispatchers;
-        
-        [sut dispatchAction:actionMock];
+        [[weakStore should] beNil];
     });
 });
 
+describe(@"Action dispatch", ^{
+    beforeEach(^{
+        [firstMiddleware stub:@selector(onStoreRegistration:)];
+        [secondMiddleware stub:@selector(onStoreRegistration:)];
+    });
+    
+    it(@"Sent to all stores that respond", ^{
+        id actionMock = [TEBaseAction mock];
+        
+        id firstStore = [TEBaseStore mock];
+        id firstState = [TEBaseState mock];
+        [firstStore stub:@selector(respondsToAction:)
+               andReturn:theValue(YES)
+           withArguments:actionMock];
+        [firstStore stub:@selector(state) andReturn:firstState];
+        
+        id secondStore = [TEBaseStore mock];
+        id secondState = [TEBaseState mock];
+        [secondStore stub:@selector(respondsToAction:)
+                andReturn:theValue(YES)
+            withArguments:actionMock];
+        [secondStore stub:@selector(state) andReturn:secondState];
+        
+        
+        [[firstStore should] receive:@selector(dispatchAction:)
+                       withArguments:actionMock];
+        [[secondStore should] receive:@selector(dispatchAction:)
+                        withArguments:actionMock];
+        
+        [[firstMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+        [[firstMiddleware should] receive:@selector(store:didChangeState:) withArguments:firstStore, firstState];
+        [[firstMiddleware should] receive:@selector(store:didChangeState:) withArguments:secondStore, secondState];
+        
+        [[secondMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+        [[secondMiddleware should] receive:@selector(store:didChangeState:) withArguments:firstStore, firstState];
+        [[secondMiddleware should] receive:@selector(store:didChangeState:) withArguments:secondStore, secondState];
+        
+        [sut registerStore:firstStore];
+        [sut registerStore:secondStore];
+        [sut dispatchAction:actionMock];
+    });
+    
+    it(@"Skips to all stores that don't respond", ^{
+        id actionMock = [TEBaseAction mock];
+        
+        id firstStore = [TEBaseStore mock];
+        [firstStore stub:@selector(respondsToAction:)
+               andReturn:theValue(NO)
+           withArguments:actionMock];
+
+        id secondStore = [TEBaseStore mock];
+        [secondStore stub:@selector(respondsToAction:)
+                andReturn:theValue(NO)
+            withArguments:actionMock];
+        
+        [[firstStore shouldNot] receive:@selector(dispatchAction:)
+                          withArguments:actionMock];
+        [[secondStore shouldNot] receive:@selector(dispatchAction:)
+                        withArguments:actionMock];
+        
+        [[firstMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+        [[firstMiddleware shouldNot] receive:@selector(store:didChangeState:)];
+        
+        [[secondMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+        [[secondMiddleware shouldNot] receive:@selector(store:didChangeState:)];
+        
+        [sut registerStore:firstStore];
+        [sut registerStore:secondStore];
+        [sut dispatchAction:actionMock];
+    });
+});
 
 SPEC_END

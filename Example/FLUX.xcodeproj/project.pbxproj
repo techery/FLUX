@@ -20,12 +20,11 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
+		6F25126B1DC3824700596B8B /* TETestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F25126A1DC3824700596B8B /* TETestExecutor.m */; };
 		6F87B2281BA999CD003E81D0 /* TESerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */; };
 		6F87B2291BA999D0003E81D0 /* TEActionsDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */; };
-		6F87B22A1BA999D3003E81D0 /* TEStoreDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */; };
 		6F87B2301BA999E9003E81D0 /* TEBaseStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */; };
 		6F87B2311BA999E9003E81D0 /* TEDomainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2151BA997C2003E81D0 /* TEDomainSpec.m */; };
-		6F87B2431BA99B97003E81D0 /* TEFakeDomainMiddlewares.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F87B2381BA99B84003E81D0 /* TEFakeDomainMiddlewares.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		F38051156EBFD1DFAA15E137 /* Pods_FLUX_Example_FLUX_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E2DF0D03A4663D277F8453 /* Pods_FLUX_Example_FLUX_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -62,13 +61,13 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		675C841D210EC1B702585710 /* Pods-FLUX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example/Pods-FLUX_Example.release.xcconfig"; sourceTree = "<group>"; };
+		6F2512691DC3824700596B8B /* TETestExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETestExecutor.h; sourceTree = "<group>"; };
+		6F25126A1DC3824700596B8B /* TETestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETestExecutor.m; sourceTree = "<group>"; };
+		6F25126C1DC390C000596B8B /* TETestModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETestModels.h; sourceTree = "<group>"; };
 		6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEActionsDispatcherSpec.m; sourceTree = "<group>"; };
-		6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TESerialExecutorSpec.m; sourceTree = "<group>"; };
-		6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEStoreDispatcherSpec.m; sourceTree = "<group>"; };
+		6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TESerialExecutorSpec.m; path = Dispatchers/TESerialExecutorSpec.m; sourceTree = "<group>"; };
 		6F87B2141BA997C2003E81D0 /* TEBaseStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEBaseStoreSpec.m; sourceTree = "<group>"; };
 		6F87B2151BA997C2003E81D0 /* TEDomainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEDomainSpec.m; sourceTree = "<group>"; };
-		6F87B2371BA99B84003E81D0 /* TEFakeDomainMiddlewares.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEFakeDomainMiddlewares.h; sourceTree = "<group>"; };
-		6F87B2381BA99B84003E81D0 /* TEFakeDomainMiddlewares.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFakeDomainMiddlewares.m; sourceTree = "<group>"; };
 		71E2DF0D03A4663D277F8453 /* Pods_FLUX_Example_FLUX_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLUX_Example_FLUX_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9148EC0BF5955A986BE3174A /* Pods-FLUX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example/Pods-FLUX_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,9 +192,18 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		6F25126F1DC3A4CD00596B8B /* Executor */ = {
+			isa = PBXGroup;
+			children = (
+				6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */,
+			);
+			name = Executor;
+			sourceTree = "<group>";
+		};
 		6F87B2071BA997C2003E81D0 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6F25126F1DC3A4CD00596B8B /* Executor */,
 				6F87B2361BA99B84003E81D0 /* TestModels */,
 				6F87B2081BA997C2003E81D0 /* Dispatchers */,
 				6F87B2131BA997C2003E81D0 /* Stores */,
@@ -208,8 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				6F87B2091BA997C2003E81D0 /* TEActionsDispatcherSpec.m */,
-				6F87B20A1BA997C2003E81D0 /* TESerialExecutorSpec.m */,
-				6F87B20B1BA997C2003E81D0 /* TEStoreDispatcherSpec.m */,
 			);
 			path = Dispatchers;
 			sourceTree = "<group>";
@@ -225,8 +231,9 @@
 		6F87B2361BA99B84003E81D0 /* TestModels */ = {
 			isa = PBXGroup;
 			children = (
-				6F87B2371BA99B84003E81D0 /* TEFakeDomainMiddlewares.h */,
-				6F87B2381BA99B84003E81D0 /* TEFakeDomainMiddlewares.m */,
+				6F2512691DC3824700596B8B /* TETestExecutor.h */,
+				6F25126A1DC3824700596B8B /* TETestExecutor.m */,
+				6F25126C1DC390C000596B8B /* TETestModels.h */,
 			);
 			name = TestModels;
 			path = Tests/TestModels;
@@ -447,6 +454,7 @@
 				6003F59E195388D20070C39A /* FLXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* FLXViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				6F25126B1DC3824700596B8B /* TETestExecutor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,9 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F87B2431BA99B97003E81D0 /* TEFakeDomainMiddlewares.m in Sources */,
 				6F87B2301BA999E9003E81D0 /* TEBaseStoreSpec.m in Sources */,
-				6F87B22A1BA999D3003E81D0 /* TEStoreDispatcherSpec.m in Sources */,
 				6F87B2291BA999D0003E81D0 /* TEActionsDispatcherSpec.m in Sources */,
 				6F87B2311BA999E9003E81D0 /* TEDomainSpec.m in Sources */,
 				6F87B2281BA999CD003E81D0 /* TESerialExecutorSpec.m in Sources */,

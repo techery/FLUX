@@ -27,7 +27,7 @@
 - (instancetype)init {
     self = [super init];
     if(self) {
-        self.state = [self defaultState];
+        self.state = [self.class defaultState];
         self.actionRegistry = [NSMutableDictionary new];
         [self registerWithLocalDispatcher:self];
     }
@@ -37,12 +37,16 @@
 #pragma mark - Abstract methods
 
 - (TEBaseState *)defaultState {
+    return [self.class defaultState];
+}
+
++ (TEBaseState *)defaultState {
     [NSException raise:@"Not allowed" format:@"-defaultState method of base class shouldn't be used. Please override it in sublass"];
     return nil;
 }
 
 - (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher {
-    [NSException raise:@"Not allowed" format:@"-registerWithLocalDispatcher: method of base class shouldn't be used. Please override it in sublass"];
+
 }
 
 #pragma mark - Action handling

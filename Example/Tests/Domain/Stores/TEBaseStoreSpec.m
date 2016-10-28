@@ -7,94 +7,85 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "TEBaseStore.h"
-#import "TEBaseState.h"
-#import "TEStoreDispatcher.h"
-
-@interface TEBaseStore (Testing)
-
-@property (nonatomic, strong, readwrite) TEBaseState *state;
-- (TEBaseState *)defaultState;
-
-@end
-
-@interface TEBaseStore (FakeInit)
-- (instancetype)initForTesting;
-@end
-
-@implementation  TEBaseStore (FakeInit)
-- (instancetype)initForTesting {
-    return [super init];
-}
-@end
+#import <FLUX/TEBaseStore.h>
+#import <FLUX/TEBaseState.h>
+#import <FLUX/TEBaseAction.h>
 
 SPEC_BEGIN(TEBaseStoreSpec)
 
-TEBaseStore __block *sut;
-
-beforeEach(^{
-    sut = [[TEBaseStore alloc] initForTesting];
-});
-
-afterEach(^{
-    sut = nil;
-});
-
-describe(@"init", ^{
-    it(@"should set default state for store", ^{
-        
-        id stateMock = [KWMock mockForClass:[TEBaseStore class]];
-        [[sut should] receive:@selector(defaultState) andReturn:stateMock];
-        sut = [sut init];
-        [[sut.state should] equal:stateMock];
+describe(@"Initialization", ^{
+    it(@"Sets default state", ^{
+        id stateMock = [TEBaseState mock];
+        [TEBaseStore stub:@selector(defaultState) andReturn:stateMock];
+        TEBaseStore *localSut = [[TEBaseStore alloc] init];
+        [[localSut.state should] equal:stateMock];
     });
 });
 
 describe(@"default state", ^{
-    
-    it(@"should raise exception", ^{
+    it(@"should raise an exception", ^{
         [[theBlock(^{
-            [sut defaultState];
+            [TEBaseStore defaultState];
         }) should] raise];
+    });
+    
+    it(@"has backward compatibility", ^{
+        [[TEBaseStore should] receive:@selector(defaultState)
+                            andReturn:[TEBaseState mock]];
+        __unused TEBaseStore *localSut = [[TEBaseStore alloc] init];
     });
 });
 
-describe(@"state changing", ^{
+describe(@"Action handling", ^{
+    __block TEBaseStore *sut;
     
-    it(@"should generate setter for state", ^{
-        [[sut should] respondToSelector:@selector(setState:)];
+    beforeEach(^{
+        [TEBaseStore stub:@selector(defaultState) andReturn:[TEBaseState mock]];
+        sut = [[TEBaseStore alloc] init];
     });
-
     
-    it(@"should trigger KVO on state change", ^{
-        
-        id stateMock = [KWMock mockForClass:[TEBaseState class]];
-        
-        NSObject *observer = [NSObject new];
-        [sut addObserver:observer forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:nil];
-        [[observer should] receive:@selector(observeValueForKeyPath:ofObject:change:context:)];
-        
-        [sut setValue:stateMock forKey:@"state"];
-        [[sut.state should] equal:stateMock];
-        
-        [sut removeObserver:observer forKeyPath:@"state"];
+    it(@"Doesn't respond to actions by default", ^{
+        id actionMock = [TEBaseAction new];
+        BOOL result = [sut respondsToAction:actionMock];
+        [[theValue(result) should] beFalse];
     });
-});
-
-describe(@"registration in dispatcher", ^{
     
-    it(@"should raise exception", ^{
-        
-        id dispatcherMock = [KWMock mockForClass:[TEStoreDispatcher class]];
-        
-        [[theBlock(^{
-            [sut registerWithLocalDispatcher:dispatcherMock];
-        }) should] raise];
+    it(@"Responds to action if registered", ^{
+        id actionMock = [TEBaseAction new];
+        [sut onAction:[TEBaseAction class] callback:^TEBaseState *(id action) {
+            return [TEBaseState mock];
+        }];
+        BOOL result = [sut respondsToAction:actionMock];
+        [[theValue(result) should] beTrue];
+    });
+    
+    it(@"Sets new state if registered", ^{
+        id actionMock = [TEBaseAction new];
+        id stateMock = [TEBaseState new];
+        [sut onAction:[TEBaseAction class] callback:^TEBaseState *(id action) {
+            return stateMock;
+        }];
+        [sut dispatchAction:actionMock];
+        [[sut.state should] beIdenticalTo:stateMock];
+    });
+    
+    it(@"Doesn't change state if not registered", ^{
+        id initialState = sut.state;
+        id actionMock = [TEBaseAction new];
+        [sut dispatchAction:actionMock];
+        [[sut.state should] beIdenticalTo:initialState];
     });
     
 });
 
 describe(@"loaded state", ^{
+    __block TEBaseStore *sut;
+    
+    beforeEach(^{
+        [TEBaseStore stub:@selector(defaultState) andReturn:[TEBaseState mock]];
+        sut = [[TEBaseStore alloc] init];
+    });
+    
     it(@"Should be NO by default", ^{
         [[theValue(sut.isLoaded) should] beFalse];
     });

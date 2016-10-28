@@ -31,4 +31,7 @@ typedef TEBaseStore<TEActionRegistry> TEStoreDispatcher;
 - (BOOL)respondsToAction:(TEBaseAction *)action;
 - (void)dispatchAction:(TEBaseAction *)action;
 
+- (TEBaseState *)defaultState __attribute__((deprecated));
++ (TEBaseState *)defaultState;
+
 @end

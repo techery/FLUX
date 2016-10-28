@@ -11,14 +11,21 @@
 @class TEBaseStore;
 @class TEBaseAction;
 
+@protocol TEExecutor;
+@protocol TEDomainMiddleware;
+
 @protocol TEDomainProtocol <NSObject>
-- (TEBaseStore *)getStoreByClass:(Class)store;
-- (void)registerTemporaryStore:(TEBaseStore *)store;
-- (void)registerStore:(TEBaseStore *)store;
+- (TEBaseStore *)getStoreByClass:(Class)storeClass;
+- (TEBaseStore *)createTemporaryStoreByClass:(Class)storeClass;
+
 - (void)dispatchAction:(TEBaseAction *)action;
 - (void)dispatchActionAndWait:(TEBaseAction *)action;
 @end
 
 @interface TEDomain : NSObject <TEDomainProtocol>
+
+- (instancetype)initWithExecutor:(id<TEExecutor>)executor
+                     middlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares
+                          stores:(NSArray <TEBaseStore *>*)stores;
 
 @end
