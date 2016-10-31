@@ -9,10 +9,8 @@
 #import <Kiwi/Kiwi.h>
 #import <FLUX/TEDomain.h>
 #import <FLUX/TEBaseStore.h>
-#import <FLUX/TEBaseAction.h>
 
 #import <FLUX/TEActionsDispatcher.h>
-#import <FLUX/TEBaseAction.h>
 #import <FLUX/TEDomainMiddleware.h>
 
 #import "TETestModels.h"
@@ -68,7 +66,7 @@ describe(@"Actions", ^{
     it(@"Should dispatch asynchronously", ^{
         KWCaptureSpy *spy = [testExecutor captureArgument:@selector(execute:) atIndex:0];
         
-        id actionMock = [TEBaseAction mock];
+        id actionMock = [NSObject new];
         [[dispatcherMock should] receive:@selector(dispatchAction:) withArguments:actionMock];
         
         [sut dispatchAction:actionMock];
@@ -79,7 +77,7 @@ describe(@"Actions", ^{
     it(@"Should dispatch synchronously", ^{
         KWCaptureSpy *spy = [testExecutor captureArgument:@selector(executeAndWait:) atIndex:0];
         
-        id actionMock = [TEBaseAction mock];
+        id actionMock = [NSObject new];
         [[dispatcherMock should] receive:@selector(dispatchAction:) withArguments:actionMock];
         
         [sut dispatchActionAndWait:actionMock];

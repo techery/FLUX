@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @class TEBaseStore;
-@class TEBaseAction;
 
 @protocol TEExecutor;
 @protocol TEDomainMiddleware;
@@ -18,8 +17,8 @@
 - (TEBaseStore *)getStoreByClass:(Class)storeClass;
 - (TEBaseStore *)createTemporaryStoreByClass:(Class)storeClass;
 
-- (void)dispatchAction:(TEBaseAction *)action;
-- (void)dispatchActionAndWait:(TEBaseAction *)action;
+- (void)dispatchAction:(id)action;
+- (void)dispatchActionAndWait:(id)action;
 @end
 
 @interface TEDomain : NSObject <TEDomainProtocol>

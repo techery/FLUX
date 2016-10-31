@@ -69,14 +69,14 @@
 
 #pragma mark - Action dispatching
 
-- (void)dispatchAction:(TEBaseAction *)action {
+- (void)dispatchAction:(id)action {
     __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
         [weakSelf.dispatcher dispatchAction:action];
     }];
 }
 
-- (void)dispatchActionAndWait:(TEBaseAction *)action {
+- (void)dispatchActionAndWait:(id)action {
     __weak typeof(self) weakSelf = self;
     [self.executor executeAndWait:^{
         [weakSelf.dispatcher dispatchAction:action];

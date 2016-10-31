@@ -7,7 +7,6 @@
 //
 
 #import "TEActionsDispatcher.h"
-#import "TEBaseAction.h"
 #import "TEBaseStore.h"
 #import "TEDomainMiddleware.h"
 
@@ -43,7 +42,7 @@
     [self notifyMiddlewareAboutStoreRegistration:store];
 }
 
-- (void)dispatchAction:(TEBaseAction *)action {
+- (void)dispatchAction:(id)action {
     [self notifyMiddlewareWithAction:action];
     for(TEBaseStore *store in self.stores) {
         if([store respondsToAction:action]) {
@@ -53,7 +52,7 @@
     }
 }
 
-- (void)notifyMiddlewareWithAction:(TEBaseAction *)action {
+- (void)notifyMiddlewareWithAction:(id)action {
     for (id <TEDomainMiddleware> middleware in self.middlewares) {
         [middleware onActionDispatching:action];
     }

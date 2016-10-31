@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class TEBaseAction;
 @class TEBaseStore;
 @class TEBaseState;
 
 @protocol TEDomainMiddleware <NSObject>
-- (void)onActionDispatching:(TEBaseAction *)action;
+- (void)onActionDispatching:(id)action;
 - (void)onStoreRegistration:(TEBaseStore *)store;
 - (void)store:(TEBaseStore *)store didChangeState:(TEBaseState *)state;
 @end

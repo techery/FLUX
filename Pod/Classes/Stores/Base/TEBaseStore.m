@@ -8,7 +8,6 @@
 
 #import "TEBaseStore.h"
 #import "TEBaseState.h"
-#import "TEBaseAction.h"
 #import <libkern/OSAtomic.h>
 
 @interface TEBaseStore () <TEActionRegistry> {
@@ -51,7 +50,7 @@
 
 #pragma mark - Action handling
 
-- (void)dispatchAction:(TEBaseAction *)action {
+- (void)dispatchAction:(id)action {
     TEActionCallback callback = [self callbackForAction:action];
     if(callback) {
         id newState = callback(action);
@@ -65,11 +64,11 @@
     [self.actionRegistry setObject:callback forKey:NSStringFromClass(actionClass)];
 }
 
-- (TEActionCallback)callbackForAction:(TEBaseAction *)action {
+- (TEActionCallback)callbackForAction:(id)action {
     return [self.actionRegistry objectForKey:NSStringFromClass([action class])];
 }
 
-- (BOOL)respondsToAction:(TEBaseAction *)action {
+- (BOOL)respondsToAction:(id)action {
     TEActionCallback callback = [self callbackForAction:action];
     return callback != nil;
 }

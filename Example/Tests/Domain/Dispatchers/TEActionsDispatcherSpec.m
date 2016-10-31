@@ -9,7 +9,6 @@
 #import <Kiwi/Kiwi.h>
 #import <FLUX/TEActionsDispatcher.h>
 #import <FLUX/TEDomainMiddleware.h>
-#import <FLUX/TEBaseAction.h>
 #import <FLUX/TEBaseStore.h>
 #import <FLUX/TEBaseState.h>
 
@@ -66,7 +65,7 @@ describe(@"Action dispatch", ^{
     });
     
     it(@"Sent to all stores that respond", ^{
-        id actionMock = [TEBaseAction mock];
+        id actionMock = [KWMock mock];
         
         id firstStore = [TEBaseStore mock];
         id firstState = [TEBaseState mock];
@@ -102,7 +101,7 @@ describe(@"Action dispatch", ^{
     });
     
     it(@"Skips to all stores that don't respond", ^{
-        id actionMock = [TEBaseAction mock];
+        id actionMock = [KWMock mock];
         
         id firstStore = [TEBaseStore mock];
         [firstStore stub:@selector(respondsToAction:)

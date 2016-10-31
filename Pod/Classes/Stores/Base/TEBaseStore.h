@@ -9,14 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class TEBaseState;
-@class TEBaseAction;
 @protocol TEDomainMiddleware;
 
 typedef TEBaseState* (^TEActionCallback)(id action);
 
 @protocol TEActionRegistry <NSObject>
 - (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
-- (TEActionCallback)callbackForAction:(TEBaseAction *)action;
+- (TEActionCallback)callbackForAction:(id)action;
 @end
 
 @class TEBaseStore;
@@ -28,8 +27,8 @@ typedef TEBaseStore<TEActionRegistry> TEStoreDispatcher;
 @property (nonatomic, readonly) TEBaseState *state;
 
 - (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
-- (BOOL)respondsToAction:(TEBaseAction *)action;
-- (void)dispatchAction:(TEBaseAction *)action;
+- (BOOL)respondsToAction:(id)action;
+- (void)dispatchAction:(id)action;
 
 - (TEBaseState *)defaultState __attribute__((deprecated));
 + (TEBaseState *)defaultState;

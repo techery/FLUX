@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-@class TEBaseAction;
 @class TEBaseStore;
 
 @protocol TEDispatcherProtocol <NSObject>
 
-- (void)dispatchAction:(TEBaseAction *)action;
+- (void)dispatchAction:(id)action;
 
 @end

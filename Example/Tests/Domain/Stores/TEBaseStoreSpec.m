@@ -9,7 +9,6 @@
 #import <Kiwi/Kiwi.h>
 #import <FLUX/TEBaseStore.h>
 #import <FLUX/TEBaseState.h>
-#import <FLUX/TEBaseAction.h>
 
 SPEC_BEGIN(TEBaseStoreSpec)
 
@@ -45,14 +44,14 @@ describe(@"Action handling", ^{
     });
     
     it(@"Doesn't respond to actions by default", ^{
-        id actionMock = [TEBaseAction new];
+        id actionMock = [NSObject new];
         BOOL result = [sut respondsToAction:actionMock];
         [[theValue(result) should] beFalse];
     });
     
     it(@"Responds to action if registered", ^{
-        id actionMock = [TEBaseAction new];
-        [sut onAction:[TEBaseAction class] callback:^TEBaseState *(id action) {
+        id actionMock = [NSObject new];
+        [sut onAction:[NSObject class] callback:^TEBaseState *(id action) {
             return [TEBaseState mock];
         }];
         BOOL result = [sut respondsToAction:actionMock];
@@ -60,9 +59,9 @@ describe(@"Action handling", ^{
     });
     
     it(@"Sets new state if registered", ^{
-        id actionMock = [TEBaseAction new];
+        id actionMock = [NSObject new];
         id stateMock = [TEBaseState new];
-        [sut onAction:[TEBaseAction class] callback:^TEBaseState *(id action) {
+        [sut onAction:[NSObject class] callback:^TEBaseState *(id action) {
             return stateMock;
         }];
         [sut dispatchAction:actionMock];
@@ -71,7 +70,7 @@ describe(@"Action handling", ^{
     
     it(@"Doesn't change state if not registered", ^{
         id initialState = sut.state;
-        id actionMock = [TEBaseAction new];
+        id actionMock = [NSObject new];
         [sut dispatchAction:actionMock];
         [[sut.state should] beIdenticalTo:initialState];
     });
