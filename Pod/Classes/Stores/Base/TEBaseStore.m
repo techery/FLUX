@@ -9,7 +9,7 @@
 #import "TEBaseStore.h"
 #import <libkern/OSAtomic.h>
 
-@interface TEBaseStore () <TEActionRegistry> {
+@interface TEBaseStore () {
     volatile uint32_t _isLoaded;
 }
 
