@@ -8,29 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-@class TEBaseState;
 @protocol TEDomainMiddleware;
 
-typedef TEBaseState* (^TEActionCallback)(id action);
+@protocol TEActionRegistry;
 
-@protocol TEActionRegistry <NSObject>
-- (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
-- (TEActionCallback)callbackForAction:(id)action;
-@end
+@interface TEBaseStore <StateType> : NSObject
 
-@class TEBaseStore;
-typedef TEBaseStore<TEActionRegistry> TEStoreDispatcher;
-
-@interface TEBaseStore : NSObject
+typedef StateType (^TEActionCallback)(id action);
 
 @property (nonatomic, assign) BOOL isLoaded;
-@property (nonatomic, readonly) TEBaseState *state;
+@property (nonatomic, readonly) StateType state;
 
 - (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
 - (BOOL)respondsToAction:(id)action;
 - (void)dispatchAction:(id)action;
 
-- (TEBaseState *)defaultState __attribute__((deprecated));
-+ (TEBaseState *)defaultState;
+- (StateType)defaultState __attribute__((deprecated));
++ (StateType)defaultState;
 
+@end
+
+@protocol TEActionRegistry <NSObject>
+- (void)onAction:(Class)actionClass callback:(TEActionCallback)callback;
+- (TEActionCallback)callbackForAction:(id)action;
 @end

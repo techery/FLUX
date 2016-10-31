@@ -7,14 +7,13 @@
 //
 
 #import "TEBaseStore.h"
-#import "TEBaseState.h"
 #import <libkern/OSAtomic.h>
 
 @interface TEBaseStore () <TEActionRegistry> {
     volatile uint32_t _isLoaded;
 }
 
-@property (nonatomic, strong, readwrite) TEBaseState *state;
+@property (nonatomic, strong, readwrite) id state;
 @property (nonatomic, strong) NSMutableDictionary *actionRegistry;
 
 @end
@@ -28,24 +27,19 @@
     if(self) {
         self.state = [self.class defaultState];
         self.actionRegistry = [NSMutableDictionary new];
-        [self registerWithLocalDispatcher:self];
     }
     return self;
 }
 
 #pragma mark - Abstract methods
 
-- (TEBaseState *)defaultState {
+- (id)defaultState {
     return [self.class defaultState];
 }
 
-+ (TEBaseState *)defaultState {
++ (id)defaultState {
     [NSException raise:@"Not allowed" format:@"-defaultState method of base class shouldn't be used. Please override it in sublass"];
     return nil;
-}
-
-- (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher {
-
 }
 
 #pragma mark - Action handling

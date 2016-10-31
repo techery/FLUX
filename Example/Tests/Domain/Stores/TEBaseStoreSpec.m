@@ -8,13 +8,12 @@
 
 #import <Kiwi/Kiwi.h>
 #import <FLUX/TEBaseStore.h>
-#import <FLUX/TEBaseState.h>
 
 SPEC_BEGIN(TEBaseStoreSpec)
 
 describe(@"Initialization", ^{
     it(@"Sets default state", ^{
-        id stateMock = [TEBaseState mock];
+        id stateMock = [NSObject new];
         [TEBaseStore stub:@selector(defaultState) andReturn:stateMock];
         TEBaseStore *localSut = [[TEBaseStore alloc] init];
         [[localSut.state should] equal:stateMock];
@@ -30,7 +29,7 @@ describe(@"default state", ^{
     
     it(@"has backward compatibility", ^{
         [[TEBaseStore should] receive:@selector(defaultState)
-                            andReturn:[TEBaseState mock]];
+                            andReturn:[NSObject new]];
         __unused TEBaseStore *localSut = [[TEBaseStore alloc] init];
     });
 });
@@ -39,7 +38,7 @@ describe(@"Action handling", ^{
     __block TEBaseStore *sut;
     
     beforeEach(^{
-        [TEBaseStore stub:@selector(defaultState) andReturn:[TEBaseState mock]];
+        [TEBaseStore stub:@selector(defaultState) andReturn:[NSObject new]];
         sut = [[TEBaseStore alloc] init];
     });
     
@@ -51,8 +50,8 @@ describe(@"Action handling", ^{
     
     it(@"Responds to action if registered", ^{
         id actionMock = [NSObject new];
-        [sut onAction:[NSObject class] callback:^TEBaseState *(id action) {
-            return [TEBaseState mock];
+        [sut onAction:[NSObject class] callback:^id(id action) {
+            return [NSObject new];
         }];
         BOOL result = [sut respondsToAction:actionMock];
         [[theValue(result) should] beTrue];
@@ -60,8 +59,8 @@ describe(@"Action handling", ^{
     
     it(@"Sets new state if registered", ^{
         id actionMock = [NSObject new];
-        id stateMock = [TEBaseState new];
-        [sut onAction:[NSObject class] callback:^TEBaseState *(id action) {
+        id stateMock = [NSObject new];
+        [sut onAction:[NSObject class] callback:^id(id action) {
             return stateMock;
         }];
         [sut dispatchAction:actionMock];
@@ -81,7 +80,7 @@ describe(@"loaded state", ^{
     __block TEBaseStore *sut;
     
     beforeEach(^{
-        [TEBaseStore stub:@selector(defaultState) andReturn:[TEBaseState mock]];
+        [TEBaseStore stub:@selector(defaultState) andReturn:[NSObject new]];
         sut = [[TEBaseStore alloc] init];
     });
     

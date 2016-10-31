@@ -10,7 +10,6 @@
 #import <FLUX/TEActionsDispatcher.h>
 #import <FLUX/TEDomainMiddleware.h>
 #import <FLUX/TEBaseStore.h>
-#import <FLUX/TEBaseState.h>
 
 SPEC_BEGIN(TEActionsDispatcherSpec)
 
@@ -68,14 +67,14 @@ describe(@"Action dispatch", ^{
         id actionMock = [KWMock mock];
         
         id firstStore = [TEBaseStore mock];
-        id firstState = [TEBaseState mock];
+        id firstState = [NSObject new];
         [firstStore stub:@selector(respondsToAction:)
                andReturn:theValue(YES)
            withArguments:actionMock];
         [firstStore stub:@selector(state) andReturn:firstState];
         
         id secondStore = [TEBaseStore mock];
-        id secondState = [TEBaseState mock];
+        id secondState = [NSObject new];
         [secondStore stub:@selector(respondsToAction:)
                 andReturn:theValue(YES)
             withArguments:actionMock];

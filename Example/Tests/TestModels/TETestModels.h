@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <FLUX/TEBaseStore.h>
-#import <FLUX/TEBaseState.h>
 
 #define te_createFakeStore(name) \
 \
@@ -18,8 +17,7 @@
 \
 @implementation name \
 \
-+ (TEBaseState *)defaultState { return [TEBaseState new]; } \
-- (void)registerWithLocalDispatcher:(TEStoreDispatcher *)storeDispatcher {} \
++ (id)defaultState { return [NSObject new]; } \
 \
 @end \
 \

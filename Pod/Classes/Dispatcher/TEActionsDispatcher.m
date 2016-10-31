@@ -64,7 +64,7 @@
     }
 }
 
-- (void)notifyMiddlewareWithState:(TEBaseState *)state ofStore:(TEBaseStore *)store {
+- (void)notifyMiddlewareWithState:(id)state ofStore:(TEBaseStore *)store {
     for (id <TEDomainMiddleware> middleware in self.middlewares) {
         [middleware store:store didChangeState:store.state];
     }

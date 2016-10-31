@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @class TEBaseStore;
-@class TEBaseState;
 
 @protocol TEDomainMiddleware <NSObject>
 - (void)onActionDispatching:(id)action;
 - (void)onStoreRegistration:(TEBaseStore *)store;
-- (void)store:(TEBaseStore *)store didChangeState:(TEBaseState *)state;
+- (void)store:(TEBaseStore *)store didChangeState:(id)state;
 @end
