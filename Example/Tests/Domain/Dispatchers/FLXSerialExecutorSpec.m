@@ -1,5 +1,5 @@
 //
-//  TESerialExecutorSpec.m
+//  FLXSerialExecutorSpec.m
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/7/15.
@@ -7,21 +7,21 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import "TESerialExecutor.h"
+#import <FLUX/FLXSerialExecutor.h>
 
-@interface TESerialExecutor (Testing)
+@interface FLXSerialExecutor (Testing)
 @property (nonatomic, strong) dispatch_queue_t executionQueue;
 @end
 
-SPEC_BEGIN(TESerialExecutorSpec)
+SPEC_BEGIN(FLXSerialExecutorSpec)
 
-let(sut, ^TESerialExecutor *{
-    return [[TESerialExecutor alloc] init];
+let(sut, ^FLXSerialExecutor *{
+    return [[FLXSerialExecutor alloc] init];
 });
 
 describe(@"initialization", ^{
     it(@"should create executionQueue", ^{
-        [[sut should] beKindOfClass:[TESerialExecutor class]];
+        [[sut should] beKindOfClass:[FLXSerialExecutor class]];
         [[sut.executionQueue shouldNot] beNil];
     });
 });
@@ -34,7 +34,7 @@ describe(@"execute", ^{
     
     it(@"Calls block in execution queue", ^{
         __block NSNumber *didLaunchBlock;
-        TEExecutorEmptyBlock block = ^{
+        dispatch_block_t block = ^{
             if(dispatch_get_specific(kTestSpecificKey)) {
                 didLaunchBlock = @YES;
             }
@@ -45,7 +45,7 @@ describe(@"execute", ^{
     
     it(@"Synchronously calls block in execution queue", ^{
         __block BOOL didLaunchBlock;
-        TEExecutorEmptyBlock block = ^{
+        dispatch_block_t block = ^{
             if(dispatch_get_specific(kTestSpecificKey)) {
                 didLaunchBlock = YES;
             }

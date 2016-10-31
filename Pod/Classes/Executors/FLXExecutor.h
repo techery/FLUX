@@ -1,5 +1,5 @@
 //
-//  TEDispatcherProtocol.h
+//  FLXExecutor.h
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/4/15.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-@class TEBaseStore;
 
-@protocol TEDispatcherProtocol <NSObject>
+@protocol FLXExecutor <NSObject>
 
-- (void)dispatchAction:(id)action;
+- (void)execute:(dispatch_block_t)block;
+- (void)executeAndWait:(dispatch_block_t)block;
 
 @end

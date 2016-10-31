@@ -1,5 +1,5 @@
 //
-//  TEDomainMiddleware.h
+//  FLXMiddleware.h
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/9/15.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class TEBaseStore;
+@class FLXStore;
 
-@protocol TEDomainMiddleware <NSObject>
+@protocol FLXMiddleware <NSObject>
 - (void)onActionDispatching:(id)action;
-- (void)onStoreRegistration:(TEBaseStore *)store;
-- (void)store:(TEBaseStore *)store didChangeState:(id)state;
+- (void)onStoreRegistration:(FLXStore *)store;
+- (void)store:(FLXStore *)store didChangeState:(id)state;
 @end

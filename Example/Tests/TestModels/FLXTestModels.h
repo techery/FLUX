@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FLUX/TEBaseStore.h>
+#import <FLUX/FLXStore.h>
 
 #define te_defineStoreTestDouble(name) \
 \
-@interface name : TEBaseStore <NSObject *> \
+@interface name : FLXStore <NSObject *> \
 \
 @end \
 \
@@ -22,5 +22,5 @@
 @end \
 \
 
-te_defineStoreTestDouble(TEFakeStore)
-te_defineStoreTestDouble(TETestStore)
+te_defineStoreTestDouble(FLXFakeStore)
+te_defineStoreTestDouble(FLXTestStore)

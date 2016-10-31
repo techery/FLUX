@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Techery. All rights reserved.
 //
 
-#import "TESerialExecutor.h"
+#import "FLXSerialExecutor.h"
 
-@interface TESerialExecutor ()
+@interface FLXSerialExecutor ()
 
 @property (nonatomic, strong) dispatch_queue_t executionQueue;
 
 @end
 
-@implementation TESerialExecutor
+@implementation FLXSerialExecutor
 
 - (instancetype)init {
     self = [super init];
@@ -28,12 +28,12 @@
     self.executionQueue = dispatch_queue_create([self serviceId].UTF8String, DISPATCH_QUEUE_SERIAL);
 }
 
-- (void)execute:(TEExecutorEmptyBlock)block {
+- (void)execute:(dispatch_block_t)block {
     NSParameterAssert(block);
     dispatch_async(self.executionQueue, block);
 }
 
-- (void)executeAndWait:(TEExecutorEmptyBlock)block {
+- (void)executeAndWait:(dispatch_block_t)block {
     NSParameterAssert(block);
     dispatch_sync(self.executionQueue, block);
 }

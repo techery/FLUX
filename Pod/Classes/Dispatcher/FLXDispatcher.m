@@ -1,29 +1,29 @@
 //
-//  TEActionsDispatcher.m
+//  FLXDispatcher.m
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/4/15.
 //  Copyright (c) 2015 Techery. All rights reserved.
 //
 
-#import "TEActionsDispatcher.h"
-#import "TEBaseStore.h"
-#import "TEDomainMiddleware.h"
+#import "FLXDispatcher.h"
+#import "FLXStore.h"
+#import "FLXMiddleware.h"
 
-@interface TEActionsDispatcher ()
+@interface FLXDispatcher ()
 
 @property (nonatomic, strong) NSPointerArray *stores;
-@property (nonatomic, strong) NSArray <id<TEDomainMiddleware>> *middlewares;
+@property (nonatomic, strong) NSArray <id<FLXMiddleware>> *middlewares;
 
 @end
 
-@implementation TEActionsDispatcher
+@implementation FLXDispatcher
 
-+ (instancetype)dispatcherWithMiddlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares {
++ (instancetype)dispatcherWithMiddlewares:(NSArray <id<FLXMiddleware>> *)middlewares {
     return [[self alloc] initWithMiddlewares:middlewares];
 }
 
-- (instancetype)initWithMiddlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares {
+- (instancetype)initWithMiddlewares:(NSArray <id<FLXMiddleware>> *)middlewares {
     self = [super init];
     if(self) {
         self.stores = [NSPointerArray weakObjectsPointerArray];
@@ -36,15 +36,15 @@
     return [self initWithMiddlewares:nil];
 }
 
-- (void)registerStore:(TEBaseStore *)store {
-    NSParameterAssert([store isKindOfClass:[TEBaseStore class]]);
+- (void)registerStore:(FLXStore *)store {
+    NSParameterAssert([store isKindOfClass:[FLXStore class]]);
     [self.stores addPointer:(__bridge void *)store];
     [self notifyMiddlewareAboutStoreRegistration:store];
 }
 
 - (void)dispatchAction:(id)action {
     [self notifyMiddlewareWithAction:action];
-    for(TEBaseStore *store in self.stores) {
+    for(FLXStore *store in self.stores) {
         if([store respondsToAction:action]) {
             [store dispatchAction:action];
             [self notifyMiddlewareWithState:store.state ofStore:store];
@@ -53,19 +53,19 @@
 }
 
 - (void)notifyMiddlewareWithAction:(id)action {
-    for (id <TEDomainMiddleware> middleware in self.middlewares) {
+    for (id <FLXMiddleware> middleware in self.middlewares) {
         [middleware onActionDispatching:action];
     }
 }
 
-- (void)notifyMiddlewareAboutStoreRegistration:(TEBaseStore *)store {
-    for (id <TEDomainMiddleware> middleware in self.middlewares) {
+- (void)notifyMiddlewareAboutStoreRegistration:(FLXStore *)store {
+    for (id <FLXMiddleware> middleware in self.middlewares) {
         [middleware onStoreRegistration:store];
     }
 }
 
-- (void)notifyMiddlewareWithState:(id)state ofStore:(TEBaseStore *)store {
-    for (id <TEDomainMiddleware> middleware in self.middlewares) {
+- (void)notifyMiddlewareWithState:(id)state ofStore:(FLXStore *)store {
+    for (id <FLXMiddleware> middleware in self.middlewares) {
         [middleware store:store didChangeState:store.state];
     }
 }

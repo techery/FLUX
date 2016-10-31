@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TEExecutor.h"
+#import "FLXExecutor.h"
 
-@interface TESerialExecutor : NSObject <TEExecutor>
+@interface FLXSerialExecutor : NSObject <FLXExecutor>
 
 @end

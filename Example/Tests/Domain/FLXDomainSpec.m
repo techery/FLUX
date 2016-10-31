@@ -7,58 +7,58 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import <FLUX/TEDomain.h>
-#import <FLUX/TEBaseStore.h>
+#import <FLUX/FLXDomain.h>
+#import <FLUX/FLXStore.h>
 
-#import <FLUX/TEActionsDispatcher.h>
-#import <FLUX/TEDomainMiddleware.h>
+#import <FLUX/FLXDispatcher.h>
+#import <FLUX/FLXMiddleware.h>
 
-#import "TETestModels.h"
-#import "TETestExecutor.h"
+#import "FLXTestModels.h"
+#import "FLXTestExecutor.h"
 
-SPEC_BEGIN(TEDomainSpec)
+SPEC_BEGIN(FLXDomainSpec)
 
-__block TEActionsDispatcher *dispatcherMock;
-__block TETestExecutor *testExecutor;
-__block TETestStore *testStoreMock;
-__block TEFakeStore *fakeStoreMock;
+__block FLXDispatcher *dispatcherMock;
+__block FLXTestExecutor *testExecutor;
+__block FLXTestStore *testStoreMock;
+__block FLXFakeStore *fakeStoreMock;
 
 beforeEach(^{
-    dispatcherMock = [TEActionsDispatcher mock];
-    testExecutor = [TETestExecutor new];
-    testStoreMock = [TETestStore new];
-    fakeStoreMock = [TEFakeStore new];
+    dispatcherMock = [FLXDispatcher mock];
+    testExecutor = [FLXTestExecutor new];
+    testStoreMock = [FLXTestStore new];
+    fakeStoreMock = [FLXFakeStore new];
 });
 
 describe(@"Initialization", ^{
-    __block id<TEDomainMiddleware> middlewareMock;
+    __block id<FLXMiddleware> middlewareMock;
     
     it(@"Should create dispatcher and register stores", ^{
-        middlewareMock = [KWMock mockForProtocol:@protocol(TEDomainMiddleware)];
+        middlewareMock = [KWMock mockForProtocol:@protocol(FLXMiddleware)];
         
-        [[TEActionsDispatcher should] receive:@selector(dispatcherWithMiddlewares:)
+        [[FLXDispatcher should] receive:@selector(dispatcherWithMiddlewares:)
                                     andReturn:dispatcherMock
                                 withArguments:@[middlewareMock]];
         
         [[dispatcherMock should] receive:@selector(registerStore:) withArguments:fakeStoreMock];
         [[dispatcherMock should] receive:@selector(registerStore:) withArguments:testStoreMock];
         
-        __unused TEDomain *localSut = [[TEDomain alloc] initWithExecutor:[TETestExecutor new]
+        __unused FLXDomain *localSut = [[FLXDomain alloc] initWithExecutor:[FLXTestExecutor new]
                                                              middlewares:@[middlewareMock]
                                                                   stores:@[fakeStoreMock, testStoreMock]];
         
         [[localSut shouldNot] beNil];
-        [[localSut should] conformToProtocol:@protocol(TEDomainProtocol)];
+        [[localSut should] conformToProtocol:@protocol(FLXDomainProtocol)];
     });
 });
 
 describe(@"Actions", ^{
-    __block TEDomain *sut;
+    __block FLXDomain *sut;
     
     beforeEach(^{
-        [TEActionsDispatcher stub:@selector(dispatcherWithMiddlewares:)
+        [FLXDispatcher stub:@selector(dispatcherWithMiddlewares:)
                         andReturn:dispatcherMock];
-        sut = [[TEDomain alloc] initWithExecutor:testExecutor
+        sut = [[FLXDomain alloc] initWithExecutor:testExecutor
                                      middlewares:@[]
                                           stores:@[]];
     });
@@ -86,24 +86,24 @@ describe(@"Actions", ^{
 });
 
 describe(@"Persistent stores", ^{
-    __block TEDomain *sut;
+    __block FLXDomain *sut;
     
     beforeEach(^{
         [dispatcherMock stub:@selector(registerStore:)];
-        [TEActionsDispatcher stub:@selector(dispatcherWithMiddlewares:)
+        [FLXDispatcher stub:@selector(dispatcherWithMiddlewares:)
                         andReturn:dispatcherMock];
-        sut = [[TEDomain alloc] initWithExecutor:[TETestExecutor new]
+        sut = [[FLXDomain alloc] initWithExecutor:[FLXTestExecutor new]
                                      middlewares:@[]
                                           stores:@[fakeStoreMock]];
     });
     
     it(@"Returns store if registered", ^{
-        id fakeStore = [sut getStoreByClass:[TEFakeStore class]];
+        id fakeStore = [sut getStoreByClass:[FLXFakeStore class]];
         [[fakeStore should] equal:fakeStoreMock];
     });
     
     it(@"Returns nil if not registered", ^{
-        id result = [sut getStoreByClass:[TETestStore class]];
+        id result = [sut getStoreByClass:[FLXTestStore class]];
         [[result should] beNil];
     });
     
@@ -114,22 +114,22 @@ describe(@"Persistent stores", ^{
 });
 
 describe(@"Temporary store", ^{
-    __block TEDomain *sut;
+    __block FLXDomain *sut;
     
     beforeEach(^{
-        [TEActionsDispatcher stub:@selector(dispatcherWithMiddlewares:)
+        [FLXDispatcher stub:@selector(dispatcherWithMiddlewares:)
                         andReturn:dispatcherMock];
-        sut = [[TEDomain alloc] initWithExecutor:[TETestExecutor new]
+        sut = [[FLXDomain alloc] initWithExecutor:[FLXTestExecutor new]
                                      middlewares:@[]
                                           stores:@[]];
     });
     
     it(@"Creates and registers new store", ^{
         KWCaptureSpy *spy = [dispatcherMock captureArgument:@selector(registerStore:) atIndex:0];
-        id result = [sut createTemporaryStoreByClass:[TEFakeStore class]];
+        id result = [sut createTemporaryStoreByClass:[FLXFakeStore class]];
         
         [[result shouldNot] beNil];
-        [[result should] beKindOfClass:[TEFakeStore class]];
+        [[result should] beKindOfClass:[FLXFakeStore class]];
         [[spy.argument should] equal:result];
     });
     

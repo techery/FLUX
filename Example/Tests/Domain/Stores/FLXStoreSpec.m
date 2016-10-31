@@ -1,5 +1,5 @@
 //
-//  TEBaseStoreSpec.m
+//  FLXStoreSpec.m
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/10/15.
@@ -7,15 +7,15 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import <FLUX/TEBaseStore.h>
+#import <FLUX/FLXStore.h>
 
-SPEC_BEGIN(TEBaseStoreSpec)
+SPEC_BEGIN(FLXStoreSpec)
 
 describe(@"Initialization", ^{
     it(@"Sets default state", ^{
         id stateMock = [NSObject new];
-        [TEBaseStore stub:@selector(defaultState) andReturn:stateMock];
-        TEBaseStore *localSut = [[TEBaseStore alloc] init];
+        [FLXStore stub:@selector(defaultState) andReturn:stateMock];
+        FLXStore *localSut = [[FLXStore alloc] init];
         [[localSut.state should] equal:stateMock];
     });
 });
@@ -23,23 +23,23 @@ describe(@"Initialization", ^{
 describe(@"default state", ^{
     it(@"should raise an exception", ^{
         [[theBlock(^{
-            [TEBaseStore defaultState];
+            [FLXStore defaultState];
         }) should] raise];
     });
     
     it(@"has backward compatibility", ^{
-        [[TEBaseStore should] receive:@selector(defaultState)
+        [[FLXStore should] receive:@selector(defaultState)
                             andReturn:[NSObject new]];
-        __unused TEBaseStore *localSut = [[TEBaseStore alloc] init];
+        __unused FLXStore *localSut = [[FLXStore alloc] init];
     });
 });
 
 describe(@"Action handling", ^{
-    __block TEBaseStore *sut;
+    __block FLXStore *sut;
     
     beforeEach(^{
-        [TEBaseStore stub:@selector(defaultState) andReturn:[NSObject new]];
-        sut = [[TEBaseStore alloc] init];
+        [FLXStore stub:@selector(defaultState) andReturn:[NSObject new]];
+        sut = [[FLXStore alloc] init];
     });
     
     it(@"Doesn't respond to actions by default", ^{
@@ -77,11 +77,11 @@ describe(@"Action handling", ^{
 });
 
 describe(@"loaded state", ^{
-    __block TEBaseStore *sut;
+    __block FLXStore *sut;
     
     beforeEach(^{
-        [TEBaseStore stub:@selector(defaultState) andReturn:[NSObject new]];
-        sut = [[TEBaseStore alloc] init];
+        [FLXStore stub:@selector(defaultState) andReturn:[NSObject new]];
+        sut = [[FLXStore alloc] init];
     });
     
     it(@"Should be NO by default", ^{

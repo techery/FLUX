@@ -1,15 +1,15 @@
 //
-//  TEBaseStore.m
+//  FLXStore.m
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/9/15.
 //  Copyright (c) 2015 Techery. All rights reserved.
 //
 
-#import "TEBaseStore.h"
+#import "FLXStore.h"
 #import <libkern/OSAtomic.h>
 
-@interface TEBaseStore () {
+@interface FLXStore () {
     volatile uint32_t _isLoaded;
 }
 
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation TEBaseStore
+@implementation FLXStore
 
 #pragma mark - Lifecycle
 
@@ -45,25 +45,25 @@
 #pragma mark - Action handling
 
 - (void)dispatchAction:(id)action {
-    TEActionCallback callback = [self callbackForAction:action];
+    FLXActionCallback callback = [self callbackForAction:action];
     if(callback) {
         id newState = callback(action);
         self.state = newState;
     }
 }
 
-- (void)onAction:(Class)actionClass callback:(TEActionCallback)callback {
+- (void)onAction:(Class)actionClass callback:(FLXActionCallback)callback {
     NSParameterAssert(callback);
     NSParameterAssert(actionClass);
     [self.actionRegistry setObject:callback forKey:NSStringFromClass(actionClass)];
 }
 
-- (TEActionCallback)callbackForAction:(id)action {
+- (FLXActionCallback)callbackForAction:(id)action {
     return [self.actionRegistry objectForKey:NSStringFromClass([action class])];
 }
 
 - (BOOL)respondsToAction:(id)action {
-    TEActionCallback callback = [self callbackForAction:action];
+    FLXActionCallback callback = [self callbackForAction:action];
     return callback != nil;
 }
 

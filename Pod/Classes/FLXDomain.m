@@ -1,44 +1,44 @@
 //
-//  TEDomain.m
+//  FLXDomain.m
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/4/15.
 //  Copyright (c) 2015 Techery. All rights reserved.
 //
 
-#import "TEDomain.h"
-#import "TEDispatcherProtocol.h"
-#import "TESerialExecutor.h"
-#import "TEActionsDispatcher.h"
-#import "TEBaseStore.h"
-#import "TEDomainMiddleware.h"
+#import "FLXDomain.h"
+#import "FLXDispatcherProtocol.h"
+#import "FLXSerialExecutor.h"
+#import "FLXDispatcher.h"
+#import "FLXStore.h"
+#import "FLXMiddleware.h"
 
-@interface TEDomain()
+@interface FLXDomain()
 
-@property (nonatomic, strong) TEActionsDispatcher *dispatcher;
-@property (nonatomic, strong) id <TEExecutor> executor;
+@property (nonatomic, strong) FLXDispatcher *dispatcher;
+@property (nonatomic, strong) id <FLXExecutor> executor;
 
-@property (nonatomic, strong) NSMutableDictionary <NSString *, TEBaseStore *>*storeRegistry;
-@property (nonatomic, strong) NSArray <id<TEDomainMiddleware>> *middlewares;
+@property (nonatomic, strong) NSMutableDictionary <NSString *, FLXStore *>*storeRegistry;
+@property (nonatomic, strong) NSArray <id<FLXMiddleware>> *middlewares;
 
 @end
 
-@implementation TEDomain
+@implementation FLXDomain
 
 - (instancetype)init {
-    return [self initWithExecutor:[TESerialExecutor new]
+    return [self initWithExecutor:[FLXSerialExecutor new]
                       middlewares:@[]
                            stores:@[]];
 }
 
-- (instancetype)initWithExecutor:(id<TEExecutor>)executor
-                     middlewares:(NSArray <id<TEDomainMiddleware>> *)middlewares
-                          stores:(NSArray <TEBaseStore *>*)stores {
+- (instancetype)initWithExecutor:(id<FLXExecutor>)executor
+                     middlewares:(NSArray <id<FLXMiddleware>> *)middlewares
+                          stores:(NSArray <FLXStore *>*)stores {
     self = [super init];
     if(self) {
         self.executor = executor;
         self.middlewares = middlewares;
-        self.dispatcher = [TEActionsDispatcher dispatcherWithMiddlewares:self.middlewares];
+        self.dispatcher = [FLXDispatcher dispatcherWithMiddlewares:self.middlewares];
         [self registerStores:stores];
     }
     return self;
@@ -46,21 +46,21 @@
 
 #pragma mark - Stores registration
 
-- (void)registerStores:(NSArray <TEBaseStore *>*)storesArray {
+- (void)registerStores:(NSArray <FLXStore *>*)storesArray {
     self.storeRegistry = [NSMutableDictionary new];
-    for(TEBaseStore *store in storesArray) {
+    for(FLXStore *store in storesArray) {
         [self registerStore:store];
     }
 }
 
-- (void)registerStore:(TEBaseStore *)store {
+- (void)registerStore:(FLXStore *)store {
     NSParameterAssert(store);
     NSString *storeKey = NSStringFromClass([store class]);
     [self.storeRegistry setObject:store forKey:storeKey];
     [self subscribeStoreToEvents:store];
 }
 
-- (void)subscribeStoreToEvents:(TEBaseStore *)store {
+- (void)subscribeStoreToEvents:(FLXStore *)store {
     __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
         [weakSelf.dispatcher registerStore:store];
@@ -85,14 +85,14 @@
 
 #pragma mark - Store accessors
 
-- (TEBaseStore *)getStoreByClass:(Class)class {
+- (FLXStore *)getStoreByClass:(Class)class {
     return [self.storeRegistry objectForKey:NSStringFromClass(class)];
 }
 
-- (TEBaseStore *)createTemporaryStoreByClass:(Class)storeClass {
+- (FLXStore *)createTemporaryStoreByClass:(Class)storeClass {
     id instance = [[storeClass alloc] init];
-    if([instance isKindOfClass:[TEBaseStore class]]) {
-        TEBaseStore *store = (TEBaseStore *)instance;
+    if([instance isKindOfClass:[FLXStore class]]) {
+        FLXStore *store = (FLXStore *)instance;
         [self subscribeStoreToEvents:store];
         return store;
     }

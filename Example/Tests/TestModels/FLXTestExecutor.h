@@ -1,5 +1,5 @@
 //
-//  TETestExecutor.h
+//  FLXTestExecutor.h
 //  FLUX
 //
 //  Created by Alex Faizullov on 10/28/16.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FLUX/TEExecutor.h>
+#import <FLUX/FLXExecutor.h>
 
-@interface TETestExecutor : NSObject <TEExecutor>
+@interface FLXTestExecutor : NSObject <FLXExecutor>
 @end

@@ -1,5 +1,5 @@
 //
-//  TEActionsDispatcher.m
+//  FLXDispatcher.m
 //  MasterApp
 //
 //  Created by Alexey Fayzullov on 9/6/15.
@@ -7,20 +7,20 @@
 //
 
 #import <Kiwi/Kiwi.h>
-#import <FLUX/TEActionsDispatcher.h>
-#import <FLUX/TEDomainMiddleware.h>
-#import <FLUX/TEBaseStore.h>
+#import <FLUX/FLXDispatcher.h>
+#import <FLUX/FLXMiddleware.h>
+#import <FLUX/FLXStore.h>
 
-SPEC_BEGIN(TEActionsDispatcherSpec)
+SPEC_BEGIN(FLXDispatcherSpec)
 
-__block TEActionsDispatcher  *sut;
-__block NSObject <TEDomainMiddleware> *firstMiddleware;
-__block NSObject <TEDomainMiddleware> *secondMiddleware;
+__block FLXDispatcher  *sut;
+__block NSObject <FLXMiddleware> *firstMiddleware;
+__block NSObject <FLXMiddleware> *secondMiddleware;
 
 beforeEach(^{
-    firstMiddleware = [KWMock mockForProtocol:@protocol(TEDomainMiddleware)];
-    secondMiddleware = [KWMock mockForProtocol:@protocol(TEDomainMiddleware)];
-    sut = [[TEActionsDispatcher alloc] initWithMiddlewares:@[
+    firstMiddleware = [KWMock mockForProtocol:@protocol(FLXMiddleware)];
+    secondMiddleware = [KWMock mockForProtocol:@protocol(FLXMiddleware)];
+    sut = [[FLXDispatcher alloc] initWithMiddlewares:@[
                                                              firstMiddleware,
                                                              secondMiddleware
                                                              ]];
@@ -34,7 +34,7 @@ describe(@"initialization", ^{
 
 describe(@"Store registration", ^{
     it(@"Should notify middlewares", ^{
-        id storeMock = [TEBaseStore mock];
+        id storeMock = [FLXStore mock];
         
         /* registering in middleware */
         [[firstMiddleware should] receive:@selector(onStoreRegistration:) withArguments:storeMock];
@@ -48,7 +48,7 @@ describe(@"Store registration", ^{
         
         __weak id weakStore;
         @autoreleasepool {
-            id store = [TEBaseStore mock];
+            id store = [FLXStore mock];
             [sut registerStore:store];
             weakStore = store;
         }
@@ -66,14 +66,14 @@ describe(@"Action dispatch", ^{
     it(@"Sent to all stores that respond", ^{
         id actionMock = [KWMock mock];
         
-        id firstStore = [TEBaseStore mock];
+        id firstStore = [FLXStore mock];
         id firstState = [NSObject new];
         [firstStore stub:@selector(respondsToAction:)
                andReturn:theValue(YES)
            withArguments:actionMock];
         [firstStore stub:@selector(state) andReturn:firstState];
         
-        id secondStore = [TEBaseStore mock];
+        id secondStore = [FLXStore mock];
         id secondState = [NSObject new];
         [secondStore stub:@selector(respondsToAction:)
                 andReturn:theValue(YES)
@@ -102,12 +102,12 @@ describe(@"Action dispatch", ^{
     it(@"Skips to all stores that don't respond", ^{
         id actionMock = [KWMock mock];
         
-        id firstStore = [TEBaseStore mock];
+        id firstStore = [FLXStore mock];
         [firstStore stub:@selector(respondsToAction:)
                andReturn:theValue(NO)
            withArguments:actionMock];
 
-        id secondStore = [TEBaseStore mock];
+        id secondStore = [FLXStore mock];
         [secondStore stub:@selector(respondsToAction:)
                 andReturn:theValue(NO)
             withArguments:actionMock];
