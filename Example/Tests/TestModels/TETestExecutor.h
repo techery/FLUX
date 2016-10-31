@@ -10,8 +10,4 @@
 #import <FLUX/TEExecutor.h>
 
 @interface TETestExecutor : NSObject <TEExecutor>
-
-- (void)execute:(TEExecutorEmptyBlock)block;
-- (void)executeAndWait:(TEExecutorEmptyBlock)block;
-
 @end

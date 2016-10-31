@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <FLUX/TEBaseStore.h>
 
-#define te_createFakeStore(name) \
+#define te_defineStoreTestDouble(name) \
 \
-@interface name : TEBaseStore \
+@interface name : TEBaseStore <NSObject *> \
 \
 @end \
 \
@@ -22,5 +22,5 @@
 @end \
 \
 
-te_createFakeStore(TEFakeStore)
-te_createFakeStore(TETestStore)
+te_defineStoreTestDouble(TEFakeStore)
+te_defineStoreTestDouble(TETestStore)

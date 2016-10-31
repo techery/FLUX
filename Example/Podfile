@@ -7,7 +7,5 @@ target 'FLUX_Example' do
   target 'FLUX_Tests' do
     pod "FLUX", :path => "../"
     pod 'Kiwi'
-    pod 'OCMock'
-    pod 'Expecta'
   end
 end
