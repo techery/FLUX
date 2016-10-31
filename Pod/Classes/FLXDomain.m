@@ -85,11 +85,11 @@
 
 #pragma mark - Store accessors
 
-- (FLXStore *)getStoreByClass:(Class)class {
+- (FLXStore *)storeByClass:(Class)class {
     return [self.storeRegistry objectForKey:NSStringFromClass(class)];
 }
 
-- (FLXStore *)createTemporaryStoreByClass:(Class)storeClass {
+- (FLXStore *)temporaryStoreOfClass:(Class)storeClass {
     id instance = [[storeClass alloc] init];
     if([instance isKindOfClass:[FLXStore class]]) {
         FLXStore *store = (FLXStore *)instance;

@@ -98,17 +98,17 @@ describe(@"Persistent stores", ^{
     });
     
     it(@"Returns store if registered", ^{
-        id fakeStore = [sut getStoreByClass:[FLXFakeStore class]];
+        id fakeStore = [sut storeByClass:[FLXFakeStore class]];
         [[fakeStore should] equal:fakeStoreMock];
     });
     
     it(@"Returns nil if not registered", ^{
-        id result = [sut getStoreByClass:[FLXTestStore class]];
+        id result = [sut storeByClass:[FLXTestStore class]];
         [[result should] beNil];
     });
     
     it(@"Returns nil if requested class is not a store", ^{
-        id result = [sut getStoreByClass:[NSObject class]];
+        id result = [sut storeByClass:[NSObject class]];
         [[result should] beNil];
     });
 });
@@ -126,7 +126,7 @@ describe(@"Temporary store", ^{
     
     it(@"Creates and registers new store", ^{
         KWCaptureSpy *spy = [dispatcherMock captureArgument:@selector(registerStore:) atIndex:0];
-        id result = [sut createTemporaryStoreByClass:[FLXFakeStore class]];
+        id result = [sut temporaryStoreOfClass:[FLXFakeStore class]];
         
         [[result shouldNot] beNil];
         [[result should] beKindOfClass:[FLXFakeStore class]];
@@ -134,7 +134,7 @@ describe(@"Temporary store", ^{
     });
     
     it(@"Returns nil if class is not a store", ^{
-        id result = [sut createTemporaryStoreByClass:[NSObject class]];
+        id result = [sut temporaryStoreOfClass:[NSObject class]];
         [[result should] beNil];
     });
 });
