@@ -58,8 +58,9 @@
 /**
  Main FLUX class that is designed to be subclassed by your application domain.
 
- @warning This class is not designed for subclassing. Basically the only reason for subclassing is to extend base
- implementation with more convenience accessors for stores, e.g. wrap @link -(void)storeByClass:(Class)storeClass @/link to @link -(CustomStoreClass)mySpecificStore @/link method.
+ @warning This class is designed for subclassing by your application domain, but be careful with overriding 
+ base implementation of FLXDomainProtocol methods. Recommended way to subclass a domain is to extend it's implementation 
+ with more convinient methods e.g. specific store accessors, constructors etc.
  */
 @interface FLXDomain : NSObject <FLXDomainProtocol>
 

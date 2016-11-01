@@ -25,4 +25,3 @@ jazzy \
 
 # restore the dir per the jazzy issue
 mv $SOURCE_TMP $SOURCE
-rm -rf $SOURCE_TMP

@@ -18,9 +18,6 @@
  All middleware methods are called in a context provided by domain's executor.
  That's why it is considered as a good practice to apply side-effect asynchronously 
  in order to prevent blocking action processing by stores.
- 
- @see FLXExecutor
- @see FLXSerialExecutor
  */
 @protocol FLXMiddleware <NSObject>
 
