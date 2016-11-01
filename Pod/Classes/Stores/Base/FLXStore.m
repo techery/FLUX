@@ -67,24 +67,4 @@
     return callback != nil;
 }
 
-#pragma mark - Thread-safe loaded state
-
-- (BOOL)isLoaded {
-    return _isLoaded != 0;
-}
-
-- (void)setIsLoaded:(BOOL)isLoaded {
-    [self willChangeValueForKey:@"isLoaded"];
-    if (isLoaded) {
-        OSAtomicOr32Barrier(1, & _isLoaded);
-    } else {
-        OSAtomicAnd32Barrier(0, & _isLoaded);
-    }
-    [self didChangeValueForKey:@"isLoaded"];
-}
-
-+ (BOOL)automaticallyNotifiesObserversOfIsLoaded {
-    return NO;
-}
-
 @end

@@ -71,6 +71,4 @@ typedef FLXStateType (^FLXActionCallback)(id action);
  */
 - (FLXStateType)defaultState;
 
-@property (nonatomic, assign) BOOL isLoaded;
-
 @end

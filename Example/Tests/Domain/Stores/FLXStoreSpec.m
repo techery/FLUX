@@ -76,31 +76,4 @@ describe(@"Action handling", ^{
     
 });
 
-describe(@"loaded state", ^{
-    __block FLXStore *sut;
-    
-    beforeEach(^{
-        [FLXStore stub:@selector(defaultState) andReturn:[NSObject new]];
-        sut = [[FLXStore alloc] init];
-    });
-    
-    it(@"Should be NO by default", ^{
-        [[theValue(sut.isLoaded) should] beFalse];
-    });
-    
-    it(@"Allow to change it to YES", ^{
-        sut.isLoaded = YES;
-        [[theValue(sut.isLoaded) should] beTrue];
-    });
-    
-    it(@"Should generate KVO event on change", ^{
-        NSObject *observer = [NSObject new];
-        [sut addObserver:observer forKeyPath:@"isLoaded" options:NSKeyValueObservingOptionNew context:nil];
-        [[observer should] receive:@selector(observeValueForKeyPath:ofObject:change:context:) withArguments:@"isLoaded", sut, any(), any()];
-        
-        sut.isLoaded = YES;
-        [sut removeObserver:observer forKeyPath:@"isLoaded"];
-    });
-});
-
 SPEC_END
