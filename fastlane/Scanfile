@@ -1,0 +1,6 @@
+scheme "FLUX"
+clean true
+code_coverage true
+device "iPhone 7"
+skip_slack false
+slack_only_on_failure true
