@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/fuzza/Development/FLUX/FLUX/FLUX.h",
+      "line": 12,
+      "symbol": "FLUXVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fuzza/Development/FLUX/FLUX/FLUX.h",
+      "line": 15,
+      "symbol": "FLUXVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/fuzza/Development/FLUX"
+}

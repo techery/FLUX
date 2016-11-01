@@ -18,5 +18,5 @@ FOUNDATION_EXPORT const unsigned char FLUXVersionString[];
 #import <FLUX/FLXMiddleware.h>
 #import <FLUX/FLXExecutor.h>
 #import <FLUX/FLXSerialExecutor.h>
-#import <FLUX/FLXStore>
+#import <FLUX/FLXStore.h>
 #import <FLUX/FLXDispatcherProtocol.h>
