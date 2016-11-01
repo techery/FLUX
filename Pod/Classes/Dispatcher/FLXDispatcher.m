@@ -54,13 +54,13 @@
 
 - (void)notifyMiddlewareWithAction:(id)action {
     for (id <FLXMiddleware> middleware in self.middlewares) {
-        [middleware onActionDispatching:action];
+        [middleware didDispatchAction:action];
     }
 }
 
 - (void)notifyMiddlewareAboutStoreRegistration:(FLXStore *)store {
     for (id <FLXMiddleware> middleware in self.middlewares) {
-        [middleware onStoreRegistration:store];
+        [middleware didRegisterStore:store];
     }
 }
 

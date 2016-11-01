@@ -37,14 +37,14 @@ describe(@"Store registration", ^{
         id storeMock = [FLXStore mock];
         
         /* registering in middleware */
-        [[firstMiddleware should] receive:@selector(onStoreRegistration:) withArguments:storeMock];
-        [[secondMiddleware should] receive:@selector(onStoreRegistration:) withArguments:storeMock];
+        [[firstMiddleware should] receive:@selector(didRegisterStore:) withArguments:storeMock];
+        [[secondMiddleware should] receive:@selector(didRegisterStore:) withArguments:storeMock];
         [sut registerStore:storeMock];
     });
     
     it(@"Doesn't retain store", ^{
-        [firstMiddleware stub:@selector(onStoreRegistration:)];
-        [secondMiddleware stub:@selector(onStoreRegistration:)];
+        [firstMiddleware stub:@selector(didRegisterStore:)];
+        [secondMiddleware stub:@selector(didRegisterStore:)];
         
         __weak id weakStore;
         @autoreleasepool {
@@ -59,8 +59,8 @@ describe(@"Store registration", ^{
 
 describe(@"Action dispatch", ^{
     beforeEach(^{
-        [firstMiddleware stub:@selector(onStoreRegistration:)];
-        [secondMiddleware stub:@selector(onStoreRegistration:)];
+        [firstMiddleware stub:@selector(didRegisterStore:)];
+        [secondMiddleware stub:@selector(didRegisterStore:)];
     });
     
     it(@"Sent to all stores that respond", ^{
@@ -85,12 +85,12 @@ describe(@"Action dispatch", ^{
                        withArguments:actionMock];
         [[secondStore should] receive:@selector(dispatchAction:)
                         withArguments:actionMock];
-        
-        [[firstMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+
+        [[firstMiddleware should] receive:@selector(didDispatchAction:) withArguments:actionMock];
         [[firstMiddleware should] receive:@selector(store:didChangeState:) withArguments:firstStore, firstState];
         [[firstMiddleware should] receive:@selector(store:didChangeState:) withArguments:secondStore, secondState];
-        
-        [[secondMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+
+        [[secondMiddleware should] receive:@selector(didDispatchAction:) withArguments:actionMock];
         [[secondMiddleware should] receive:@selector(store:didChangeState:) withArguments:firstStore, firstState];
         [[secondMiddleware should] receive:@selector(store:didChangeState:) withArguments:secondStore, secondState];
         
@@ -116,11 +116,11 @@ describe(@"Action dispatch", ^{
                           withArguments:actionMock];
         [[secondStore shouldNot] receive:@selector(dispatchAction:)
                         withArguments:actionMock];
-        
-        [[firstMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+
+        [[firstMiddleware should] receive:@selector(didDispatchAction:) withArguments:actionMock];
         [[firstMiddleware shouldNot] receive:@selector(store:didChangeState:)];
-        
-        [[secondMiddleware should] receive:@selector(onActionDispatching:) withArguments:actionMock];
+
+        [[secondMiddleware should] receive:@selector(didDispatchAction:) withArguments:actionMock];
         [[secondMiddleware shouldNot] receive:@selector(store:didChangeState:)];
         
         [sut registerStore:firstStore];

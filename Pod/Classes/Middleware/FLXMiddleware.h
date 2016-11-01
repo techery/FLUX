@@ -29,7 +29,7 @@
 
  @param action instance of a specific action
  */
-- (void)onActionDispatching:(id)action;
+- (void)didDispatchAction:(id)action;
 
 
 /**
@@ -37,7 +37,7 @@
 
  @param store instance of a specific store that is registered
  */
-- (void)onStoreRegistration:(FLXStore *)store;
+- (void)didRegisterStore:(FLXStore *)store;
 
 
 /**
