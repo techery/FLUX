@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <FLUX/FLXStore.h>
 
-#define te_defineStoreTestDouble(name) \
+#define flx_defineStoreTestDouble(name) \
 \
 @interface name : FLXStore <NSObject *> \
 \
@@ -22,5 +22,5 @@
 @end \
 \
 
-te_defineStoreTestDouble(FLXFakeStore)
-te_defineStoreTestDouble(FLXTestStore)
+flx_defineStoreTestDouble(FLXFakeStore)
+flx_defineStoreTestDouble(FLXTestStore)
