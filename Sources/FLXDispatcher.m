@@ -47,7 +47,7 @@
     for(FLXStore *store in self.stores) {
         if([store respondsToAction:action]) {
             [store dispatchAction:action];
-            [self notifyMiddlewareWithState:store.state ofStore:store];
+            [self notifyMiddlewareAboutStateChangeOfStore:store];
         }
     }
 }
@@ -64,7 +64,7 @@
     }
 }
 
-- (void)notifyMiddlewareWithState:(id)state ofStore:(FLXStore *)store {
+- (void)notifyMiddlewareAboutStateChangeOfStore:(FLXStore *)store {
     for (id <FLXMiddleware> middleware in self.middlewares) {
         [middleware store:store didChangeState:store.state];
     }

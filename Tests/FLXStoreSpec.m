@@ -50,7 +50,7 @@ describe(@"Action handling", ^{
     
     it(@"Responds to action if registered", ^{
         id actionMock = [NSObject new];
-        [sut onAction:[NSObject class] callback:^id(id action) {
+        [sut onAction:[NSObject class] callback:^id(__unused id action) {
             return [NSObject new];
         }];
         BOOL result = [sut respondsToAction:actionMock];
@@ -60,7 +60,7 @@ describe(@"Action handling", ^{
     it(@"Sets new state if registered", ^{
         id actionMock = [NSObject new];
         id stateMock = [NSObject new];
-        [sut onAction:[NSObject class] callback:^id(id action) {
+        [sut onAction:[NSObject class] callback:^id(__unused id action) {
             return stateMock;
         }];
         [sut dispatchAction:actionMock];

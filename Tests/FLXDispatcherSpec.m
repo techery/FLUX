@@ -52,8 +52,10 @@ describe(@"Store registration", ^{
             [sut registerStore:store];
             weakStore = store;
         }
-        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-repeated-use-of-weak"
         [[weakStore should] beNil];
+#pragma clang diagnostic pop
     });
 });
 
