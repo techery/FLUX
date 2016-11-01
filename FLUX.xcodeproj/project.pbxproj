@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C22DA7A2FE70444E27C5649 /* Pods_FLUXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E12B8408773B017A89EA7A1 /* Pods_FLUXTests.framework */; };
+		6FA77A0B1DC8C1B7006B4959 /* FLUX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA77A021DC8C1B7006B4959 /* FLUX.framework */; };
+		6FA77A2F1DC8C451006B4959 /* FLUX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FA77A211DC8C451006B4959 /* FLUX-Info.plist */; };
+		6FA77A301DC8C451006B4959 /* FLUX-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A221DC8C451006B4959 /* FLUX-Prefix.pch */; };
+		6FA77A311DC8C451006B4959 /* FLUX.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A231DC8C451006B4959 /* FLUX.h */; };
+		6FA77A321DC8C451006B4959 /* FLXDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A241DC8C451006B4959 /* FLXDispatcher.h */; };
+		6FA77A331DC8C451006B4959 /* FLXDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A251DC8C451006B4959 /* FLXDispatcher.m */; };
+		6FA77A341DC8C451006B4959 /* FLXDispatcherProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A261DC8C451006B4959 /* FLXDispatcherProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA77A351DC8C451006B4959 /* FLXDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A271DC8C451006B4959 /* FLXDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA77A361DC8C451006B4959 /* FLXDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A281DC8C451006B4959 /* FLXDomain.m */; };
+		6FA77A371DC8C451006B4959 /* FLXExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A291DC8C451006B4959 /* FLXExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA77A381DC8C451006B4959 /* FLXMiddleware.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A2A1DC8C451006B4959 /* FLXMiddleware.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA77A391DC8C451006B4959 /* FLXSerialExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A2B1DC8C451006B4959 /* FLXSerialExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA77A3A1DC8C451006B4959 /* FLXSerialExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A2C1DC8C451006B4959 /* FLXSerialExecutor.m */; };
+		6FA77A3B1DC8C451006B4959 /* FLXStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A2D1DC8C451006B4959 /* FLXStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FA77A3C1DC8C451006B4959 /* FLXStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A2E1DC8C451006B4959 /* FLXStore.m */; };
+		6FA77A471DC8C463006B4959 /* FLXDispatcherSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A3E1DC8C463006B4959 /* FLXDispatcherSpec.m */; };
+		6FA77A481DC8C463006B4959 /* FLXDomainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A3F1DC8C463006B4959 /* FLXDomainSpec.m */; };
+		6FA77A491DC8C463006B4959 /* FLXSerialExecutorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A401DC8C463006B4959 /* FLXSerialExecutorSpec.m */; };
+		6FA77A4A1DC8C463006B4959 /* FLXStoreSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A411DC8C463006B4959 /* FLXStoreSpec.m */; };
+		6FA77A4B1DC8C463006B4959 /* FLXTestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A441DC8C463006B4959 /* FLXTestExecutor.m */; };
+		6FA77A4C1DC8C463006B4959 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6FA77A461DC8C463006B4959 /* Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6FA77A0C1DC8C1B7006B4959 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6003F582195388D10070C39A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FA77A011DC8C1B7006B4959;
+			remoteInfo = FLUX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36E51E34BFC75DB5AAD55A73 /* Pods-FLUXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLUXTests/Pods-FLUXTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E12B8408773B017A89EA7A1 /* Pods_FLUXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FLUXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		675C841D210EC1B702585710 /* Pods-FLUX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example/Pods-FLUX_Example.release.xcconfig"; sourceTree = "<group>"; };
+		6FA77A021DC8C1B7006B4959 /* FLUX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLUX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FA77A0A1DC8C1B7006B4959 /* FLUXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLUXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FA77A211DC8C451006B4959 /* FLUX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FLUX-Info.plist"; sourceTree = "<group>"; };
+		6FA77A221DC8C451006B4959 /* FLUX-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLUX-Prefix.pch"; sourceTree = "<group>"; };
+		6FA77A231DC8C451006B4959 /* FLUX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUX.h; sourceTree = "<group>"; };
+		6FA77A241DC8C451006B4959 /* FLXDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXDispatcher.h; sourceTree = "<group>"; };
+		6FA77A251DC8C451006B4959 /* FLXDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDispatcher.m; sourceTree = "<group>"; };
+		6FA77A261DC8C451006B4959 /* FLXDispatcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXDispatcherProtocol.h; sourceTree = "<group>"; };
+		6FA77A271DC8C451006B4959 /* FLXDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXDomain.h; sourceTree = "<group>"; };
+		6FA77A281DC8C451006B4959 /* FLXDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDomain.m; sourceTree = "<group>"; };
+		6FA77A291DC8C451006B4959 /* FLXExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXExecutor.h; sourceTree = "<group>"; };
+		6FA77A2A1DC8C451006B4959 /* FLXMiddleware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXMiddleware.h; sourceTree = "<group>"; };
+		6FA77A2B1DC8C451006B4959 /* FLXSerialExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXSerialExecutor.h; sourceTree = "<group>"; };
+		6FA77A2C1DC8C451006B4959 /* FLXSerialExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXSerialExecutor.m; sourceTree = "<group>"; };
+		6FA77A2D1DC8C451006B4959 /* FLXStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXStore.h; sourceTree = "<group>"; };
+		6FA77A2E1DC8C451006B4959 /* FLXStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStore.m; sourceTree = "<group>"; };
+		6FA77A3E1DC8C463006B4959 /* FLXDispatcherSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDispatcherSpec.m; sourceTree = "<group>"; };
+		6FA77A3F1DC8C463006B4959 /* FLXDomainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDomainSpec.m; sourceTree = "<group>"; };
+		6FA77A401DC8C463006B4959 /* FLXSerialExecutorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXSerialExecutorSpec.m; sourceTree = "<group>"; };
+		6FA77A411DC8C463006B4959 /* FLXStoreSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXStoreSpec.m; sourceTree = "<group>"; };
+		6FA77A431DC8C463006B4959 /* FLXTestExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXTestExecutor.h; sourceTree = "<group>"; };
+		6FA77A441DC8C463006B4959 /* FLXTestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXTestExecutor.m; sourceTree = "<group>"; };
+		6FA77A451DC8C463006B4959 /* FLXTestModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXTestModels.h; sourceTree = "<group>"; };
+		6FA77A461DC8C463006B4959 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9148EC0BF5955A986BE3174A /* Pods-FLUX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example/Pods-FLUX_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		AD0A1A1F914C2ECE19575613 /* Pods-FLUXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLUXTests/Pods-FLUXTests.release.xcconfig"; sourceTree = "<group>"; };
+		B83B204A4D3800BD5BEDDC01 /* Pods-FLUX_Example-FLUX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example-FLUX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example-FLUX_Tests/Pods-FLUX_Example-FLUX_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E678C54E4F6793B870A2E8FB /* Pods-FLUX_Example-FLUX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLUX_Example-FLUX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLUX_Example-FLUX_Tests/Pods-FLUX_Example-FLUX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FA779FE1DC8C1B7006B4959 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FA77A071DC8C1B7006B4959 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FA77A0B1DC8C1B7006B4959 /* FLUX.framework in Frameworks */,
+				0C22DA7A2FE70444E27C5649 /* Pods_FLUXTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6003F581195388D10070C39A = {
+			isa = PBXGroup;
+			children = (
+				6FA77A3D1DC8C463006B4959 /* Tests */,
+				6FA77A201DC8C451006B4959 /* Sources */,
+				6003F58C195388D20070C39A /* Frameworks */,
+				6003F58B195388D20070C39A /* Products */,
+				C3F5A436EFA959E0B23B5455 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		6003F58B195388D20070C39A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FA77A021DC8C1B7006B4959 /* FLUX.framework */,
+				6FA77A0A1DC8C1B7006B4959 /* FLUXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6003F58C195388D20070C39A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6003F58D195388D20070C39A /* Foundation.framework */,
+				3E12B8408773B017A89EA7A1 /* Pods_FLUXTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FA77A201DC8C451006B4959 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6FA77A211DC8C451006B4959 /* FLUX-Info.plist */,
+				6FA77A221DC8C451006B4959 /* FLUX-Prefix.pch */,
+				6FA77A231DC8C451006B4959 /* FLUX.h */,
+				6FA77A241DC8C451006B4959 /* FLXDispatcher.h */,
+				6FA77A251DC8C451006B4959 /* FLXDispatcher.m */,
+				6FA77A261DC8C451006B4959 /* FLXDispatcherProtocol.h */,
+				6FA77A271DC8C451006B4959 /* FLXDomain.h */,
+				6FA77A281DC8C451006B4959 /* FLXDomain.m */,
+				6FA77A291DC8C451006B4959 /* FLXExecutor.h */,
+				6FA77A2A1DC8C451006B4959 /* FLXMiddleware.h */,
+				6FA77A2B1DC8C451006B4959 /* FLXSerialExecutor.h */,
+				6FA77A2C1DC8C451006B4959 /* FLXSerialExecutor.m */,
+				6FA77A2D1DC8C451006B4959 /* FLXStore.h */,
+				6FA77A2E1DC8C451006B4959 /* FLXStore.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6FA77A3D1DC8C463006B4959 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6FA77A3E1DC8C463006B4959 /* FLXDispatcherSpec.m */,
+				6FA77A3F1DC8C463006B4959 /* FLXDomainSpec.m */,
+				6FA77A401DC8C463006B4959 /* FLXSerialExecutorSpec.m */,
+				6FA77A411DC8C463006B4959 /* FLXStoreSpec.m */,
+				6FA77A421DC8C463006B4959 /* Helpers */,
+				6FA77A461DC8C463006B4959 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		6FA77A421DC8C463006B4959 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6FA77A431DC8C463006B4959 /* FLXTestExecutor.h */,
+				6FA77A441DC8C463006B4959 /* FLXTestExecutor.m */,
+				6FA77A451DC8C463006B4959 /* FLXTestModels.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C3F5A436EFA959E0B23B5455 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9148EC0BF5955A986BE3174A /* Pods-FLUX_Example.debug.xcconfig */,
+				675C841D210EC1B702585710 /* Pods-FLUX_Example.release.xcconfig */,
+				E678C54E4F6793B870A2E8FB /* Pods-FLUX_Example-FLUX_Tests.debug.xcconfig */,
+				B83B204A4D3800BD5BEDDC01 /* Pods-FLUX_Example-FLUX_Tests.release.xcconfig */,
+				36E51E34BFC75DB5AAD55A73 /* Pods-FLUXTests.debug.xcconfig */,
+				AD0A1A1F914C2ECE19575613 /* Pods-FLUXTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6FA779FF1DC8C1B7006B4959 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FA77A371DC8C451006B4959 /* FLXExecutor.h in Headers */,
+				6FA77A381DC8C451006B4959 /* FLXMiddleware.h in Headers */,
+				6FA77A3B1DC8C451006B4959 /* FLXStore.h in Headers */,
+				6FA77A391DC8C451006B4959 /* FLXSerialExecutor.h in Headers */,
+				6FA77A341DC8C451006B4959 /* FLXDispatcherProtocol.h in Headers */,
+				6FA77A351DC8C451006B4959 /* FLXDomain.h in Headers */,
+				6FA77A301DC8C451006B4959 /* FLUX-Prefix.pch in Headers */,
+				6FA77A311DC8C451006B4959 /* FLUX.h in Headers */,
+				6FA77A321DC8C451006B4959 /* FLXDispatcher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6FA77A011DC8C1B7006B4959 /* FLUX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FA77A1D1DC8C1B7006B4959 /* Build configuration list for PBXNativeTarget "FLUX" */;
+			buildPhases = (
+				6FA779FD1DC8C1B7006B4959 /* Sources */,
+				6FA779FE1DC8C1B7006B4959 /* Frameworks */,
+				6FA779FF1DC8C1B7006B4959 /* Headers */,
+				6FA77A001DC8C1B7006B4959 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLUX;
+			productName = FLUX;
+			productReference = 6FA77A021DC8C1B7006B4959 /* FLUX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6FA77A091DC8C1B7006B4959 /* FLUXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FA77A1F1DC8C1B7006B4959 /* Build configuration list for PBXNativeTarget "FLUXTests" */;
+			buildPhases = (
+				57BEB5638B8071789CF69A0A /* [CP] Check Pods Manifest.lock */,
+				6FA77A061DC8C1B7006B4959 /* Sources */,
+				6FA77A071DC8C1B7006B4959 /* Frameworks */,
+				6FA77A081DC8C1B7006B4959 /* Resources */,
+				0B29AE31E474C31FCCE0936A /* [CP] Embed Pods Frameworks */,
+				B264BD78BC62121579F711F3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FA77A0D1DC8C1B7006B4959 /* PBXTargetDependency */,
+			);
+			name = FLUXTests;
+			productName = FLUXTests;
+			productReference = 6FA77A0A1DC8C1B7006B4959 /* FLUXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6003F582195388D10070C39A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FLX;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Alexey Fayzullov";
+				TargetAttributes = {
+					6FA77A011DC8C1B7006B4959 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+					};
+					6FA77A091DC8C1B7006B4959 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "FLUX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6003F581195388D10070C39A;
+			productRefGroup = 6003F58B195388D20070C39A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FA77A011DC8C1B7006B4959 /* FLUX */,
+				6FA77A091DC8C1B7006B4959 /* FLUXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FA77A001DC8C1B7006B4959 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FA77A2F1DC8C451006B4959 /* FLUX-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FA77A081DC8C1B7006B4959 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FA77A4C1DC8C463006B4959 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B29AE31E474C31FCCE0936A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLUXTests/Pods-FLUXTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57BEB5638B8071789CF69A0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B264BD78BC62121579F711F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLUXTests/Pods-FLUXTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FA779FD1DC8C1B7006B4959 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FA77A3C1DC8C451006B4959 /* FLXStore.m in Sources */,
+				6FA77A3A1DC8C451006B4959 /* FLXSerialExecutor.m in Sources */,
+				6FA77A361DC8C451006B4959 /* FLXDomain.m in Sources */,
+				6FA77A331DC8C451006B4959 /* FLXDispatcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FA77A061DC8C1B7006B4959 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FA77A4B1DC8C463006B4959 /* FLXTestExecutor.m in Sources */,
+				6FA77A491DC8C463006B4959 /* FLXSerialExecutorSpec.m in Sources */,
+				6FA77A471DC8C463006B4959 /* FLXDispatcherSpec.m in Sources */,
+				6FA77A481DC8C463006B4959 /* FLXDomainSpec.m in Sources */,
+				6FA77A4A1DC8C463006B4959 /* FLXStoreSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6FA77A0D1DC8C1B7006B4959 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FA77A011DC8C1B7006B4959 /* FLUX */;
+			targetProxy = 6FA77A0C1DC8C1B7006B4959 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6003F5BD195388D20070C39A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6003F5BE195388D20070C39A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6FA77A191DC8C1B7006B4959 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Sources/FLUX-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.techery.FLUX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6FA77A1A1DC8C1B7006B4959 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Sources/FLUX-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.techery.FLUX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6FA77A1B1DC8C1B7006B4959 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36E51E34BFC75DB5AAD55A73 /* Pods-FLUXTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.techery.FLUXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6FA77A1C1DC8C1B7006B4959 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD0A1A1F914C2ECE19575613 /* Pods-FLUXTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = io.techery.FLUXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "FLUX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6003F5BD195388D20070C39A /* Debug */,
+				6003F5BE195388D20070C39A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FA77A1D1DC8C1B7006B4959 /* Build configuration list for PBXNativeTarget "FLUX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FA77A191DC8C1B7006B4959 /* Debug */,
+				6FA77A1A1DC8C1B7006B4959 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FA77A1F1DC8C1B7006B4959 /* Build configuration list for PBXNativeTarget "FLUXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FA77A1B1DC8C1B7006B4959 /* Debug */,
+				6FA77A1C1DC8C1B7006B4959 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6003F582195388D10070C39A /* Project object */;
+}
