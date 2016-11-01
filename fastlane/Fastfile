@@ -8,4 +8,13 @@ platform :ios do
     cocoapods
     scan
   end
+
+  desc "Generates documentation for a framework"
+  lane :gen_docs do
+    # temporary workaround when using SPM dir format
+    # https://github.com/realm/jazzy/issues/667
+    sh("mv ../Sources ../FLUX")
+    jazzy
+    sh("mv ../FLUX ../Sources")
+  end
 end

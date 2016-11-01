@@ -11,6 +11,11 @@ sudo gem install fastlane
 fastlane ios test
 ```
 Runs the unit tests
+### ios gen_docs
+```
+fastlane ios gen_docs
+```
+Generates documentation for a framework
 
 ----
 

@@ -1,0 +1,12 @@
+objc: true
+clean: true
+author: Techery
+author_url: "http://techery.io"
+github_url: "https://github.com/techery/FLUX"
+sdk: iphonesimulator
+module: FLUX
+module_version: 1.0.0
+framework_root: .
+umbrella_header: FLUX/FLUX.h
+readme: README.md
+output: docs/
