@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C22DA7A2FE70444E27C5649 /* Pods_FLUXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E12B8408773B017A89EA7A1 /* Pods_FLUXTests.framework */; };
 		6FA77A0B1DC8C1B7006B4959 /* FLUX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FA77A021DC8C1B7006B4959 /* FLUX.framework */; };
-		6FA77A301DC8C451006B4959 /* FLUX-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A221DC8C451006B4959 /* FLUX-Prefix.pch */; };
 		6FA77A311DC8C451006B4959 /* FLUX.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A231DC8C451006B4959 /* FLUX.h */; };
 		6FA77A321DC8C451006B4959 /* FLXDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FA77A241DC8C451006B4959 /* FLXDispatcher.h */; };
 		6FA77A331DC8C451006B4959 /* FLXDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA77A251DC8C451006B4959 /* FLXDispatcher.m */; };
@@ -47,7 +46,6 @@
 		6FA77A021DC8C1B7006B4959 /* FLUX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLUX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA77A0A1DC8C1B7006B4959 /* FLUXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLUXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FA77A211DC8C451006B4959 /* FLUX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FLUX-Info.plist"; sourceTree = "<group>"; };
-		6FA77A221DC8C451006B4959 /* FLUX-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLUX-Prefix.pch"; sourceTree = "<group>"; };
 		6FA77A231DC8C451006B4959 /* FLUX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUX.h; sourceTree = "<group>"; };
 		6FA77A241DC8C451006B4959 /* FLXDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLXDispatcher.h; sourceTree = "<group>"; };
 		6FA77A251DC8C451006B4959 /* FLXDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLXDispatcher.m; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				6FA77A211DC8C451006B4959 /* FLUX-Info.plist */,
-				6FA77A221DC8C451006B4959 /* FLUX-Prefix.pch */,
 				6FA77A231DC8C451006B4959 /* FLUX.h */,
 				6FA77A241DC8C451006B4959 /* FLXDispatcher.h */,
 				6FA77A251DC8C451006B4959 /* FLXDispatcher.m */,
@@ -193,7 +190,6 @@
 				6FA77A391DC8C451006B4959 /* FLXSerialExecutor.h in Headers */,
 				6FA77A341DC8C451006B4959 /* FLXDispatcherProtocol.h in Headers */,
 				6FA77A351DC8C451006B4959 /* FLXDomain.h in Headers */,
-				6FA77A301DC8C451006B4959 /* FLUX-Prefix.pch in Headers */,
 				6FA77A311DC8C451006B4959 /* FLUX.h in Headers */,
 				6FA77A321DC8C451006B4959 /* FLXDispatcher.h in Headers */,
 			);

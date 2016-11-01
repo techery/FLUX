@@ -8,9 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = "FLUX"
-  s.version          = "0.3.0"
-  s.summary          = "Objective-C implementation of FLUX architecture pattern"
-  s.description      = "FLUX Pattern implementation in Objective-C"
+  s.version          = "1.0.0"
+  s.summary          = "FLUX implementation on Objective-C"
+  s.description      = "Objective-C implementation of FLUX architecture pattern"
 
   s.homepage         = "https://github.com/techery/FLUX"
   s.license          = 'MIT'

@@ -3,4 +3,4 @@ rvm: 2.3.1
 osx_image: xcode8
 before_install: gem update bundler
 install: bundle install
-script: fastlane test
+script: bundle exec fastlane test

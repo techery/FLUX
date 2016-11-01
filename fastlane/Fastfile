@@ -10,6 +10,7 @@ platform :ios do
     if is_ci?
       slather
     end
+    pod_lib_lint
   end
 
   desc "Generates documentation for a framework"
