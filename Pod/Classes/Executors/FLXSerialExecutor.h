@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "FLXExecutor.h"
 
+/**
+ Serial executor implements "Isolation queue" pattern and it is a wrapper over serial dispatch queue.
+ It is a default executor for FLUX domain.
+ */
 @interface FLXSerialExecutor : NSObject <FLXExecutor>
 
 @end

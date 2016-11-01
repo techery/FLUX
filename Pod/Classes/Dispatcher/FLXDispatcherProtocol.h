@@ -7,10 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-@class FLXStore;
 
+/**
+ Basic protocol for action dispatching
+ */
 @protocol FLXDispatcherProtocol <NSObject>
 
+/**
+ Dispatches an action
+
+ @param action object of any type that represents specific action
+ */
 - (void)dispatchAction:(id)action;
 
 @end
