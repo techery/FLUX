@@ -27,3 +27,6 @@ Pods/*
 fastlane/report.xml
 fastlane/test_output/*
 fastlane/README.md
+
+# Jazzy
+docs/docsets/*
