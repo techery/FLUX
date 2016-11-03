@@ -27,11 +27,16 @@
     if(self) {
         self.state = [self.class defaultState];
         self.actionRegistry = [NSMutableDictionary new];
+        [self subscribeToActions];
     }
     return self;
 }
 
 #pragma mark - Abstract methods
+
+- (void)subscribeToActions {
+    // Does nothing in default implementation
+}
 
 - (id)defaultState {
     return [self.class defaultState];

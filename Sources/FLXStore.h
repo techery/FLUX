@@ -33,6 +33,11 @@ typedef FLXStateType (^FLXActionCallback)(id action);
 @property (nonatomic, readonly) FLXStateType state;
 
 /**
+ Each store subclass should override this method in order to subscribe to specific domain actions.
+ */
+- (void)subscribeToActions NS_REQUIRES_SUPER;
+
+/**
  Subscribes store on specific action class with a callback.
  Each store subclass is responsible for subscribing to all actions it is interested in on initialization.
  
