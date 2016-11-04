@@ -56,7 +56,7 @@
 /**
  Registers additional stores in domain. Allows to attach additional stores after domain was initialized
 
- @param stores array of stores to be registered in domain
+ @param stores array of stores to be registered in a domain
  */
 - (void)registerStores:(NSArray <FLXStore *>*)stores;
 
