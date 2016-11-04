@@ -27,7 +27,7 @@ describe(@"default state", ^{
         }) should] raise];
     });
     
-    it(@"has backward compatibility", ^{
+    it(@"is set on init compatibility", ^{
         [[FLXStore should] receive:@selector(defaultState)
                             andReturn:[NSObject new]];
         __unused FLXStore *localSut = [[FLXStore alloc] init];

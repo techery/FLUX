@@ -111,6 +111,12 @@ describe(@"Persistent stores", ^{
         id result = [sut storeByClass:[NSObject class]];
         [[result should] beNil];
     });
+    
+    it(@"Can be registered afterwards", ^{
+        [sut registerStores:@[testStoreMock]];
+        id result = [sut storeByClass:[FLXTestStore class]];
+        [[result should] equal:testStoreMock];
+    });
 });
 
 describe(@"Temporary store", ^{

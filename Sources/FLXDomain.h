@@ -38,7 +38,6 @@
  */
 - (FLXStore *)temporaryStoreOfClass:(Class)storeClass;
 
-
 /**
  Asynchronously dispatches an action to domain.
  
@@ -52,6 +51,14 @@
  @param action object of any type that represents a specific action
  */
 - (void)dispatchActionAndWait:(id)action;
+
+
+/**
+ Registers additional stores in domain. Allows to attach additional stores after domain was initialized
+
+ @param stores array of stores to be registered in domain
+ */
+- (void)registerStores:(NSArray <FLXStore *>*)stores;
 
 @end
 

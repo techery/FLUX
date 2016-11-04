@@ -39,6 +39,7 @@
         self.executor = executor;
         self.middlewares = middlewares;
         self.dispatcher = [FLXDispatcher dispatcherWithMiddlewares:self.middlewares];
+        self.storeRegistry = [NSMutableDictionary new];
         [self registerStores:stores];
     }
     return self;
@@ -47,10 +48,11 @@
 #pragma mark - Stores registration
 
 - (void)registerStores:(NSArray <FLXStore *>*)storesArray {
-    self.storeRegistry = [NSMutableDictionary new];
-    for(FLXStore *store in storesArray) {
-        [self registerStore:store];
-    }
+    [self.executor execute:^{
+        for(FLXStore *store in storesArray) {
+            [self registerStore:store];
+        }
+    }];
 }
 
 - (void)registerStore:(FLXStore *)store {
