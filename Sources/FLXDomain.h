@@ -60,6 +60,14 @@
  */
 - (void)registerStores:(NSArray <FLXStore *>*)stores;
 
+/**
+ Registers temporary store in domain.
+ Domain doesn't retain temporary store, so caller is responsible for lifecycle of this store.
+ 
+ @param temporaryStore instance of temporary store to be registered
+ */
+- (void)registerTemporaryStore:(FLXStore *)temporaryStore;
+
 @end
 
 /**

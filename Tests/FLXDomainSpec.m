@@ -139,6 +139,40 @@ describe(@"Temporary store", ^{
         [[spy.argument should] equal:result];
     });
     
+    it(@"Can register instance of temporary store", ^{
+        id fakeStore = [FLXFakeStore class];
+        KWCaptureSpy *spy = [dispatcherMock captureArgument:@selector(registerStore:) atIndex:0];
+        [sut registerTemporaryStore:fakeStore];
+        [[spy.argument should] equal:fakeStore];
+        [[[sut storeByClass:[FLXFakeStore class]] should] beNil];
+    });
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-repeated-use-of-weak"
+    it(@"Is not retained by domain if registered", ^{
+        [dispatcherMock stub:@selector(registerStore:)];
+        __weak id fakeStore = nil;
+        @autoreleasepool {
+            id strongStore = [FLXFakeStore new];
+            [sut registerTemporaryStore:strongStore];
+            fakeStore = strongStore;
+        }
+        [[fakeStore should] beNil];
+    });
+    
+    it(@"Is not retained by domain if created by class", ^{
+        [dispatcherMock stub:@selector(registerStore:)];
+        __weak id fakeStore = nil;
+        @autoreleasepool {
+            [dispatcherMock stub:@selector(registerStore:)];
+            id strongStore = [sut temporaryStoreOfClass:[FLXFakeStore class]];
+            fakeStore = strongStore;
+        }
+        [[fakeStore should] beNil];
+
+    });
+#pragma clang diagnostic pop
+    
     it(@"Returns nil if class is not a store", ^{
         id result = [sut temporaryStoreOfClass:[NSObject class]];
         [[result should] beNil];

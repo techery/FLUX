@@ -55,6 +55,11 @@
     }];
 }
 
+- (void)registerTemporaryStore:(FLXStore *)temporaryStore {
+    NSParameterAssert(temporaryStore);
+    [self subscribeStoreToEvents:temporaryStore];
+}
+
 - (void)registerStore:(FLXStore *)store {
     NSParameterAssert(store);
     NSString *storeKey = NSStringFromClass([store class]);
@@ -95,7 +100,7 @@
     id instance = [[storeClass alloc] init];
     if([instance isKindOfClass:[FLXStore class]]) {
         FLXStore *store = (FLXStore *)instance;
-        [self subscribeStoreToEvents:store];
+        [self registerTemporaryStore:store];
         return store;
     }
     return nil;
