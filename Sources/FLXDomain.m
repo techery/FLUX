@@ -42,9 +42,10 @@
 #pragma mark - Stores registration
 
 - (void)attachStores:(NSArray <FLXStore *>*)storesArray {
+    __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
         for(FLXStore *store in storesArray) {
-            [self registerStore:store];
+            [weakSelf registerStore:store];
         }
     }];
 }
