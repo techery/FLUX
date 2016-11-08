@@ -25,7 +25,7 @@
 
  @return FLXStore instance if store is registered in a domain, nil otherwise
  */
-- (FLXStore *)storeByClass:(Class)storeClass;
+- (FLXStore *)storeOfClass:(Class)storeClass;
 
 
 /**
@@ -58,7 +58,7 @@
 
  @param stores array of stores to be registered in a domain
  */
-- (void)registerStores:(NSArray <FLXStore *>*)stores;
+- (void)attachStores:(NSArray <FLXStore *>*)stores;
 
 /**
  Registers temporary store in domain.
@@ -66,7 +66,7 @@
  
  @param temporaryStore instance of temporary store to be registered
  */
-- (void)registerTemporaryStore:(FLXStore *)temporaryStore;
+- (void)attachTemporaryStore:(FLXStore *)temporaryStore;
 
 @end
 
@@ -91,5 +91,7 @@
 - (instancetype)initWithExecutor:(id <FLXExecutor>)executor
                      middlewares:(NSArray <id <FLXMiddleware>> *)middlewares
                           stores:(NSArray <FLXStore *>*)stores;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

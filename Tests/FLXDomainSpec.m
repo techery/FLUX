@@ -98,23 +98,23 @@ describe(@"Persistent stores", ^{
     });
     
     it(@"Returns store if registered", ^{
-        id fakeStore = [sut storeByClass:[FLXFakeStore class]];
+        id fakeStore = [sut storeOfClass:[FLXFakeStore class]];
         [[fakeStore should] equal:fakeStoreMock];
     });
     
     it(@"Returns nil if not registered", ^{
-        id result = [sut storeByClass:[FLXTestStore class]];
+        id result = [sut storeOfClass:[FLXTestStore class]];
         [[result should] beNil];
     });
     
     it(@"Returns nil if requested class is not a store", ^{
-        id result = [sut storeByClass:[NSObject class]];
+        id result = [sut storeOfClass:[NSObject class]];
         [[result should] beNil];
     });
     
     it(@"Can be registered afterwards", ^{
-        [sut registerStores:@[testStoreMock]];
-        id result = [sut storeByClass:[FLXTestStore class]];
+        [sut attachStores:@[testStoreMock]];
+        id result = [sut storeOfClass:[FLXTestStore class]];
         [[result should] equal:testStoreMock];
     });
 });
@@ -142,9 +142,9 @@ describe(@"Temporary store", ^{
     it(@"Can register instance of temporary store", ^{
         id fakeStore = [FLXFakeStore class];
         KWCaptureSpy *spy = [dispatcherMock captureArgument:@selector(registerStore:) atIndex:0];
-        [sut registerTemporaryStore:fakeStore];
+        [sut attachTemporaryStore:fakeStore];
         [[spy.argument should] equal:fakeStore];
-        [[[sut storeByClass:[FLXFakeStore class]] should] beNil];
+        [[[sut storeOfClass:[FLXFakeStore class]] should] beNil];
     });
     
 #pragma clang diagnostic push
@@ -154,7 +154,7 @@ describe(@"Temporary store", ^{
         __weak id fakeStore = nil;
         @autoreleasepool {
             id strongStore = [FLXFakeStore new];
-            [sut registerTemporaryStore:strongStore];
+            [sut attachTemporaryStore:strongStore];
             fakeStore = strongStore;
         }
         [[fakeStore should] beNil];

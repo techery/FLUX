@@ -25,12 +25,6 @@
 
 @implementation FLXDomain
 
-- (instancetype)init {
-    return [self initWithExecutor:[FLXSerialExecutor new]
-                      middlewares:@[]
-                           stores:@[]];
-}
-
 - (instancetype)initWithExecutor:(id<FLXExecutor>)executor
                      middlewares:(NSArray <id<FLXMiddleware>> *)middlewares
                           stores:(NSArray <FLXStore *>*)stores {
@@ -40,14 +34,14 @@
         self.middlewares = middlewares;
         self.dispatcher = [FLXDispatcher dispatcherWithMiddlewares:self.middlewares];
         self.storeRegistry = [NSMutableDictionary new];
-        [self registerStores:stores];
+        [self attachStores:stores];
     }
     return self;
 }
 
 #pragma mark - Stores registration
 
-- (void)registerStores:(NSArray <FLXStore *>*)storesArray {
+- (void)attachStores:(NSArray <FLXStore *>*)storesArray {
     [self.executor execute:^{
         for(FLXStore *store in storesArray) {
             [self registerStore:store];
@@ -55,19 +49,19 @@
     }];
 }
 
-- (void)registerTemporaryStore:(FLXStore *)temporaryStore {
+- (void)attachTemporaryStore:(FLXStore *)temporaryStore {
     NSParameterAssert(temporaryStore);
-    [self subscribeStoreToEvents:temporaryStore];
+    [self subscribeStoreToActions:temporaryStore];
 }
 
 - (void)registerStore:(FLXStore *)store {
     NSParameterAssert(store);
     NSString *storeKey = NSStringFromClass([store class]);
     [self.storeRegistry setObject:store forKey:storeKey];
-    [self subscribeStoreToEvents:store];
+    [self subscribeStoreToActions:store];
 }
 
-- (void)subscribeStoreToEvents:(FLXStore *)store {
+- (void)subscribeStoreToActions:(FLXStore *)store {
     __weak typeof(self) weakSelf = self;
     [self.executor execute:^{
         [weakSelf.dispatcher registerStore:store];
@@ -92,7 +86,7 @@
 
 #pragma mark - Store accessors
 
-- (FLXStore *)storeByClass:(Class)class {
+- (FLXStore *)storeOfClass:(Class)class {
     return [self.storeRegistry objectForKey:NSStringFromClass(class)];
 }
 
@@ -100,7 +94,7 @@
     id instance = [[storeClass alloc] init];
     if([instance isKindOfClass:[FLXStore class]]) {
         FLXStore *store = (FLXStore *)instance;
-        [self registerTemporaryStore:store];
+        [self attachTemporaryStore:store];
         return store;
     }
     return nil;
