@@ -13,6 +13,13 @@
       "symbol": "FLUXVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/fuzza/Development/FLUX/FLUX/FLXDomain.h",
+      "line": 95,
+      "symbol": "FLXDomain.-init",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
     }
   ],
   "source_directory": "/Users/fuzza/Development/FLUX"
