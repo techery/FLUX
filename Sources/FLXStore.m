@@ -9,9 +9,7 @@
 #import "FLXStore.h"
 #import <libkern/OSAtomic.h>
 
-@interface FLXStore () {
-    volatile uint32_t _isLoaded;
-}
+@interface FLXStore ()
 
 @property (nonatomic, strong, readwrite) id state;
 @property (nonatomic, strong) NSMutableDictionary *actionRegistry;
@@ -50,7 +48,7 @@
 #pragma mark - Action handling
 
 - (void)dispatchAction:(id)action {
-    FLXActionCallback callback = [self callbackForAction:action];
+    FLXActionCallback callback = [self callbackForActionClass:[action class]];
     if(callback) {
         id newState = callback(action);
         self.state = newState;
@@ -63,13 +61,17 @@
     [self.actionRegistry setObject:callback forKey:NSStringFromClass(actionClass)];
 }
 
-- (FLXActionCallback)callbackForAction:(id)action {
-    return [self.actionRegistry objectForKey:NSStringFromClass([action class])];
+- (BOOL)respondsToAction:(id)action {
+    return [self respondsToActionClass:[action class]];
 }
 
-- (BOOL)respondsToAction:(id)action {
-    FLXActionCallback callback = [self callbackForAction:action];
+- (BOOL)respondsToActionClass:(Class)actionClass {
+    FLXActionCallback callback = [self callbackForActionClass:actionClass];
     return callback != nil;
+}
+
+- (FLXActionCallback)callbackForActionClass:(Class)actionClass {
+    return [self.actionRegistry objectForKey:NSStringFromClass(actionClass)];
 }
 
 @end

@@ -48,7 +48,7 @@ typedef FLXStateType (^FLXActionCallback)(id action);
 
 
 /**
- Tells whether current store can respond to a specific action or not
+ Tells whether current store can respond to a specific action instance or not
 
  @param action instance of a specific action
 
@@ -56,6 +56,14 @@ typedef FLXStateType (^FLXActionCallback)(id action);
  */
 - (BOOL)respondsToAction:(id)action NS_REQUIRES_SUPER;
 
+/**
+ Tells whether current store can respond to a action of some class or not
+ 
+ @param actionClass class of an action
+ 
+ @return YES if store is subscribed to action, NO otherwise
+ */
+- (BOOL)respondsToActionClass:(Class)actionClass NS_REQUIRES_SUPER;
 
 /**
  Class method that returns default state for all instances of current store class.

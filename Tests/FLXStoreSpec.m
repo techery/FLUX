@@ -43,18 +43,24 @@ describe(@"Action handling", ^{
     });
     
     it(@"Doesn't respond to actions by default", ^{
-        id actionMock = [NSObject new];
+        id actionMock = [NSString new];
         BOOL result = [sut respondsToAction:actionMock];
         [[theValue(result) should] beFalse];
+        
+        BOOL classResult = [sut respondsToActionClass:[actionMock class]];
+        [[theValue(classResult) should] beFalse];
     });
     
     it(@"Responds to action if registered", ^{
-        id actionMock = [NSObject new];
-        [sut onAction:[NSObject class] callback:^id(__unused id action) {
+        id actionMock = [NSString new];
+        [sut onAction:[actionMock class] callback:^id(__unused id action) {
             return [NSObject new];
         }];
         BOOL result = [sut respondsToAction:actionMock];
         [[theValue(result) should] beTrue];
+        
+        BOOL classResult = [sut respondsToActionClass:[actionMock class]];
+        [[theValue(classResult) should] beTrue];
     });
     
     it(@"Sets new state if registered", ^{
@@ -73,7 +79,6 @@ describe(@"Action handling", ^{
         [sut dispatchAction:actionMock];
         [[sut.state should] beIdenticalTo:initialState];
     });
-    
 });
 
 SPEC_END
