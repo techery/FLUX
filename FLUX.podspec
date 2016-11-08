@@ -21,9 +21,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'FLUX' => ['Pod/Assets/*.png']
-  }
 
   s.prefix_header_contents = '#import <libextobjc/extobjc.h>'
 
