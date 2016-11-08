@@ -53,6 +53,7 @@
 @implementation MyStore
 
 - (void)subscribeToActions {
+    [super subscribeToActions];
     [self onAction:[MyActionClass]] callback:^MyState *(MyActionClass *action) {
         return [MyState stateWithAction:action];
     }];
@@ -69,4 +70,4 @@
 
 * Domain subclass should inherit FLXDomain class instead of TEDomain class
 * Domain protocol should inherit FLXDomainProtocol instead of TEDomainProtocol
-* Domain should use `-initWithExecutor:middlewares:stores` instead of overriding `-setup` and `-createMiddlewares` methods
+* Domain should use `-initWithExecutor:middlewares:stores:` instead of overriding `-setup` and `-createMiddlewares` methods
