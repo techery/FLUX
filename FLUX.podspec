@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "FLUX"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "Objective-C implementation of FLUX architecture pattern"
   s.description      = "FLUX Pattern implementation in Objective-C"
 
@@ -21,10 +21,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'FLUX' => ['Pod/Assets/*.png']
-  }
-
   s.prefix_header_contents = '#import <libextobjc/extobjc.h>'
 
   s.dependency 'libextobjc'
