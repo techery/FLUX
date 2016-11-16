@@ -35,9 +35,8 @@ platform :ios do
     git_add(path: "FLUX.podspec")
     git_commit(path: "FLUX.podspec", message: "Bump podspec to #{new_version}")
     add_git_tag(tag: new_version)
-
-    pod_push(path: "FLUX.podspec", repo: "https://github.com/techery/CocoaPodsSpecs.git")
     push_to_git_remote
+    pod_push(path: "FLUX.podspec", repo: "https://github.com/techery/CocoaPodsSpecs.git")
   end
 
 end
