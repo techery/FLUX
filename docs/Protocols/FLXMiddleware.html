@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FLXMiddleware Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/FLXMiddleware" class="dashAnchor"></a>
+    <a title="FLXMiddleware Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">FLUX Docs</a> (91% documented)</p>
+        <p class="header-right"><a href="https://github.com/techery/FLUX"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">FLUX Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FLXMiddleware Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FLXDispatcher.html">FLXDispatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FLXDomain.html">FLXDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)FLXSerialExecutor">FLXSerialExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FLXStore.html">FLXStore</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@FLUXVersionNumber">FLUXVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@FLUXVersionString">FLUXVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXDispatcherProtocol.html">FLXDispatcherProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXDomainProtocol.html">FLXDomainProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXExecutor.html">FLXExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXMiddleware.html">FLXMiddleware</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:FLXStore.h@T@FLXActionCallback">FLXActionCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FLXMiddleware</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@protocol</span> <span class="nc">FLXMiddleware</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Provides an interface for generating of side-effects to some FLUX events.
+Each middleware instance is notified about all events and each middleware is 
+responsible for filtering only events it is interested in.</p>
+
+<p>All middleware methods are called in a context provided by domain&rsquo;s executor.
+That&rsquo;s why it is considered as a good practice to apply side-effect asynchronously 
+in order to prevent blocking action processing by stores.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXMiddleware(im)didDispatchAction:"></a>
+                    <a name="//apple_ref/objc/Method/-didDispatchAction:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXMiddleware(im)didDispatchAction:">-didDispatchAction:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method is called each time an action is dispatched to the domain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didDispatchAction</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">action</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didDispatchAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>instance of a specific action</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXMiddleware(im)didRegisterStore:"></a>
+                    <a name="//apple_ref/objc/Method/-didRegisterStore:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXMiddleware(im)didRegisterStore:">-didRegisterStore:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method is called each time a store is registered in a dispatcher.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didRegisterStore</span><span class="p">:(</span><span class="n"><a href="../Classes/FLXStore.html">FLXStore</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">store</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">didRegister</span><span class="p">(</span><span class="n">_</span> <span class="nv">store</span><span class="p">:</span> <span class="kt"><a href="../Classes/FLXStore.html">FLXStore</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>store</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>instance of a specific store that is registered</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXMiddleware(im)store:didChangeState:"></a>
+                    <a name="//apple_ref/objc/Method/-store:didChangeState:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXMiddleware(im)store:didChangeState:">-store:didChangeState:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Method is called each time when any store changed it&rsquo;s state in response to some action.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>This method is not called if store&rsquo;s state was changed using any method except dispatching an action.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">store</span><span class="p">:(</span><span class="n"><a href="../Classes/FLXStore.html">FLXStore</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">store</span> <span class="nf">didChangeState</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">state</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">store</span><span class="p">(</span><span class="n">_</span> <span class="nv">store</span><span class="p">:</span> <span class="kt"><a href="../Classes/FLXStore.html">FLXStore</a></span><span class="o">!</span><span class="p">,</span> <span class="n">didChangeState</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>store</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>instance of a specific store which state was changed</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>state</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new value of store&rsquo;s state</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="http://techery.io" target="_blank" rel="external">Techery</a>. All rights reserved. (Last updated: 2016-11-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

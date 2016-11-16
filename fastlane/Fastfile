@@ -1,0 +1,43 @@
+fastlane_version "1.105.0"
+
+default_platform :ios
+
+platform :ios do
+  desc "Runs the unit tests"
+  lane :test do
+    cocoapods
+    scan
+    if is_ci?
+      slather
+    end
+    pod_lib_lint
+  end
+
+  desc "Generates documentation for a framework"
+  lane :gen_docs do
+    # temporary workaround when using SPM dir format
+    # https://github.com/realm/jazzy/issues/667
+    sh("mv ../Sources ../FLUX")
+    jazzy
+    sh("mv ../FLUX ../Sources")
+  end
+
+  lane :release_internally do |options|
+    raise "Only code from master branch can be deployed" unless git_branch == "master"
+
+    new_version = options[:version]
+    raise "You should specify version number that will be released" unless new_version != nil
+
+    current_version = version_get_podspec
+    raise "Version value should be higher then current podspec version" unless Gem::Version.new(new_version) > Gem::Version.new(current_version)
+
+    version_bump_podspec(path: "FLUX.podspec", version_number: new_version)
+    git_add(path: "FLUX.podspec")
+    git_commit(path: "FLUX.podspec", message: "Bump podspec to #{new_version}")
+    add_git_tag(tag: new_version)
+
+    pod_push(path: "FLUX.podspec", repo: "https://github.com/techery/CocoaPodsSpecs.git")
+    push_to_git_remote
+  end
+
+end

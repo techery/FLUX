@@ -1,0 +1,8 @@
+ci_service: travis_ci
+coverage_service: coveralls
+xcodeproj: FLUX.xcodeproj
+workspace: FLUX.xcworkspace
+scheme: FLUX
+source_directory: Sources
+ignore:
+  - Pods/*

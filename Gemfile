@@ -1,3 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'cocoapods', '~> 0.39.0'
+gem 'cocoapods', '~> 1.0.1'
+gem 'fastlane', '~> 1.106.0'
+gem 'jazzy', '~> 0.7'
+gem 'slather', '~> 2.3.0'

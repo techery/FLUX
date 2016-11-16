@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FLXDomainProtocol Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/FLXDomainProtocol" class="dashAnchor"></a>
+    <a title="FLXDomainProtocol Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">FLUX Docs</a> (91% documented)</p>
+        <p class="header-right"><a href="https://github.com/techery/FLUX"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">FLUX Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FLXDomainProtocol Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FLXDispatcher.html">FLXDispatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FLXDomain.html">FLXDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)FLXSerialExecutor">FLXSerialExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FLXStore.html">FLXStore</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@FLUXVersionNumber">FLUXVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@FLUXVersionString">FLUXVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXDispatcherProtocol.html">FLXDispatcherProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXDomainProtocol.html">FLXDomainProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXExecutor.html">FLXExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/FLXMiddleware.html">FLXMiddleware</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:FLXStore.h@T@FLXActionCallback">FLXActionCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FLXDomainProtocol</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@protocol</span> <span class="nc">FLXDomainProtocol</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>FLUX domain protocol that describes public interface of the domain</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXDomainProtocol(im)storeOfClass:"></a>
+                    <a name="//apple_ref/objc/Method/-storeOfClass:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXDomainProtocol(im)storeOfClass:">-storeOfClass:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns existing store of given class which is registered in domain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/FLXStore.html">FLXStore</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">storeOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">storeClass</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">store</span><span class="p">(</span><span class="n">of</span> <span class="nv">storeClass</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FLXStore.html">FLXStore</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storeClass</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>class of store, FLXStore or one if its subclasses</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>FLXStore instance if store is registered in a domain, nil otherwise</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXDomainProtocol(im)temporaryStoreOfClass:"></a>
+                    <a name="//apple_ref/objc/Method/-temporaryStoreOfClass:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXDomainProtocol(im)temporaryStoreOfClass:">-temporaryStoreOfClass:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Instantiates and returns new temporary store of given class. 
+Domain doesn&rsquo;t retain temporary store, so caller is responsible for lifecycle of this store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Classes/FLXStore.html">FLXStore</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">temporaryStoreOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">storeClass</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">temporaryStore</span><span class="p">(</span><span class="n">of</span> <span class="nv">storeClass</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/FLXStore.html">FLXStore</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>storeClass</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>class of temporary store, FLXStore or one if its subclasses</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>FLXStore instance if store is succesfully created, nil otherwise</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXDomainProtocol(im)dispatchAction:"></a>
+                    <a name="//apple_ref/objc/Method/-dispatchAction:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXDomainProtocol(im)dispatchAction:">-dispatchAction:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Asynchronously dispatches an action to domain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dispatchAction</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">action</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">dispatchAction</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>object of any type that represents a specific action</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXDomainProtocol(im)dispatchActionAndWait:"></a>
+                    <a name="//apple_ref/objc/Method/-dispatchActionAndWait:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXDomainProtocol(im)dispatchActionAndWait:">-dispatchActionAndWait:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Synchronously dispatches an action to domain.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dispatchActionAndWait</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">action</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">dispatchActionAndWait</span><span class="p">(</span><span class="n">_</span> <span class="nv">action</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>object of any type that represents a specific action</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXDomainProtocol(im)attachStores:"></a>
+                    <a name="//apple_ref/objc/Method/-attachStores:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXDomainProtocol(im)attachStores:">-attachStores:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Registers additional stores in domain. Allows to attach additional stores after domain was initialized</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">attachStores</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/FLXStore.html">FLXStore</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">stores</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">attach</span><span class="p">(</span><span class="n">_</span> <span class="nv">stores</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/FLXStore.html">FLXStore</a></span><span class="p">]</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>stores</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of stores to be registered in a domain</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)FLXDomainProtocol(im)attachTemporaryStore:"></a>
+                    <a name="//apple_ref/objc/Method/-attachTemporaryStore:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)FLXDomainProtocol(im)attachTemporaryStore:">-attachTemporaryStore:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Registers temporary store in domain.
+Domain doesn&rsquo;t retain temporary store, so caller is responsible for lifecycle of this store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">attachTemporaryStore</span><span class="p">:(</span><span class="n"><a href="../Classes/FLXStore.html">FLXStore</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">temporaryStore</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">attachTemporaryStore</span><span class="p">(</span><span class="n">_</span> <span class="nv">temporaryStore</span><span class="p">:</span> <span class="kt"><a href="../Classes/FLXStore.html">FLXStore</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>temporaryStore</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>instance of temporary store to be registered</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="http://techery.io" target="_blank" rel="external">Techery</a>. All rights reserved. (Last updated: 2016-11-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
