@@ -16,6 +16,11 @@ Runs the unit tests
 fastlane ios gen_docs
 ```
 Generates documentation for a framework
+### ios release_internally
+```
+fastlane ios release_internally
+```
+
 
 ----
 
