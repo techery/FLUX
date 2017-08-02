@@ -11,6 +11,7 @@
 
 @interface FLXStore ()
 
+@property (nonatomic, readwrite) FLXStoreIdentifier identifier;
 @property (nonatomic, strong, readwrite) id state;
 @property (nonatomic, strong) NSMutableDictionary *actionRegistry;
 
@@ -23,6 +24,7 @@
 - (instancetype)init {
     self = [super init];
     if(self) {
+        self.identifier = NSStringFromClass(self.class);
         self.state = [self.class defaultState];
         self.actionRegistry = [NSMutableDictionary new];
         [self subscribeToActions];
