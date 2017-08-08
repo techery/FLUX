@@ -34,7 +34,7 @@
  
  @param storeClass class of temporary store, FLXStore or one if its subclasses
 
- @return FLXStore instance if store is succesfully created, nil otherwise
+ @return FLXStore instance if store is successfully created, nil otherwise
  */
 - (FLXStore *)temporaryStoreOfClass:(Class)storeClass;
 
