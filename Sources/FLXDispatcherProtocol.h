@@ -11,6 +11,7 @@
 /**
  Basic protocol for action dispatching
  */
+NS_ASSUME_NONNULL_BEGIN
 @protocol FLXDispatcherProtocol <NSObject>
 
 /**
@@ -18,6 +19,7 @@
 
  @param action object of any type that represents specific action
  */
-- (void)dispatchAction:(nonnull id)action;
+- (void)dispatchAction:(id)action;
 
 @end
+NS_ASSUME_NONNULL_END

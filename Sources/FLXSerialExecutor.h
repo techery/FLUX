@@ -13,6 +13,8 @@
  Serial executor implements "Isolation queue" pattern and it is a wrapper over serial dispatch queue.
  It is a default executor for FLUX domain.
  */
+NS_ASSUME_NONNULL_BEGIN
 @interface FLXSerialExecutor : NSObject <FLXExecutor>
 
 @end
+NS_ASSUME_NONNULL_END

@@ -19,6 +19,7 @@
  
  In most cases dispatcher is created inside domain and used internally, so you there is no need to create it manually or subclass.
  */
+NS_ASSUME_NONNULL_BEGIN
 @interface FLXDispatcher : NSObject <FLXDispatcherProtocol>
 
 
@@ -29,7 +30,7 @@
 
  @return instance of FLXDispatcher
  */
-- (nonnull instancetype)initWithMiddlewares:(nullable NSArray <id<FLXMiddleware>> *)middlewares NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithMiddlewares:(nullable NSArray <id<FLXMiddleware>> *)middlewares NS_DESIGNATED_INITIALIZER;
 
 
 /**
@@ -39,7 +40,7 @@
 
  @return instance of FLXDispatcher
  */
-+ (nonnull instancetype)dispatcherWithMiddlewares:(nullable NSArray <id<FLXMiddleware>> *)middlewares;
++ (instancetype)dispatcherWithMiddlewares:(nullable NSArray <id<FLXMiddleware>> *)middlewares;
 
 
 /**
@@ -50,6 +51,7 @@
  
  @param store FLUX store to be registered in a dispatcher
  */
-- (void)registerStore:(nonnull FLXStore *)store;
+- (void)registerStore:(FLXStore *)store;
 
 @end
+NS_ASSUME_NONNULL_END

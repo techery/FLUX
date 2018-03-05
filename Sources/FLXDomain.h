@@ -16,6 +16,7 @@
 /**
  FLUX domain protocol that describes public interface of the domain
  */
+NS_ASSUME_NONNULL_BEGIN
 @protocol FLXDomainProtocol <NSObject>
 
 /**
@@ -25,7 +26,7 @@
 
  @return FLXStore instance if store is registered in a domain, nil otherwise
  */
-- (nullable FLXStore *)storeOfClass:(nonnull Class)storeClass;
+- (nullable FLXStore *)storeOfClass:(Class)storeClass;
 
 
 /**
@@ -36,21 +37,21 @@
 
  @return FLXStore instance if store is successfully created, nil otherwise
  */
-- (nullable FLXStore *)temporaryStoreOfClass:(nonnull Class)storeClass;
+- (nullable FLXStore *)temporaryStoreOfClass:(Class)storeClass;
 
 /**
  Asynchronously dispatches an action to domain.
  
  @param action object of any type that represents a specific action
  */
-- (void)dispatchAction:(nonnull id)action;
+- (void)dispatchAction:(id)action;
 
 /**
  Synchronously dispatches an action to domain.
  
  @param action object of any type that represents a specific action
  */
-- (void)dispatchActionAndWait:(nonnull id)action;
+- (void)dispatchActionAndWait:(id)action;
 
 
 /**
@@ -58,7 +59,7 @@
 
  @param stores array of stores to be registered in a domain
  */
-- (void)attachStores:(nonnull NSArray <FLXStore *>*)stores;
+- (void)attachStores:(NSArray <FLXStore *>*)stores;
 
 /**
  Registers temporary store in domain.
@@ -66,7 +67,7 @@
  
  @param temporaryStore instance of temporary store to be registered
  */
-- (void)attachTemporaryStore:(nonnull FLXStore *)temporaryStore;
+- (void)attachTemporaryStore:(FLXStore *)temporaryStore;
 
 @end
 
@@ -88,10 +89,11 @@
 
  @return initialized domain instance
  */
-- (nonnull instancetype)initWithExecutor:(nonnull id <FLXExecutor>)executor
-                     middlewares:(nonnull NSArray <id <FLXMiddleware>> *)middlewares
-                          stores:(nonnull NSArray <FLXStore *>*)stores;
+- (instancetype)initWithExecutor:(id <FLXExecutor>)executor
+                     middlewares:(NSArray <id <FLXMiddleware>> *)middlewares
+                          stores:(NSArray <FLXStore *>*)stores;
 
-- (nonnull instancetype)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+NS_ASSUME_NONNULL_END
