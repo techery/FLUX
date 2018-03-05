@@ -11,6 +11,7 @@
 /**
  Provides an interface for wrapping GCD or NSOperation queue that will be used for processing actions.
  */
+NS_ASSUME_NONNULL_BEGIN
 @protocol FLXExecutor <NSObject>
 
 /**
@@ -29,3 +30,4 @@
 - (void)executeAndWait:(dispatch_block_t)block;
 
 @end
+NS_ASSUME_NONNULL_END

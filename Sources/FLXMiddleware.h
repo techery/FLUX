@@ -19,6 +19,7 @@
  That's why it is considered as a good practice to apply side-effect asynchronously 
  in order to prevent blocking action processing by stores.
  */
+NS_ASSUME_NONNULL_BEGIN
 @protocol FLXMiddleware <NSObject>
 
 /**
@@ -47,3 +48,4 @@
  */
 - (void)store:(FLXStore *)store didChangeState:(id)state;
 @end
+NS_ASSUME_NONNULL_END

@@ -17,6 +17,7 @@ typedef NSString * FLXStoreIdentifier;
  Base class for FLUX store. It's designed to be subclassed.
  FLXStateType is a generic that defines a store's state type
  */
+NS_ASSUME_NONNULL_BEGIN
 @interface FLXStore <FLXStateType> : NSObject <FLXDispatcherProtocol>
 
 /**
@@ -26,7 +27,7 @@ typedef NSString * FLXStoreIdentifier;
 
  @return state modified in result of action
  */
-typedef FLXStateType (^FLXActionCallback)(id action);
+typedef FLXStateType _Nonnull (^FLXActionCallback)(id action);
 
 /**
  FLUX store unique identifier, subclasses can override this method. By default, it's equal to class name
@@ -91,3 +92,4 @@ typedef FLXStateType (^FLXActionCallback)(id action);
 - (FLXStateType)defaultState;
 
 @end
+NS_ASSUME_NONNULL_END

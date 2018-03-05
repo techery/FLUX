@@ -29,7 +29,7 @@
 
  @return instance of FLXDispatcher
  */
-- (instancetype)initWithMiddlewares:(NSArray <id<FLXMiddleware>> *)middlewares NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithMiddlewares:(nullable NSArray <id<FLXMiddleware>> *)middlewares NS_DESIGNATED_INITIALIZER;
 
 
 /**
@@ -39,7 +39,7 @@
 
  @return instance of FLXDispatcher
  */
-+ (instancetype)dispatcherWithMiddlewares:(NSArray <id<FLXMiddleware>> *)middlewares;
++ (nonnull instancetype)dispatcherWithMiddlewares:(nullable NSArray <id<FLXMiddleware>> *)middlewares;
 
 
 /**
@@ -50,6 +50,6 @@
  
  @param store FLUX store to be registered in a dispatcher
  */
-- (void)registerStore:(FLXStore *)store;
+- (void)registerStore:(nonnull FLXStore *)store;
 
 @end

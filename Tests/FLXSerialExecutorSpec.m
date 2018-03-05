@@ -53,20 +53,6 @@ describe(@"execute", ^{
         [sut executeAndWait:block];
         [[theValue(didLaunchBlock) should] beTrue];
     });
-    
-    #ifndef DNS_BLOCK_ASSERTIONS
-    it(@"Should throw if no block passed to sync execution", ^{
-        [[theBlock(^{
-            [sut executeAndWait:nil];
-        }) should] raise];
-    });
-    
-    it(@"Should throw if no block passed to async execution", ^{
-        [[theBlock(^{
-            [sut execute:nil];
-        }) should] raise];;
-    });
-    #endif
 });
 
 SPEC_END

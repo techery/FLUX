@@ -25,7 +25,7 @@
 
  @return FLXStore instance if store is registered in a domain, nil otherwise
  */
-- (FLXStore *)storeOfClass:(Class)storeClass;
+- (nullable FLXStore *)storeOfClass:(nonnull Class)storeClass;
 
 
 /**
@@ -36,21 +36,21 @@
 
  @return FLXStore instance if store is successfully created, nil otherwise
  */
-- (FLXStore *)temporaryStoreOfClass:(Class)storeClass;
+- (nullable FLXStore *)temporaryStoreOfClass:(nonnull Class)storeClass;
 
 /**
  Asynchronously dispatches an action to domain.
  
  @param action object of any type that represents a specific action
  */
-- (void)dispatchAction:(id)action;
+- (void)dispatchAction:(nonnull id)action;
 
 /**
  Synchronously dispatches an action to domain.
  
  @param action object of any type that represents a specific action
  */
-- (void)dispatchActionAndWait:(id)action;
+- (void)dispatchActionAndWait:(nonnull id)action;
 
 
 /**
@@ -58,7 +58,7 @@
 
  @param stores array of stores to be registered in a domain
  */
-- (void)attachStores:(NSArray <FLXStore *>*)stores;
+- (void)attachStores:(nonnull NSArray <FLXStore *>*)stores;
 
 /**
  Registers temporary store in domain.
@@ -66,7 +66,7 @@
  
  @param temporaryStore instance of temporary store to be registered
  */
-- (void)attachTemporaryStore:(FLXStore *)temporaryStore;
+- (void)attachTemporaryStore:(nonnull FLXStore *)temporaryStore;
 
 @end
 
@@ -88,10 +88,10 @@
 
  @return initialized domain instance
  */
-- (instancetype)initWithExecutor:(id <FLXExecutor>)executor
-                     middlewares:(NSArray <id <FLXMiddleware>> *)middlewares
-                          stores:(NSArray <FLXStore *>*)stores;
+- (nonnull instancetype)initWithExecutor:(nonnull id <FLXExecutor>)executor
+                     middlewares:(nonnull NSArray <id <FLXMiddleware>> *)middlewares
+                          stores:(nonnull NSArray <FLXStore *>*)stores;
 
-- (instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 
 @end

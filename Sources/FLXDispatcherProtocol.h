@@ -18,6 +18,6 @@
 
  @param action object of any type that represents specific action
  */
-- (void)dispatchAction:(id)action;
+- (void)dispatchAction:(nonnull id)action;
 
 @end
